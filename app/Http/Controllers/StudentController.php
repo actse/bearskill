@@ -9,7 +9,7 @@ use Faker\Factory as Faker;
 class StudentController extends Controller
 {
 
-    function register_student(Request $request)
+    function insert(Request $request)
     {
         date_default_timezone_set('Asia/Bangkok');
 
@@ -19,8 +19,8 @@ class StudentController extends Controller
         $insertstu = Student::insert([
             'email' => $faker->unique()->safeEmail,
             'phone' => $faker->phoneNumber,
-            'password' => bcrypt('secret'), // You may use a default password or generate it differently
-            'confirm_password' => bcrypt('secret'), // Same as password
+            'password' => bcrypt('secret'),
+            'confirm_password' => bcrypt('secret'),
             'stu_image' => $faker->imageUrl(),
             'prefix' => $faker->title,
             'firs_name' => $faker->firstName,
@@ -48,22 +48,32 @@ class StudentController extends Controller
         //     'register_at' => $request->input('register_at'),
         // ]);
 
-        // $insertstu = Student::insert([
-        //     'email' => 'sarawut2608@gmail.com',
-        //     'phone' => '0999999999',
-        //     'password' => '12341234',
-        //     'confirm_password' => '12341234',
-        //     'stu_image' => 'basstsu.jpg',
-        //     'prefix' => 'นาย',
-        //     'firs_name' => 'sarawut',
-        //     'last_name' => 'tabtimbua',
-        //     'nickname' => 'basstsu',
-        //     'birthday' => '09/09/1999',
-        //     'lineid' => 'basstsu',
-        //     'address' => '......',
-        //     'register_at' => $date_stamp,
-        // ]);
+        return $insertstu ? 'Data inserted successfully' : 'Data insertion failed';
+    }
+    function update(Request $request)
+    {
 
-        return $insertstu;
+        date_default_timezone_set('Asia/Bangkok');
+
+        $faker = Faker::create();
+        $id = $faker->numberBetween(1, 100);
+
+        $editstu = Student::where('id', '=', $id)->update([
+            'email' => $faker->unique()->safeEmail,
+            'phone' => $faker->phoneNumber,
+            'password' => bcrypt('secret'),
+            'confirm_password' => bcrypt('secret'),
+            'stu_image' => $faker->imageUrl(),
+            'prefix' => $faker->title,
+            'firs_name' => $faker->firstName,
+            'last_name' => $faker->lastName,
+            'nickname' => $faker->userName,
+            'birthday' => $faker->date,
+            'lineid' => $faker->userName,
+            'address' => $faker->address,
+            'register_at' => $faker->dateTimeThisMonth,
+
+        ]);
+        return $editstu ? 'Data edittutor successfully' : 'Data edittutor failed';
     }
 }

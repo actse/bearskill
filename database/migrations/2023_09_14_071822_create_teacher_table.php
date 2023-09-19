@@ -59,7 +59,7 @@ return new class extends Migration
             $table->string('work_experience')->nullable();
             $table->string('we_more_detail')->nullable();
             $table->string('register_at')->timestamps();
-            $table->string('status_accout')->timestamps();
+            $table->string('status_account')->nullable();
             // $table->string('school_name');
             // $table->string('study_plan');
             // $table->string('gpa_score');
