@@ -11,7 +11,9 @@ import LayoutPage from "@/Layouts/LayoutPage.vue";
                         class="flex flex-row w-full bg-gray-300 border-2 mx-2 rounded-md"
                     >
                         <div class="w-full h-96 p-4">
-                            <div class="bg-white w-full h-full"></div>
+                            <div class="bg-white w-full h-full">
+                                <Slider />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -106,3 +108,13 @@ import LayoutPage from "@/Layouts/LayoutPage.vue";
         </div>
     </LayoutPage>
 </template>
+
+<script>
+import Slider from "@/components/Slider.vue";
+
+export default {
+  components: {
+    Slider,
+  },
+};
+</script>
