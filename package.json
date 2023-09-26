@@ -18,8 +18,13 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
+<<<<<<< HEAD
         "font-awesome": "^4.7.0",
+=======
+
+>>>>>>> 5277beb055ab35ad001a089f53a1b3d43ab06ba8
         "node": "^20.6.0",
-        "vue3-carousel": "^0.3.1"
+        "vue3-carousel": "^0.3.1",
+        "font-awesome": "^4.7.0"
     }
 }
