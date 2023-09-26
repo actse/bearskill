@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import LayoutPage from "@/Layouts/LayoutPage.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 
@@ -107,4 +107,4 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
             </div>
         </div>
     </AuthenticatedLayout>
-</template>
+</template> -->
