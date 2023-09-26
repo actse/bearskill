@@ -5,10 +5,12 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TutorController;
 use App\Http\Controllers\CreditController;
 use App\Http\Controllers\SelectDataController;
+use Illuminate\Http\Request;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,25 +23,44 @@ use Inertia\Inertia;
 |
 */
 
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
-
 Route::get('/', function () {
-    return Inertia::render('Home', []);
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 
-Route::get('/registertutor', function () {
+// Route::get('/', function () {
+//     return Inertia::render('Home');
+// });
+
+// Route::get('/login', function () {
+//     return Inertia::render('Login');
+// });
+
+// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [AuthController::class, 'login']);
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Route::get('/registertutor', function () {
+//     return Inertia::render('Registertutor');
+// });
+
+Route::get('/profile', function () {
+    return Inertia::render('Profile');
+});
+
+Route::get('/registers', function () {
     return Inertia::render('Registertutor');
 });
 
-// Route::get('/home_customer', function () {
-//     return Inertia::render('HomeCustomer');
+// Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+//     ->name('logout');
+
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 // });
 
 Route::get('/dashboard', function () {
@@ -49,10 +70,11 @@ Route::get('/dashboard', function () {
 Route::get('/register_student', [StudentController::class, 'insert']);
 Route::get('/edit_profile_student', [StudentController::class, 'update']);
 
-Route::get('/register_tutor', [TutorController::class, 'insert']);
+Route::post('/registers', [TutorController::class, 'insert']);
 Route::get('/editteacher', [TutorController::class, 'edit_profile']);
 Route::get('/suspend_account', [TutorController::class, 'suspend_account']);
 Route::get('/addsubjectsteacher', [TutorController::class, 'insert_subjects']);
+Route::get('/addtypesubject', [TutorController::class, 'insert_type_subjects']);
 
 Route::get('/addcredit', [CreditController::class, 'insert']);
 Route::get('/editcredit', [CreditController::class, 'deduction_credit']);
