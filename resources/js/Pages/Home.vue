@@ -1,11 +1,11 @@
 <script setup>
 import LayoutPage from "@/Layouts/LayoutPage.vue";
-import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 
 </script>
 
 <template>
-    <AuthenticatedLayout>
+    <LayoutPage
+>
         <div class="max-w-7xl mx-auto">
             <div class="py-4">
                 <div class="flex items-center justify-center">
@@ -108,7 +108,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
                 </div>
             </div>
         </div>
-    </AuthenticatedLayout>
+    </LayoutPage>
 </template>
 
 <script>
