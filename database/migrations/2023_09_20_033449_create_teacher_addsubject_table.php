@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('teacher_addsubjects', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('users_id');
+            $table->unsignedBigInteger('type_subject_id');
             $table->string('detail');
             $table->string('location_teaching');
             $table->string('date_teaching');
@@ -24,7 +25,8 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('addsubjects_at')->timestamps();
             $table->timestamps();
-            $table->foreign('teacher_id')->references('id')->on('teacher');
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('type_subject_id')->references('id')->on('type_subject');
 
         });
     }

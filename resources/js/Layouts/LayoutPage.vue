@@ -1,26 +1,40 @@
 <script setup>
-import { ref } from 'vue';
 import ApplicationLogo from "@/Components/ApplicationLogo.vue";
 import Dropdown from "@/Components/Dropdown.vue";
 import DropdownLink from "@/Components/DropdownLink.vue";
 import NavLink from "@/Components/NavLink.vue";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink.vue";
 import { Link } from "@inertiajs/vue3";
+import { ref } from "vue";
 const showingNavigationDropdown = ref(false);
-
+defineProps({
+    canLogin: {
+        type: Boolean,
+    },
+    canRegister: {
+        type: Boolean,
+    },
+    laravelVersion: {
+        type: String,
+        required: true,
+    },
+    phpVersion: {
+        type: String,
+        required: true,
+    },
+});
 </script>
-
 <template>
     <div>
         <div class="min-h-screen bg-gray-100">
-            <nav class="bg-[#569a89] border-b border-gray-100">
+            <nav class="bg-[#151F32] border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 font-bold">
                     <div class="flex justify-between h-20">
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link href="/">
                                     <ApplicationLogo
                                         class="block h-9 w-auto fill-current text-white"
                                     />
@@ -29,7 +43,7 @@ const showingNavigationDropdown = ref(false);
 
                             <!-- Navigation Links -->
                             <div
-                                class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
+                                class="flex space-x-8 sm:-my-px sm:ml-10 sm:flex"
                             >
                                 <NavLink
                                     class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
@@ -60,11 +74,52 @@ const showingNavigationDropdown = ref(false);
                                 >
                                     Dashboard
                                 </NavLink>
+                                <NavLink
+                                    :href="route('login')"
+                                    class="sm:text-auto text-[16px] font-source text-white hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm"
+                                    >Login</NavLink
+                                >
+                                <NavLink
+                                    :href="route('register')"
+                                    class="sm:text-auto text-[16px] font-source text-white hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm"
+                                    >Register</NavLink
+                                >
+
+                                <!-- <NavLink
+                                    href="/registers"
+                                    class="sm:text-auto text-[16px] font-source text-white hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm"
+                                    >Register</NavLink
+                                > -->
                             </div>
                         </div>
 
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
-                            <!-- Settings Dropdown -->
+                        <!-- <div
+                            v-if="canLogin"
+                            class="sm:fixed sm:top-0 sm:right-0 p-6 text-right"
+                        >
+                            <Link
+                                v-if="$page.props.auth.user"
+                                :href="route('dashboard')"
+                                class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                >Dashboard</Link
+                            >
+
+                            <template v-else>
+                                <Link
+                                    :href="route('login')"
+                                    class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    >Log in</Link
+                                >
+
+                                <Link
+                                    v-if="canRegister"
+                                    :href="route('register')"
+                                    class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"
+                                    >Register</Link
+                                >
+                            </template>
+                        </div> -->
+                        <!-- <div class="hidden sm:flex sm:items-center sm:ml-6">
                             <div class="ml-3 relative">
                                 <Dropdown align="right" width="48">
                                     <template #trigger>
@@ -90,15 +145,21 @@ const showingNavigationDropdown = ref(false);
                                     </template>
 
                                     <template #content>
+                                        <DropdownLink href="/login">
+                                            Login
+                                        </DropdownLink>
                                         <DropdownLink href="/registertutor">
                                             ลงทะเบียน
                                         </DropdownLink>
-                                        <DropdownLink href="/registertutor">
-
+                                        <DropdownLink
+                                            v-if="status != ''"
+                                            href="/registertutor"
+                                        >
                                             Profile
                                         </DropdownLink>
                                         <DropdownLink
-                                            :href="route('logout')"
+                                            v-if="status != ''"
+                                            href="/logout"
                                             method="post"
                                             as="button"
                                         >
@@ -107,10 +168,10 @@ const showingNavigationDropdown = ref(false);
                                     </template>
                                 </Dropdown>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Hamburger -->
-                        <div class="-mr-2 flex items-center sm:hidden">
+                        <!-- <div class="-mr-2 flex items-center sm:hidden">
                             <button
                                 @click="
                                     showingNavigationDropdown =
@@ -148,7 +209,7 @@ const showingNavigationDropdown = ref(false);
                                     />
                                 </svg>
                             </button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
@@ -161,30 +222,31 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pb-3 space-y-1">
-                        <ResponsiveNavLink class="text-white"
-                            :href="route('dashboard')"
-                            :active="route().current('dashboard')"
-                        >
+                        <ResponsiveNavLink class="text-white" href="/">
                             Dashboard
                         </ResponsiveNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->
-                    <div class=" pb-2 border-t border-white">
+                    <div class="pb-2 border-t border-white">
                         <div class="px-4">
-                            <div
-                                class="font-medium text-base text-white"
-                            ></div>
+                            <div class="font-medium text-base text-white"></div>
                         </div>
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink class="text-white" :href="route('profile.edit')">
+                            <ResponsiveNavLink class="text-white" href="/login">
                                 ลงทะเบียน
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink class="text-white" :href="route('profile.edit')">
+                            <ResponsiveNavLink
+                                v-if="status != ''"
+                                class="text-white"
+                                href="/profile"
+                            >
                                 Profile
                             </ResponsiveNavLink>
-                            <ResponsiveNavLink class="text-white"
-                                :href="route('logout')"
+                            <ResponsiveNavLink
+                                v-if="status != ''"
+                                class="text-white"
+                                href="/logout"
                                 method="post"
                                 as="button"
                             >
@@ -201,3 +263,19 @@ const showingNavigationDropdown = ref(false);
         </div>
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            email: "",
+            password: "",
+            confirm_password: "",
+            status: "",
+        };
+    },
+    methods: {},
+    mounted() {
+        console.log(this.status);
+    },
+};
+</script>
