@@ -1,37 +1,36 @@
 <template>
-  <carousel :autoplay="4000" :wrap-around="true">
-    <slide v-for="slide in 4" :key="slide">
-      <div class="flex items-center justify-center w-full h-80">
-        <img class="object-cover border" src="../../imgs/1.jpg" alt="#">
-      </div>
-    </slide>
+  <Carousel :autoplay="2000" :wrap-around="true">
+    <Slide v-for="slide in 10" :key="slide">
+      <div class="carousel__item">{{ slide }}</div>
+    </Slide>
 
     <template #addons>
-      <navigation />
-      <pagination />
+      <Navigation />
+      <Pagination />
     </template>
-  </carousel>
+  </Carousel>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import { Carousel, Pagination, Slide } from 'vue3-carousel'
+import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
 
 import 'vue3-carousel/dist/carousel.css'
 
 export default defineComponent({
-  name: 'Autoplay',
+  name: 'Basic',
   components: {
     Carousel,
     Slide,
     Pagination,
+    Navigation,
   },
 })
 </script>
 
 <style>
 .carousel__item {
-  min-height: 200px;
+  min-height: 300px;
   width: 100%;
   background-color: var(--vc-clr-primary);
   color: var(--vc-clr-white);
@@ -48,7 +47,9 @@ export default defineComponent({
 
 .carousel__prev,
 .carousel__next {
+  background-color: gainsboro;
+  border-radius: 20px;
+  
   box-sizing: content-box;
-  border: 5px solid white;
 }
 </style>
