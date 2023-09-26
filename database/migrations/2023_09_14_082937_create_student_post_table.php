@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('student_post', function (Blueprint $table) {
 
             $table->id();
-            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('users_id');
             $table->string('detail_work');
             $table->string('location_teaching');
             $table->string('date_teaching');
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('status_post')->nullable();
             $table->string('addpost_at')->timestamps();
             $table->timestamps();
-            $table->foreign('student_id')->references('id')->on('student');
+            $table->foreign('users_id')->references('id')->on('users');
 
         });
     }

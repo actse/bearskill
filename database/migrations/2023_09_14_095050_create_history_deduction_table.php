@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('history_deduction', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('teacher_id');
-            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('users_id');
             $table->string('title_deduction')->nullable();
             $table->integer('deduction_coin')->unsigned()->default(0);
             $table->string('deduction_at')->timestamps();
             $table->timestamps();
-            $table->foreign('teacher_id')->references('id')->on('teacher');
-            $table->foreign('student_id')->references('id')->on('student');
+            $table->foreign('users_id')->references('id')->on('users');
 
         });
     }
