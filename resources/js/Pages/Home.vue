@@ -4,8 +4,7 @@ import LayoutPage from "@/Layouts/LayoutPage.vue";
 </script>
 
 <template>
-    <LayoutPage
->
+    <LayoutPage>
         <div class="max-w-7xl mx-auto">
             <div class="py-4">
                 <div class="flex items-center justify-center">
@@ -14,7 +13,6 @@ import LayoutPage from "@/Layouts/LayoutPage.vue";
                     >
                         <div class="w-full h-96 p-4">
                             <div class="bg-white w-full h-full">
-                                <Slider></Slider>
                             </div>
                         </div>
                     </div>
@@ -112,12 +110,9 @@ import LayoutPage from "@/Layouts/LayoutPage.vue";
 </template>
 
 <script>
-import Slider from "@/Components/Slider.vue";
-import 'vue3-carousel/dist/carousel.css'
 
 export default {
   components: {
-    Slider,
   },
 };
 </script>

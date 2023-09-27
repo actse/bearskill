@@ -62,6 +62,9 @@ Route::get('/registers', function () {
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 // });
+Route::get('/test', function () {
+    return Inertia::render('test');
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
