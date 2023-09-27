@@ -13,842 +13,103 @@ import { Head } from "@inertiajs/vue3";
             </h2>
         </template>
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">
-                        <form
-                            @submit.prevent="register_tutor"
-                            enctype="multipart/form-data"
-                            class="max-w-lg mx-auto bg-gray-100 text-gray-600 shadow-md p-8 rounded border-2"
+            <div class="max-w-7xl mx-auto">
+                <div class="py-4">
+                    <div class="flex items-center justify-center">
+                        <div
+                            class="flex flex-row w-full bg-gray-300 border-2 mx-2 rounded-md"
                         >
-                            <div class="mb-5">
-                                <label for="" class="font-bold text-2xl"
-                                    >ลงทะเบียนติวเตอร์</label
-                                >
+                            <div class="w-full h-96 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <!-- ข้อมูลบัญชีผู้ใช้ -->
-                            <div
-                                class="flex w-full h-10 mb-4 bg-blue-500 text-white items-center justify-center rounded"
-                            >
-                                ข้อมูลเข้าสู่ระบบ
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <div class="flex items-center justify-center">
+                        <div
+                            class="flex flex-row w-1/2 bg-gray-300 border-2 mx-2 rounded-md"
+                        >
+                            <div class="w-full h-96 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <div class="mb-4">
-                                <label for="email" class="block font-bold mb-2"
-                                    >Email</label
-                                >
-                                <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    required
-                                    v-model="email"
-                                />
+                        </div>
+                        <div
+                            class="flex flex-row w-1/2 bg-slate-300 border-2 mx-2 rounded-md"
+                        >
+                            <div class="w-full h-96 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <div class="mb-4">
-                                <label
-                                    for="password"
-                                    class="block font-bold mb-2"
-                                    >Password</label
-                                >
-                                <input
-                                    type="password"
-                                    name="password"
-                                    id="password"
-                                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    required
-                                    v-model="password"
-                                />
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <div class="flex items-center justify-center">
+                        <div
+                            class="flex flex-row w-full bg-gray-300 border-2 mx-2 rounded-md"
+                        >
+                            <div class="w-full h-44 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <div class="mb-6">
-                                <label
-                                    for="password_confirmation"
-                                    class="block font-bold mb-2"
-                                    >Confirm Password</label
-                                >
-                                <input
-                                    type="password"
-                                    name="password_confirmation"
-                                    id="password_confirmation"
-                                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    required
-                                    v-model="confirm_password"
-                                />
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <div class="flex items-center justify-center">
+                        <div
+                            class="flex flex-row w-1/2 bg-gray-300 border-2 mx-2 rounded-md"
+                        >
+                            <div class="w-full h-96 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <div
-                                class="flex w-full h-10 mb-4 bg-blue-500 text-white items-center justify-center rounded"
-                            >
-                                ข้อมูลส่วนตัว
+                        </div>
+                        <div
+                            class="flex flex-row w-1/2 bg-slate-300 border-2 mx-2 rounded-md"
+                        >
+                            <div class="w-full h-96 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <!-- รูปภาพ -->
-                            <div class="mb-4">
-                                <label
-                                    for="teacher_image"
-                                    class="block font-bold mb-2"
-                                    >รูปโปรไฟล์</label
-                                >
-                                <input
-                                    type="file"
-                                    name="teacher_image"
-                                    id="teacher_image"
-                                    accept="image/*"
-                                    class="py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    @change="onFileChange"
-                                />
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <div class="flex items-center justify-center">
+                        <div
+                            class="flex flex-row w-3/5 bg-gray-300 border-2 mx-2 rounded-md"
+                        >
+                            <div class="w-full h-96 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <!-- ข้อมูลส่วนตัว -->
-                            <div class="mb-4 w-1/2">
-                                <label for="prefix" class="block font-bold mb-2"
-                                    >คำนำหน้าชื่อ</label
-                                >
-                                <input
-                                    type="text"
-                                    v-model="prefix"
-                                    name="prefix"
-                                    id="prefix"
-                                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                />
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <div class="flex items-center justify-center">
+                        <div
+                            class="flex flex-row w-3/5 bg-gray-300 border-2 mx-2 rounded-md"
+                        >
+                            <div class="w-full h-96 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <div class="flex flex-row mb-4">
-                                <div class="w-1/2 mr-2">
-                                    <label
-                                        for="first_name"
-                                        class="block font-bold mb-2"
-                                        >ชื่อ</label
-                                    >
-                                    <input
-                                        type="text"
-                                        name="first_name"
-                                        v-model="first_name"
-                                        id="first_name"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                        required
-                                    />
-                                </div>
-                                <div class="w-1/2 ml-2">
-                                    <label
-                                        for="last_name"
-                                        class="block font-bold mb-2"
-                                        >นามสกุล</label
-                                    >
-                                    <input
-                                        type="text"
-                                        name="last_name"
-                                        v-model="last_name"
-                                        id="last_name"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                        required
-                                    />
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4">
+                    <div class="flex items-center justify-center">
+                        <div
+                            class="flex flex-row w-full bg-gray-300 border-2 mx-2 rounded-md"
+                        >
+                            <div class="w-full h-44 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <div class="flex flex-row mb-4">
-                                <div class="w-1/2 mr-2">
-                                    <label
-                                        for="nickname"
-                                        class="block font-bold mb-2"
-                                        >ชื่อเล่น</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="nickname"
-                                        name="nickname"
-                                        id="nickname"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="w-1/2 ml-2">
-                                    <label
-                                        for="birthday"
-                                        class="block font-bold mb-2"
-                                        >วัน/เดือน/ปี เกิด</label
-                                    >
-                                    <input
-                                        type="date"
-                                        v-model="birthday"
-                                        name="birthday"
-                                        id="birthday"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
+                        </div>
+                        <div
+                            class="flex flex-row w-full bg-slate-300 border-2 mx-2 rounded-md"
+                        >
+                            <div class="w-full h-44 p-4">
+                                <div class="bg-white w-full h-full"></div>
                             </div>
-                            <div class="flex flex-row mb-4">
-                                <div class="w-1/2 mr-2">
-                                    <label
-                                        for="phone"
-                                        class="block font-bold mb-2"
-                                        >เบอร์โทร</label
-                                    >
-                                    <input
-                                        type="tel"
-                                        v-model="phone"
-                                        name="phone"
-                                        id="phone"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="w-1/2 ml-2">
-                                    <label
-                                        for="lineid"
-                                        class="block font-bold mb-2"
-                                        >Line ID</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="lineid"
-                                        name="lineid"
-                                        id="lineid"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="address"
-                                    class="block font-bold mb-2"
-                                    >ที่อยู่ปัจจุบัน</label
-                                >
-                                <textarea
-                                    v-model="address"
-                                    name="address"
-                                    id="address"
-                                    class="border rounded w-4/5 h-32 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                ></textarea>
-                            </div>
-                            <!-- เอกสาร -->
-                            <div class="mb-4">
-                                <label
-                                    for="idcard_image"
-                                    class="block font-bold mb-2"
-                                    >ไฟล์เอกสารบัตรประชาชน</label
-                                >
-                                <input
-                                    type="file"
-                                    name="idcard_image"
-                                    id="idcard_image"
-                                    accept="image/*"
-                                    class="py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    @change="onIdCardImageChange"
-                                />
-                            </div>
-                            <!-- ข้อมูลบุคคลอื่น ๆ -->
-                            <div
-                                class="flex w-full h-10 mb-4 bg-blue-500 text-white items-center justify-center rounded"
-                            >
-                                ข้อมูลบุคคลอ้างอิง
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="reference_person_name"
-                                    class="block font-bold mb-2"
-                                    >ชื่อ บุคคลอ้างอิง</label
-                                >
-                                <input
-                                    type="text"
-                                    v-model="reference_person_name"
-                                    name="reference_person_name"
-                                    id="reference_person_name"
-                                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                />
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="reference_person_phone"
-                                    class="block font-bold mb-2"
-                                    >เบอร์ติดต่อบุคคลอ้างอิง</label
-                                >
-                                <input
-                                    type="text"
-                                    v-model="reference_person_phone"
-                                    name="reference_person_phone"
-                                    id="reference_person_phone"
-                                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                />
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="reference_person_relationship"
-                                    class="block font-bold mb-2"
-                                    >ความสัมพันธ์บุคคลอ้างอิง</label
-                                >
-                                <input
-                                    type="text"
-                                    v-model="reference_person_relationship"
-                                    name="reference_person_relationship"
-                                    id="reference_person_relationship"
-                                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                />
-                            </div>
-                            <div
-                                class="flex w-full h-10 mb-4 bg-blue-500 text-white items-center justify-center rounded"
-                            >
-                                ประวัติการศึกษา
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="graduation_status"
-                                    class="block font-bold mb-2"
-                                    >จบการศึกษาระดับใด</label
-                                >
-                                <select
-                                    name="graduation_status"
-                                    @change="onchange(graduation_status)"
-                                    id="graduation_status"
-                                    v-model="graduation_status"
-                                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                >
-                                    <option value="">เลือกระดับการศึกษา</option>
-                                    <option
-                                        v-for="(item, index) in 3"
-                                        :value="index + 1"
-                                    >
-                                        {{
-                                            item === 1
-                                                ? "ปริญาตรี"
-                                                : item === 2
-                                                ? "ปริญาโท"
-                                                : "ปริญาเอก"
-                                        }}
-                                    </option>
-                                </select>
-                            </div>
-                            <div v-if="select_form_bachelor">
-                                <div class="flex flex-col mb-4">
-                                    <label
-                                        for="bachelor_status"
-                                        class="block font-bold mb-2"
-                                        >ระดับปริณญาตรี</label
-                                    >
-                                    <div class="flex flex-row my-3">
-                                        <div
-                                            class="ml-4 leading-tight focus:shadow-outline"
-                                            v-for="(
-                                                option, index
-                                            ) in bachelorStatusOptions"
-                                            :key="index"
-                                        >
-                                            <label
-                                                :for="option.id"
-                                                class="ml-2 cursor-pointer"
-                                            >
-                                                <input
-                                                    type="radio"
-                                                    v-model="bachelor_status"
-                                                    :name="option.name"
-                                                    :id="option.id"
-                                                    :value="option.value"
-                                                />
-                                                {{ option.label }}
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="bachelor_year"
-                                        class="block font-bold mb-2"
-                                        >ระดับปีการศึกษา</label
-                                    >
-                                    <select
-                                        v-model="bachelor_year"
-                                        name="bachelor_year"
-                                        id="bachelor_year"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    >
-                                        <option value="">
-                                            กรุณาเลือกชั้นปี
-                                        </option>
-                                        <option
-                                            v-for="item in 8"
-                                            :key="index"
-                                            :value="item"
-                                        >
-                                            ปี {{ item }}
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="bachelor_university"
-                                        class="block font-bold mb-2"
-                                        >สถาบัน / มหาวิทยาลัย</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="bachelor_university"
-                                        name="bachelor_university"
-                                        id="bachelor_university"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="bachelor_faculty"
-                                        class="block font-bold mb-2"
-                                        >คณะ</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="bachelor_faculty"
-                                        name="bachelor_faculty"
-                                        id="bachelor_faculty"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="bachelor_major"
-                                        class="block font-bold mb-2"
-                                        >วิชาเอก / สาขาวิชา</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="bachelor_major"
-                                        name="bachelor_major"
-                                        id="bachelor_major"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="bachelor_gpax"
-                                        class="block font-bold mb-2"
-                                        >GPAX</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="bachelor_gpax"
-                                        name="bachelor_gpax"
-                                        id="bachelor_gpax"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="bachelor_reference_documents"
-                                        class="block font-bold mb-2"
-                                        >เอกสารยืนยัน เช่น (ใบประกาศนียบัตร /
-                                        ใบรับรองการสอน)</label
-                                    >
-                                    <input
-                                        type="file"
-                                        name="bachelor_reference_documents"
-                                        id="bachelor_reference_documents"
-                                        accept="image/*"
-                                        class="py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                        @change="
-                                            onBachelorReferenceDocumentsChange
-                                        "
-                                    />
-                                </div>
-                            </div>
-                            <div v-if="select_form_master">
-                                <div class="flex flex-col mb-4">
-                                    <label
-                                        for="master_status"
-                                        class="block font-bold mb-2"
-                                        >ระดับปริณญาโท</label
-                                    >
-                                    <div
-                                        class="flex flex-row my-3"
-                                        v-for="(
-                                            status, index
-                                        ) in masterStatusOptions"
-                                        :key="index"
-                                    >
-                                        <div
-                                            class="ml-4 leading-tight focus:outline-none focus:shadow-outline"
-                                        >
-                                            <input
-                                                type="radio"
-                                                v-model="master_status"
-                                                :name="status.value"
-                                                :id="status.id"
-                                            />
-                                            <label
-                                                :for="status.id"
-                                                class="ml-2 cursor-pointer"
-                                                >{{ status.label }}</label
-                                            >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="master_year"
-                                        class="block font-bold mb-2"
-                                        >ระดับปีการศึกษา</label
-                                    >
-                                    <select
-                                        v-model="master_year"
-                                        name="master_year"
-                                        id="master_year"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    >
-                                        <option value="">
-                                            กรุณาเลือกชั้นปี
-                                        </option>
-                                        <option
-                                            v-for="item in 8"
-                                            :key="index"
-                                            value="item"
-                                        >
-                                            ปี {{ item }}
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="master_university"
-                                        class="block font-bold mb-2"
-                                        >สถาบัน / มหาวิทยาลัย
-                                    </label>
-                                    <input
-                                        v-model="master_university"
-                                        type="text"
-                                        name="master_university"
-                                        id="master_university"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="master_faculty"
-                                        class="block font-bold mb-2"
-                                        >คณะ</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="master_faculty"
-                                        name="master_faculty"
-                                        id="master_faculty"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="master_major"
-                                        class="block font-bold mb-2"
-                                    >
-                                        วิชาเอก / สาขาวิชา
-                                    </label>
-                                    <input
-                                        type="text"
-                                        v-model="master_major"
-                                        name="master_major"
-                                        id="master_major"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="master_gpax"
-                                        class="block font-bold mb-2"
-                                        >GPAX</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="master_gpax"
-                                        name="master_gpax"
-                                        id="master_gpax"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="master_reference_documents"
-                                        class="block font-bold mb-2"
-                                        >เอกสารยืนยัน เช่น (ใบประกาศนียบัตร /
-                                        ใบรับรองการสอน)</label
-                                    >
-                                    <input
-                                        type="file"
-                                        name="master_reference_documents"
-                                        id="master_reference_documents"
-                                        accept="image/*"
-                                        class="py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                        @change="
-                                            onMasterReferenceDocumentsChange
-                                        "
-                                    />
-                                </div>
-                            </div>
-                            <div v-if="select_form_doctoral">
-                                <div class="flex flex-col mb-4">
-                                    <label
-                                        for="doctoral_status"
-                                        class="block font-bold mb-2"
-                                        >ระดับปริณญาเอก</label
-                                    >
-                                    <div
-                                        class="flex flex-row my-3"
-                                        v-for="(
-                                            status, index
-                                        ) in doctoralStatusOptions"
-                                        :key="index"
-                                    >
-                                        <div
-                                            class="ml-4 leading-tight focus:outline-none focus:shadow-outline"
-                                        >
-                                            <input
-                                                type="radio"
-                                                v-model="doctoral_status"
-                                                :name="status.value"
-                                                :id="status.id"
-                                            />
-                                            <label
-                                                :for="status.id"
-                                                class="ml-2 cursor-pointer"
-                                                >{{ status.label }}</label
-                                            >
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="doctoral_year"
-                                        class="block font-bold mb-2"
-                                        >ระดับปีการศึกษา</label
-                                    >
-                                    <select
-                                        name="doctoral_year"
-                                        v-model="doctoral_year"
-                                        id="doctoral_year"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    >
-                                        <option value="">
-                                            กรุณาเลือกชั้นปี
-                                        </option>
-                                        <option
-                                            v-for="item in 8"
-                                            :key="index"
-                                            value="item"
-                                        >
-                                            ปี {{ item }}
-                                        </option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="doctoral_university"
-                                        class="block font-bold mb-2"
-                                        >สถาบัน / มหาวิทยาลัย
-                                    </label>
-                                    <input
-                                        type="text"
-                                        v-model="doctoral_university"
-                                        name="doctoral_university"
-                                        id="doctoral_university"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="doctoral_faculty"
-                                        class="block font-bold mb-2"
-                                        >คณะ</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="doctoral_faculty"
-                                        name="doctoral_faculty"
-                                        id="doctoral_faculty"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="doctoral_major"
-                                        class="block font-bold mb-2"
-                                        >วิชาเอก / สาขาวิชา
-                                    </label>
-                                    <input
-                                        type="text"
-                                        v-model="doctoral_major"
-                                        name="doctoral_major"
-                                        id="doctoral_major"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="doctoral_gpax"
-                                        class="block font-bold mb-2"
-                                        >GPAX</label
-                                    >
-                                    <input
-                                        type="text"
-                                        v-model="doctoral_gpax"
-                                        name="doctoral_gpax"
-                                        id="doctoral_gpax"
-                                        class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    />
-                                </div>
-                                <div class="mb-4">
-                                    <label
-                                        for="doctoral_reference_documents"
-                                        class="block font-bold mb-2"
-                                        >เอกสารยืนยัน เช่น (ใบประกาศนียบัตร /
-                                        ใบรับรองการสอน)</label
-                                    >
-                                    <input
-                                        type="file"
-                                        name="doctoral_reference_documents"
-                                        id="doctoral_reference_documents"
-                                        accept="image/*"
-                                        class="py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                        @change="
-                                            onDoctoralReferenceDocumentsChange
-                                        "
-                                    />
-                                </div>
-                            </div>
-                            <div
-                                class="flex w-full h-10 mb-4 mt-6 bg-blue-500 text-white items-center justify-center rounded"
-                            >
-                                งานสอนที่ต้องการสอนในปัจจุบัน
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="education_level"
-                                    class="block font-bold"
-                                    >ระดับการศึกษาที่ต้องการสอน</label
-                                >
-
-                                <div class="flex flex-row mt-2 mb-4">
-                                    <div
-                                        class="ml-4 leading-tight focus:outline-none focus:shadow-outline"
-                                    >
-                                        <div>
-                                            <label
-                                                v-for="(item, index) in 4"
-                                                :key="index"
-                                                class="block mt-2"
-                                            >
-                                                <input
-                                                    class="appearance-none bg-gray-200 text-blue-400 border border-white rounded py-3 px-3 leading-tight focus:outline-none focus:bg-white"
-                                                    type="checkbox"
-                                                    :id="
-                                                        'education_level' + item
-                                                    "
-                                                    :value="item"
-                                                    v-model="selectedLevels"
-                                                    @click="
-                                                        handleCheckboxChange(
-                                                            item
-                                                        )
-                                                    "
-                                                />
-                                                {{
-                                                    item === 1
-                                                        ? "ประถมศึกษา"
-                                                        : item === 2
-                                                        ? "มัธยมศึกษา"
-                                                        : item === 3
-                                                        ? "ปริญาศึกษา"
-                                                        : "วัยทำงาน"
-                                                }}
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="location_teaching"
-                                    class="block font-bold mb-2"
-                                    >สถานที่สอน</label
-                                >
-                                <input
-                                    type="text"
-                                    v-model="location_teaching"
-                                    name="location_teaching"
-                                    id="location_teaching"
-                                    class="border rounded w-4/5 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                />
-                            </div>
-                            <div
-                                class="flex w-full h-10 mb-4 mt-6 bg-blue-500 text-white items-center justify-center rounded"
-                            >
-                                ประวัติการสอน / ทำงาน
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="teaching_experience"
-                                    class="block font-bold mb-2"
-                                    >ประสบการณ์ในการสอน</label
-                                >
-                                <textarea
-                                    v-model="teaching_experience"
-                                    name="teaching_experience"
-                                    id="teaching_experience"
-                                    class="border rounded w-4/5 h-24 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                ></textarea>
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="teaching_experience_year"
-                                    class="block font-bold mb-2"
-                                    >สอนมาแล้วกี่ปี ระบุ</label
-                                >
-                                <input
-                                    type="number"
-                                    v-model="teaching_experience_year"
-                                    name="teaching_experience_year"
-                                    id="teaching_experience_year"
-                                    class="border rounded w-1/2 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                    min="0"
-                                />
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="teaching_experience_detail"
-                                    class="block font-bold mb-2"
-                                    >ยกตัวอย่างการสอน /
-                                    รายละเอียดเนื้อหาการสอน</label
-                                >
-                                <textarea
-                                    v-model="teaching_experience_detail"
-                                    name="teaching_experience_detail"
-                                    id="teaching_experience_detail"
-                                    class="border rounded w-4/5 h-24 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                ></textarea>
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="work_experience"
-                                    class="block font-bold mb-2"
-                                    >ประสบการณ์การทำงาน
-                                </label>
-                                <textarea
-                                    v-model="work_experience"
-                                    name="work_experience"
-                                    id="work_experience"
-                                    class="border rounded w-4/5 h-24 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                ></textarea>
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="we_more_detail"
-                                    class="block font-bold mb-2"
-                                    >เพิ่มเติม</label
-                                >
-                                <textarea
-                                    v-model="we_more_detail"
-                                    name="we_more_detail"
-                                    id="we_more_detail"
-                                    class="border rounded w-4/5 h-32 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                                ></textarea>
-                            </div>
-                            <!-- ปุ่มสมัครสมาชิก -->
-                            <div class="flex justify-center">
-                                <button
-                                    type="submit"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                                >
-                                    สมัครสมาชิก
-                                </button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -993,7 +254,6 @@ export default {
         handleCheckboxChange(item) {
             if (!this.selectedLevels.includes(item)) {
                 this.selectedLevels.push(item);
-
             }
             console.log(this.selectedLevels);
         },

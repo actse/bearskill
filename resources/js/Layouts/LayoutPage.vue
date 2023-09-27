@@ -51,12 +51,33 @@ defineProps({
                                 >
                                     หน้าแรก
                                 </NavLink>
-                                <NavLink
+                                <!-- <NavLink
                                     class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
                                     href="/"
                                 >
                                     คอร์สทั้งหมด
-                                </NavLink>
+                                </NavLink> -->
+                                <div class="relative group inline-flex">
+                                    <NavLink
+                                        class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
+                                        href="/"
+                                    >
+                                        คอร์สทั้งหมด
+                                    </NavLink>
+                                    <ul
+                                        class="absolute top-10 w-44 hidden mt-2 space-y-2 bg-white text-gray-800 border border-gray-300 rounded-lg z-10 group-hover:block"
+                                    >
+                                        <!-- วิชา 1 -->
+                                        <li v-for="(item , index) in type_subject">
+                                            <a
+                                                class="block px-4 py-2 w-44 hover:bg-gray-200"
+                                                href="#"
+                                            >
+                                                {{ item }}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <NavLink
                                     class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
                                     href="/"
@@ -106,6 +127,7 @@ export default {
             password: "",
             confirm_password: "",
             status: "",
+            type_subject: ['ภาษา','วิชาหลัก','ดนตรี','ศิลปะ','เทคโนโลยี','อึ่นๆ'],
         };
     },
     methods: {},

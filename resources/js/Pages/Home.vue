@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import LayoutPage from "@/Layouts/LayoutPage.vue";
 
 </script>
@@ -106,6 +106,7 @@ import LayoutPage from "@/Layouts/LayoutPage.vue";
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </LayoutPage>
 </template>
 
@@ -116,3 +117,7 @@ export default {
   },
 };
 </script>
+=======
+    </AuthenticatedLayout>
+</template> -->
+>>>>>>> origin/basstsu

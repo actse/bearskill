@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import LayoutPage from "@/Layouts/LayoutPage.vue";
 import { Head } from "@inertiajs/vue3";
 </script>
@@ -209,4 +209,4 @@ export default {
     },
     mounted() {},
 };
-</script>
+</script> -->
