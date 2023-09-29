@@ -37,32 +37,6 @@ const form = useForm({
                 ประวัติการสอน / ทำงาน
             </div>
             <div class="mb-4">
-                <label for="teaching_experience" class="block font-bold mb-2"
-                    >ประสบการณ์ในการสอน</label
-                >
-                <textarea
-                    v-model="teaching_experience"
-                    name="teaching_experience"
-                    id="teaching_experience"
-                    class="border rounded w-4/5 h-24 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                ></textarea>
-            </div>
-            <div class="mb-4">
-                <label
-                    for="teaching_experience_year"
-                    class="block font-bold mb-2"
-                    >สอนมาแล้วกี่ปี ระบุ</label
-                >
-                <input
-                    type="number"
-                    v-model="teaching_experience_year"
-                    name="teaching_experience_year"
-                    id="teaching_experience_year"
-                    class="border rounded w-1/2 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                    min="0"
-                />
-            </div>
-            <div class="mb-4">
                 <label for="work_experience" class="block font-bold mb-2"
                     >ประสบการณ์การทำงาน
                 </label>
@@ -72,6 +46,21 @@ const form = useForm({
                     id="work_experience"
                     class="border rounded w-4/5 h-24 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                 ></textarea>
+            </div>
+            <div class="mb-4">
+                <label
+                    for="teaching_experience_year"
+                    class="block font-bold mb-2"
+                    >ทำมาแล้วกี่ปี ระบุ</label
+                >
+                <input
+                    type="number"
+                    v-model="teaching_experience_year"
+                    name="teaching_experience_year"
+                    id="teaching_experience_year"
+                    class="border rounded w-1/2 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                    min="0"
+                />
             </div>
             <div class="mb-4">
                 <label for="we_more_detail" class="block font-bold mb-2"

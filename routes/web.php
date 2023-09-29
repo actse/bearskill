@@ -48,9 +48,9 @@ Route::get('/', function () {
 //     return Inertia::render('Registertutor');
 // });
 
-Route::get('/profile', function () {
-    return Inertia::render('Profile');
-});
+// Route::get('/profile', function () {
+//     return Inertia::render('Profile');
+// });
 
 Route::get('/test', function () {
     return Inertia::render('Test');
@@ -89,8 +89,10 @@ Route::get('/fetchAll', [SelectDataController::class, 'selectAllsubject']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/addcredit', [ProfileController::class, 'addcredit']);
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
 require __DIR__ . '/auth.php';

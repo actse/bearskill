@@ -33,10 +33,10 @@ const form = useForm({
 <template>
     <div class="flex">
         <div class="flex-row w-1/3 h-full">
-            <div class="flex w-auto h-auto items-center justify-center">
+            <div class="flex flex-col w-auto h-auto items-center justify-center">
                 <label for="profile-image" class="cursor-pointer">
                     <img
-                        class="mt-5 w-64 h-64 rounded-full border-4 border-blue-400 p-2 shadow-lg"
+                        class="mt-5 w-64 h-64 rounded-full border-4 border-[#161f32] p-2 shadow-lg"
                         :src="profileImage"
                         alt=""
                     />
@@ -56,38 +56,20 @@ const form = useForm({
             </div>
             <div class="flex w-auto h-auto mt-4 items-center justify-center">
                 <button
-                    class="border-2 w-2/3 h-10 rounded-md mt-1 ml-2 text-md font-sans bg-blue-500 hover:bg-white text-white hover:text-blue-600"
+                    class="border-2 w-2/3 h-10 rounded-md mt-1 ml-2 text-md font-sans bg-[#161f32] hover:bg-white text-white hover:text-[#161f32]"
                 >
                     + ตารางรายวิชา
                 </button>
             </div>
             <div class="flex w-auto h-auto mt-2 items-center justify-center">
                 <button
-                    class="border-2 w-2/3 h-10 rounded-md mt-1 ml-2 text-md font-sans bg-blue-500 hover:bg-white text-white hover:text-blue-600"
+                    class="border-2 w-2/3 h-10 rounded-md mt-1 ml-2 text-md font-sans bg-[#161f32] hover:bg-white text-white hover:text-[#161f32]"
                 >
                     + ประวัติการหักเครดิต
                 </button>
             </div>
         </div>
-        <!-- <div class="flex-row w-1/3 h-full">
-                <div class="flex w-auto h-auto items-center justify-center">
-                    <img
-                        class="mt-5 w-64 h-64 rounded-full border-4 border-blue-400 p-2 shadow-lg"
-                        src="../../imgs/imnayoen.jpeg"
-                        alt=""
-                    />
-                </div>
-                <div class="flex w-auto h-auto items-center justify-center">
-                    <div class="mt-6 text-2xl font-promp text-slate-600">{{ $page.props.auth.user.name }}</div>
-                </div>
-                <div class="flex w-auto h-auto items-center justify-center">
-                    <div class="mt-6">xxxxxxx</div>
-                </div>
-                <div class="flex w-auto h-auto items-center justify-center">
-                    <div class="mt-6">xxxxxxx</div>
-                </div>
-            </div> -->
-        <div class="flex flex-col w-2/3 h-auto items-start justify-start">
+        <div class="flex-row w-2/3 h-auto items-start justify-start">
             <!-- Button trigger modal -->
             <div class="flex flex-row text-lg">
                 <button
@@ -97,18 +79,18 @@ const form = useForm({
                     ข้อมูลส่วนตัว /
                 </button>
                 <button
-                    @click="OpenModal"
+                    @click="Personal_Information"
                     class="m-1 py-3 no-underline hover:underline shadow-slate-300 text-slate-600 hover:text-blue-400 font-bold"
                 >
                     แก้ไขข้อมูลส่วนตัว /
                 </button>
                 <button
-                    @click="OpenModal_two"
+                    @click="Add_Course"
                     class="m-1 py-3 no-underline hover:underline shadow-slate-300 text-slate-600 hover:text-blue-400 font-bold"
                 >
                     เพิ่มรายวิชา /</button
                 ><button
-                    @click="OpenModal_three"
+                    @click="Educational_Record"
                     class="m-1 py-3 no-underline hover:underline shadow-slate-300 text-slate-600 hover:text-blue-400 font-bold"
                 >
                     เพิ่มประวัติการศึกษา /
@@ -138,7 +120,7 @@ const form = useForm({
                     </div>
                 </div>
                 <div
-                    v-if="isOpenModal"
+                    v-if="isPersonalInformation"
                     class="border-2 border-gray-300 shadow-md rounded-md w-full p-3"
                 >
                     <div class="bg-white rounded-md px-4">
@@ -152,7 +134,7 @@ const form = useForm({
                     </div>
                 </div>
                 <div
-                    v-if="isOpenModal_two"
+                    v-if="isAddCourse"
                     class="border-2 border-gray-300 shadow-md rounded-md w-full p-3"
                 >
                     <div class="bg-white rounded-md px-4 w-full">
@@ -164,7 +146,7 @@ const form = useForm({
                     </div>
                 </div>
                 <div
-                    v-if="isOpenModal_three"
+                    v-if="isEducationalRecord"
                     class="border-2 border-gray-300 shadow-md rounded-md w-full p-3"
                 >
                     <div class="bg-white rounded-md px-4 w-full">
@@ -192,7 +174,6 @@ const form = useForm({
     </div>
 </template>
 <script>
-
 export default {
     // components: {
     //     FormSimpledata,
@@ -200,9 +181,9 @@ export default {
     data() {
         return {
             isUserdata: true,
-            isOpenModal: false,
-            isOpenModal_two: false,
-            isOpenModal_three: false,
+            isPersonalInformation: false,
+            isAddCourse: false,
+            isEducationalRecord: false,
             isWorkExperience: false,
             profileImage: "/storage/imnayoen.jpeg",
         };
@@ -210,42 +191,42 @@ export default {
     methods: {
         Userdata() {
             this.isUserdata = true;
-            this.isOpenModal = false;
-            this.isOpenModal_two = false;
-            this.isOpenModal_three = false;
+            this.isPersonalInformation = false;
+            this.isAddCourse = false;
+            this.isEducationalRecord = false;
             this.isWorkExperience = false;
-            console.log(this.isOpenModal);
+            console.log(this.isUserdata);
         },
-        OpenModal() {
-            this.isOpenModal = true;
-            this.isOpenModal_two = false;
-            this.isOpenModal_three = false;
-            this.isWorkExperience = false;
+        Personal_Information() {
             this.isUserdata = false;
-            console.log(this.isOpenModal);
+            this.isPersonalInformation = true;
+            this.isAddCourse = false;
+            this.isEducationalRecord = false;
+            this.isWorkExperience = false;
+            console.log(this.isPersonalInformation);
         },
-        OpenModal_two() {
-            this.isOpenModal_two = true;
-            this.isOpenModal = false;
-            this.isOpenModal_three = false;
-            this.isWorkExperience = false;
+        Add_Course() {
             this.isUserdata = false;
-            console.log(this.isOpenModal_two);
+            this.isPersonalInformation = false;
+            this.isAddCourse = true;
+            this.isEducationalRecord = false;
+            this.isWorkExperience = false;
+            console.log(this.isAddCourse);
         },
-        OpenModal_three() {
-            this.isOpenModal_three = true;
-            this.isOpenModal_two = false;
-            this.isOpenModal = false;
-            this.isWorkExperience = false;
+        Educational_Record() {
             this.isUserdata = false;
-            console.log(this.isOpenModal_three);
+            this.isPersonalInformation = false;
+            this.isAddCourse = false;
+            this.isEducationalRecord = true;
+            this.isWorkExperience = false;
+            console.log(this.isEducationalRecord);
         },
         Work_Experience() {
-            this.isWorkExperience = true;
-            this.isOpenModal_three = false;
-            this.isOpenModal_two = false;
-            this.isOpenModal = false;
             this.isUserdata = false;
+            this.isPersonalInformation = false;
+            this.isAddCourse = false;
+            this.isEducationalRecord = false;
+            this.isWorkExperience = true;
             console.log(this.isWorkExperience);
         },
 

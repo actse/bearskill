@@ -30,46 +30,20 @@ const form = useForm({
         <div
             class="flex flex-row w-full h-10 mb-4 bg-[#151F32] text-white items-center justify-center rounded"
         >
-            บันทึกข้อมูลส่วนตัว
+            เติมเงินเข้ากระเป๋า
         </div>
         <form class="w-full text-slate-500" @submit.prevent="" enctype="multipart/form-data">
             <!-- ข้อมูลส่วนตัว -->
             <div class="flex flex-row mb-4">
                 <div class="w-1/2 mr-2">
                     <label for="nickname" class="block font-bold mb-2"
-                        >ชื่อเล่น</label
+                        >จำนวน Credit</label
                     >
                     <input
-                        type="text"
-                        v-model="nickname"
-                        name="nickname"
-                        id="nickname"
-                        class="border-slate-400 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                    />
-                </div>
-            </div>
-            <div class="flex flex-row mb-4">
-                <div class="w-1/2 mr-2">
-                    <label for="phone" class="block font-bold mb-2"
-                        >เบอร์โทร</label
-                    >
-                    <input
-                        type="tel"
-                        v-model="phone"
-                        name="phone"
-                        id="phone"
-                        class="border-slate-400 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                    />
-                </div>
-                <div class="w-1/2 ml-2">
-                    <label for="lineid" class="block font-bold mb-2"
-                        >Line ID</label
-                    >
-                    <input
-                        type="text"
-                        v-model="lineid"
-                        name="lineid"
-                        id="lineid"
+                        type="number"
+                        v-model="credit"
+                        name="credit"
+                        id="credit"
                         class="border-slate-400 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                     />
                 </div>
@@ -81,7 +55,7 @@ const form = useForm({
                         type="submit"
                         class="bg-[#151F32] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
-                        เพิ่มข้อมูลส่วนตัว
+                        เติม credit
                     </button>
                 </div>
             </div>
@@ -92,14 +66,7 @@ const form = useForm({
 export default {
     data() {
         return {
-            first_name: "",
-            last_name: "",
-            nickname: "",
-            birthday: "",
-            phone: "",
-            lineid: "",
-            address: "",
-            idcard_image: "",
+            credit: "",
         };
     },
     methods: {},

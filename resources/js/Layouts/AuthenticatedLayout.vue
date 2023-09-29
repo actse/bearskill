@@ -103,6 +103,12 @@ const showingNavigationDropdown = ref(false);
                                         >
                                             Profile
                                         </DropdownLink>
+                                        <Link
+                                            class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                                            href="addcredit"
+                                        >
+                                            เติม credit
+                                        </Link>
                                         <DropdownLink
                                             :href="route('logout')"
                                             method="post"
@@ -190,6 +196,12 @@ const showingNavigationDropdown = ref(false);
                             <ResponsiveNavLink :href="route('profile.edit')">
                                 Profile
                             </ResponsiveNavLink>
+                            <Link
+                                class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                                href="/addcredit"
+                            >
+                                เติม credit
+                            </Link>
                             <ResponsiveNavLink
                                 :href="route('logout')"
                                 method="post"
