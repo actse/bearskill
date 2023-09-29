@@ -52,6 +52,10 @@ Route::get('/profile', function () {
     return Inertia::render('Profile');
 });
 
+Route::get('/test', function () {
+    return Inertia::render('Test');
+});
+
 Route::get('/registers', function () {
     return Inertia::render('Registertutor');
 });

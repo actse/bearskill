@@ -94,6 +94,7 @@ class TutorController extends Controller
             'work_experience' => $request->input('work_experience'),
             'we_more_detail' => $request->input('we_more_detail'),
         ]);
+
         // $edittutor = User::where('email', '=', $request->input('email'))->update([
         //     'teacher_image' => $faker->imageUrl(),
         //     'prefix' => $faker->title,
