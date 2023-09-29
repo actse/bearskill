@@ -1,7 +1,11 @@
 <template>
   <Carousel :autoplay="2000" :wrap-around="true">
-    <Slide v-for="slide in 10" :key="slide">
-      <div class="carousel__item">{{ slide }}</div>
+    <Slide v-for="(img, index) in imgs" :key="index">
+      <!-- <img src="../../imgs/BEARSKILL2.png" alt="" class="object-cover"> -->
+      <!-- {{ img.filename }} -->
+      <!-- <img :src="`${img.filename}`" alt="" class="object-cover"  /> -->
+      <img :src="'../../imgs/' +  img.filename" alt="" class="object-cover"  />
+      {{ img.filename  }}
     </Slide>
 
     <template #addons>
@@ -12,27 +16,39 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import { Carousel, Navigation, Pagination, Slide } from 'vue3-carousel'
+import { defineComponent } from "vue";
+import { Carousel, Navigation, Pagination, Slide } from "vue3-carousel";
 
-import 'vue3-carousel/dist/carousel.css'
+import "vue3-carousel/dist/carousel.css";
 
 export default defineComponent({
-  name: 'Basic',
+  name: "Basic",
   components: {
     Carousel,
     Slide,
     Pagination,
     Navigation,
   },
-})
+  data() {
+    return {
+      imgs: [
+        { filename: 'BEARSKILL2.png' },
+        { filename: 'BEARSKILL2.png' },
+        { filename: 'BEARSKILL2.png' },      
+      ],
+    };
+  },
+  mounted() {
+
+  },
+});
 </script>
 
 <style>
 .carousel__item {
-  min-height: 300px;
+  min-height: 400px;
   width: 100%;
-  background-color: var(--vc-clr-primary);
+  background-color: var(--vc-clr-white);
   color: var(--vc-clr-white);
   font-size: 20px;
   border-radius: 8px;
@@ -49,7 +65,7 @@ export default defineComponent({
 .carousel__next {
   background-color: gainsboro;
   border-radius: 20px;
-  
+  margin: 0px 50px 0px 50px;
   box-sizing: content-box;
 }
 </style>
