@@ -32,34 +32,17 @@ const showingNavigationDropdown = ref(false);
                                 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
                             >
                                 <NavLink
-                                    class="text-[16px] font-source text-slate-100"
+                                    class="sm:text-auto text-[17px] font-sans text-slate-100"
                                     :href="route('dashboard')"
                                     :active="route().current('dashboard')"
                                 >
-                                    Dashboard
+                                    หน้าหลัก
                                 </NavLink>
                                 <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    :href="route('dashboard')"
-                                >
-                                    หน้าแรก
-                                </NavLink>
-                                <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
+                                    class="sm:text-auto text-[17px] font-sans text-slate-100 hover:text-white"
                                     :href="route('dashboard')"
                                 >
                                     คอร์สทั้งหมด
-                                </NavLink>
-                                <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    :href="route('dashboard')"
-                                >
-                                    About Us </NavLink
-                                ><NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    :href="route('dashboard')"
-                                >
-                                    Contact
                                 </NavLink>
                             </div>
                         </div>
