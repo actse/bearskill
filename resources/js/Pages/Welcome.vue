@@ -151,7 +151,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
                 
             </div>
 
-            <div class="flex flex-col p-6 space-y-4">
+            <div class="flex flex-col p-6 space-y-4 h-screen">
                 <div>
                     <div class=" flex flex-wrap items-center w-full space-x-10 ">
                         <div class=""><p class="px-10 py-3 border-2 border-teal-500 rounded-full text-gray-600 text-3xl font-extrabold bg-white">STEP 3</p></div>
@@ -165,53 +165,79 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
                             <input v-model="searchName" placeholder="Search name..." class="mt-3 rounded-lg h-10 border-teal-500 shadow-md"/>
                             <select v-model="searchType" class="text-sm text-gray-600 rounded-lg h-10 mt-3 border-teal-500 shadow-md">
                                 <option value="" selected="">ประเภทการสอน</option>
-                                <option v-for="items in type_product" :key="items.id" :value="items.id">
-                                    {{ items.type_product_name }}
+                                <option v-for="items in teacher" :key="items.id" :value="items.id">
+                                    {{ items.teacher_name }}
                                 </option>
                             </select>
                             <select v-model="searchType" class="text-sm text-gray-600 rounded-lg h-10 mt-3 border-teal-500 shadow-md">
                                 <option value="" selected="">เลือกจังหวัด</option>
-                                <option v-for="items in type_product" :key="items.id" :value="items.id">
-                                    {{ items.type_product_name }}
+                                <option v-for="items in courses" :key="items.id" :value="items.id">
+                                    {{ items.courses }}
                                 </option>
                             </select>
                         </div>
                     </div>
-                    <div class="">
-                        <div class="flex flex-col ">
+                        <div class="flex flex-col mt-20">
                             <h1 class="w-44 text-xl font-extrabold p-3 bg-[#026292] text-white">วิชาภาษาอังกฤษ</h1>
-                            <div class="w-full my-2 p-4 bg-[#CFDBDE]">
+                            <div class="w-full my-2 p-4 bg-[#CFDBDE] space-y-5">
                                 <div class="flex flex-wrap">
-                                    <img src="../../imgs/BEARSKILL4.png" alt="" class="w-44 h-44">
-                                    <div class="flex flex-col">
+                                    <img src="../../imgs/BEARSKILL4.png" alt="" class="w-44 h-44 mr-10">
+                                    <div class="flex flex-col space-y-0">
                                         <h1 class="text-4xl font-bold">ครูบี</h1>
-                                        <p>ประสบการณ์ 5 ปี</p>
-                                        <div>
-                                            <p>สอนออนไลน์</p>
+                                        <p class="text-lg text-gray-700 font-bold">ประสบการณ์ 5 ปี</p>
+                                        <div class="grid grid-cols-2 text-gray-500 text-sm gap-1">
+                                            <p>สอนออนไลน์</p><p>สอนออนไลน์</p><p>สอนออนไลน์</p>
                                         </div>
                                         <button type="button" class="bg-[#036594] text-white">ดูประวัติผู้สอน</button>
                                     </div>
-                                    <div class="h-">
-                                        <div class="p-3 bg-[#036594]">
-                                            <p>คอร์ส SPEAKING</p>
-                                        </div>
-                                        <div class="p-3 bg-[#036594]">
-                                            <p>คอร์ส SPEAKING</p>
-                                        </div>
-                                        <div class="p-3 bg-[#036594]">
-                                            <p>คอร์ส SPEAKING</p>
+                                    <div class="px-5 ml-36">
+                                        <div class="grid grid-cols-3 justify-center items-center gap-4 text-white text-lg font-bold">
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
                                         </div>
                                     </div>
-                                    <div>
-
+                                    <div class="mx-auto flex items-center justify-center ml-28 ">
+                                        <div class=" text-xl text-gray-600 font-bold ">
+                                            <p>ติดต่อครู</p>
+                                        </div>
                                     </div>
-                                    <div></div>
-                                    <div></div>
                                 </div>
-                                <div></div>
+                                <div class="flex flex-wrap">
+                                    <img src="../../imgs/BEARSKILL5.png" alt="" class="w-44 h-44 mr-10">
+                                    <div class="flex flex-col space-y-0">
+                                        <h1 class="text-4xl font-bold">ครูบี</h1>
+                                        <p class="text-lg text-gray-700 font-bold">ประสบการณ์ 5 ปี</p>
+                                        <div class="grid grid-cols-2 text-gray-500 text-sm gap-1">
+                                            <p>สอนออนไลน์</p><p>สอนออนไลน์</p><p>สอนออนไลน์</p>
+                                        </div>
+                                        <button type="button" class="bg-[#036594] text-white">ดูประวัติผู้สอน</button>
+                                    </div>
+                                    <div class="px-5 ml-36">
+                                        <div class="grid grid-cols-3 justify-center items-center gap-4 text-white text-lg font-bold">
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
+                                        </div>
+                                    </div>
+                                    <div class="mx-auto flex items-center justify-center ml-28 ">
+                                        <div class=" text-xl text-gray-600 font-bold ">
+                                            <p>ติดต่อครู</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
 
