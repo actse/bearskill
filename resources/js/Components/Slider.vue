@@ -3,11 +3,10 @@
     <Slide v-for="(img, index) in imgs" :key="index">
       <!-- <img src="../../imgs/BEARSKILL2.png" alt="" class="object-cover"> -->
       <!-- {{ img.filename }} -->
-      <!-- <img :src="`${img.filename}`" alt="" class="object-cover"  /> -->
-      <img :src="'../../imgs/' +  img.filename" alt="" class="object-cover"  />
-      {{ img.filename  }}
+      <img :src="`${img.filename}`" alt="" class="object-cover"  />
+      <!-- <img :src="'../../imgs/' +  img.filename" alt="" class="object-cover"  />
+      {{ img.filename  }} -->
     </Slide>
-
     <template #addons>
       <Navigation />
       <Pagination />
@@ -33,7 +32,7 @@ export default defineComponent({
     return {
       imgs: [
         { filename: 'BEARSKILL2.png' },
-        { filename: 'BEARSKILL2.png' },
+        { filename: 'BEARSKILL1.jpg' },
         { filename: 'BEARSKILL2.png' },      
       ],
     };

@@ -2,6 +2,8 @@
 import { Head, Link } from "@inertiajs/vue3";
 import LayoutPage from "@/Layouts/LayoutPage.vue";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
+import Slider from "@/Components/Slider.vue";
+import Footer from "@/Components/Footer.vue"
 
 </script>
 
@@ -28,9 +30,9 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
                     <img src="../../imgs/bg_02.png" class="absolute w-32 bottom-0 -left-2">
                     <img src="../../imgs/bg_03.png" class="absolute w-32 bottom-0 right-4">
                 </div>
-                <img src="../../imgs/BEARSKILL1.png" class="absolute w-80 h-96 bottom-0 md:left-28 lg:left-44 xl:left-64 2xl:left-90 hidden md:block " alt="#">
+                <img src="../../imgs/BEARSKILL1.png" class="absolute w-80 h-96 bottom-0 md:left-28 lg:left-44 xl:left-64 2xl:left-96 hidden md:block " alt="#">
                 
-                <div class="flex justify-center absolute left-16 bottom-20 md:left-10 lg:left-36 xl:left-52">
+                <div class="flex justify-center absolute left-16 bottom-20 md:left-10 lg:left-36 xl:left-80">
                     <div class=" w-96 hidden md:block">
                     </div>
                     <div class="flex flex-wrap py-4">
@@ -104,7 +106,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
                         
                     </div>
                     <div class="relative flex w-32 h-32 group sm:w-32 sm:h-32">
-                        <div class="flex relative justify-center text-center items-center w-32 h-32 bg-gradient-to-r from-blue-900 via-indigo-900 to-[#151F32] text-2xl font-extrabold text-slate-100 rounded-full duration-200 hover:hover:shadow-[#8daeec] hover:shadow-lg sm:w-32 sm:h-32">ศิลปะ</div>
+                        <button class="flex relative justify-center text-center items-center w-32 h-32 bg-gradient-to-r from-blue-900 via-indigo-900 to-[#151F32] text-2xl font-extrabold text-slate-100 rounded-full duration-200 hover:hover:shadow-[#8daeec] hover:shadow-lg sm:w-32 sm:h-32">ศิลปะ</button>
                     </div>
 
                 </div>
@@ -114,16 +116,16 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
                         
                     </div>
                     <div class="relative flex w-32 h-32 group sm:w-32 sm:h-32">
-                        <div class="flex relative justify-center text-center items-center w-32 h-32 bg-gradient-to-r from-blue-900 via-indigo-900 to-[#151F32] text-2xl font-extrabold text-slate-100 rounded-full duration-200 hover:shadow-[#8daeec] hover:shadow-lg sm:w-32 sm:h-32">อื่นๆ</div>
+                        <button class="flex relative justify-center text-center items-center w-32 h-32 bg-gradient-to-r from-blue-900 via-indigo-900 to-[#151F32] text-2xl font-extrabold text-slate-100 rounded-full duration-200 hover:shadow-[#8daeec] hover:shadow-lg sm:w-32 sm:h-32">อื่นๆ</button>
                     </div>
                 </div>
         </div>
             
-        <div class="relative flex flex-col  text-center items-center p-4 pt-6 w-full h-auto space-y-4 bg-orange-100 sm:h-screen"> 
+        <div class="relative flex flex-col  text-center items-center p-4 pt-6 w-full h-auto space-y-4 bg-sky-200 sm:h-screen"> 
             <img src="../../imgs/bg_05.png" alt="" class="absolute w-20 h-20 top-0 left-0">
             <img src="../../imgs/bg_06.png" alt="" class="absolute w-20 h-20 top-0 right-0">
             <img src="../../imgs/bg_07.png" alt="" class="absolute w-20 h-20 bottom-0 left-0">
-            <img src="../../imgs/bg_08.png" alt="" class="absolute w-20 h-20 bottom-0 right-0">    
+            <img src="../../imgs/bg_10.png" alt="" class="absolute w-[600px] h-[330px] bottom-0 right-0">    
             <div class="px-10 py-1 border-4 border-indigo-900 rounded-full text-gray-600 text-3xl font-extrabold bg-white">STEP 2</div>
                 <p class="text-3xl font-extrabold text-gray-700">เลือกวิชาที่ต้องการเรียน</p>
                 <div class=" w-full h-full">
@@ -161,44 +163,45 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
                             <img src="../../imgs/bear10_1.png" alt="" class="absolute w-20 h-20 -top-5 -right-10 hidden sm:block">
                         </div>
                         <div class="flex space-x-2 justify-end">
-                            <select v-model="searchType" class="text-sm text-gray-600 rounded-lg h-10 mt-3 border-#151F32 shadow-md">
-                                <option value="" selected="">ประเภทการสอน</option>
-                                <option v-for="items in teacher" :key="items.id" :value="items.id">
-                                    {{ items.teacher_name }}
+                            <select id="type_courses" name="type_courses"
+                                class="text-sm text-gray-600 rounded-lg h-10 mt-3 border-#151F32 shadow-md">
+                                <option value="เลือกวิชา" selected="">เลือกวิชา</option>
+                                <option v-for="items in type_courses" :key="items.id" :value="items.id">
+                                    {{ items.type_courses }}
                                 </option>
                             </select>
-                            <select v-model="searchType" class="text-sm text-gray-600 rounded-lg h-10 mt-3 border-#151F32 shadow-md">
-                                <option value="" selected="">เลือกจังหวัด</option>
-                                <option v-for="items in courses" :key="items.id" :value="items.id">
-                                    {{ items.courses }}
+                            <select id="address" name="address"
+                                class="text-sm text-gray-600 rounded-lg h-10 mt-3 border-#151F32 shadow-md">
+                                <option value="เลือกจังหวัด" selected="">เลือกจังหวัด</option>
+                                <option v-for="items in address" :key="items.id" :value="items.id">
+                                    {{ items.address }}
                                 </option>
                             </select>
                         </div>
                     </div>
                         <div class="flex flex-col mt-10">
                             <h1 class="w-44 text-xl font-extrabold p-3 bg-[#026292] text-white">วิชาภาษาอังกฤษ</h1>
-                            <div class="w-full my-2 p-4 bg-[#CFDBDE] space-y-5">
+                            <div class="w-full my-2 p-4 bg-sky-200 space-y-5">
                                 <div class="flex flex-wrap items-center justify-center sm:justify-between sm:gap-20">
-                                    <img src="../../imgs/BEARSKILL4.png" alt="" class="w-44 h-44">
+                                    <div class="text-center space-y-2">
+                                        <img src="../../imgs/BEARSKILL4.png" alt="" class="w-36 h-36">
+                                        <button type="button" class=" px-4 py-1 bg-[#036594] text-white">ดูประวัติผู้สอน</button>
+                                    </div>
                                     <div class="flex flex-col text-center">
                                         <h1 class="text-2xl font-bold">ครูบี</h1>
                                         <p class="text-lg text-gray-700 font-bold">ประสบการณ์ 5 ปี</p>
-                                        <div class="grid grid-cols-2 text-gray-500 text-sm gap-1">
-                                            <p>สอนออนไลน์</p><p>สอนออนไลน์</p><p>สอนออนไลน์</p>
+                                        <div v-for="(teacherData, index) in teacher" :key="index" class="flex flex-wrap w-52 text-gray-500 text-sm gap-1">
+                                            <p v-for="(teaching_type, courseIndex) in teacherData.teaching_type" :key="courseIndex" class="bg-gray-200 border px-3 py-1.5 rounded-lg text-sm">{{ teaching_type.teaching_type_name }}</p>
                                         </div>
-                                        จำนวนนักเรียนที่สอน<p class="text-[#026292]">(500)</p>
-                                        <button type="button" class="bg-[#036594] text-white">ดูประวัติผู้สอน</button>
+                                        <p class="text-[#026292]">(500)</p>
+                                        
                                     </div>
                                     <div class="pt-3">
-                                        <div class="grid grid-cols-3 justify-center items-center gap-3 text-white text-sm font-bold">
-                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส SPEAKING</div>
-                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส TOEIC</div>
-                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส GRAMMAR</div>
-                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส สอบเข้ามหาลัย</div>
-                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส ปูพื้นฐาน</div>
-                                            <div class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส บริหารธุรกิจ</div>
+                                        <div v-for="(teacherData, index) in teacher" :key="index" class="grid grid-cols-3 justify-center items-center gap-3 text-white text-sm font-bold">
+                                            <div v-for="(course, courseIndex) in teacherData.courses" :key="courseIndex" class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส {{ course.course_name}}</div>
                                         </div>
                                     </div>
+                                    
                                     <div class="mx-auto flex items-center justify-center">
                                         <div class="px-4 py-2 bg-[#026292] text-xl text-white font-bold m-5">
                                             <p>ติดต่อครู</p>
@@ -209,30 +212,125 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
                         </div>
                 </div>
         </div>
+        <div class="flex flex-col text-center items-center p-6 w-full  space-y-4 bg-gradient-to-t from-blue-900 via-indigo-900 to-[#151F32]"> 
+            <div class="py-4 ">
+                <div class="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
 
-        <footer class="bg-gradient-to-t from-blue-900 via-indigo-900 to-[#151F32]">
-                <div class="flex pt-5 justify-between w-full h-44 text-white sm:px-1 md:px-2 lg:px-16">
-                    <div class="w-20 h-20"><img src="../../imgs/bear2.png" alt=""></div>
-                    <div class="flex flex-col w-2/4 lg:w-56 xl:w-80">
-                        <h1 class="text-lg  sm:text-xl">Bear Skill</h1>
-                        <p class="text-xs sm:text-base">Bear your skill for the future.</p>
-                        <p>แพลตฟอร์มหาติวเตอร์ทั้งแบบออนไลน์และนัดสอนนอกสถานที่</p>
+                    <div class="text-center">
+                        <h3 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-white">
+                            FAQ <span class="text-indigo-600">คำถามที่พบบ่อย</span>
+                        </h3>
+
                     </div>
-                    <div class="w-1/4 text-xs sm:text-sm">
-                        <p>คอร์สออนไลน์</p>
-                        <p>คอร์ส On-site</p>
-                        <p>คอร์สสำหรับสอบเข้ามหาลัย</p>
-                        <p>คอร์สสำหรับสอบเข้าม.ปลาย</p>
+
+                    <div class="mt-20">
+                        <ul class="">
+                            <li v-for="(item, index) in FAQ" :key="index" class="text-left mb-10">
+                                <div class="flex flex-row items-start mb-5">
+                                    <div
+                                        class="hidden sm:flex items-center justify-center p-3 mr-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold ">
+                                        <svg width="30px" fill="white" height="30px" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g data-name="Layer 2">
+                                                <g data-name="menu-arrow">
+                                                    <rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"></rect>
+                                                    <path
+                                                        d="M17 9A5 5 0 0 0 7 9a1 1 0 0 0 2 0 3 3 0 1 1 3 3 1 1 0 0 0-1 1v2a1 1 0 0 0 2 0v-1.1A5 5 0 0 0 17 9z">
+                                                    </path>
+                                                    <circle cx="12" cy="19" r="1"></circle>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                    <div class="bg-gray-100 p-5 px-10 w-full flex items-center rounded-lg">
+                                        <h4 class="text-md leading-6 font-medium text-gray-900">{{ item.asked }}</h4>
+                                    </div>
+                                </div>
+
+                                <div class="flex flex-row items-start">
+                                    <div class="bg-indigo-100 p-5 px-10 w-full flex items-center rounded-lg">
+                                        <p class="text-gray-700 text-sm">{{ item.questions }}
+                                        </p>
+                                    </div>
+                                    <div
+                                        class="hidden sm:flex items-center justify-center p-3 ml-3 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
+                                        <svg height="25px" fill="white" version="1.1" id="Layer_1"
+                                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                            y="0px" viewBox="0 0 295.238 295.238" style="enable-background:new 0 0 295.238 295.238;"
+                                            xml:space="preserve">
+                                            <g>
+                                                <g>
+                                                    <g>
+                                                        <path d="M277.462,0.09l-27.681,20.72l-27.838,64.905h-22.386l-8.79-19.048h5.743c10.505,0,19.048-8.452,19.048-18.957V28.571
+                            h9.524V0H196.51v28.571h9.524V47.71c0,5.248-4.271,9.433-9.524,9.433h-10.138L174.2,30.81l14.581-7.267L141.038,3.095
+                            l-11.224,39.281c-0.305-23.371-19.386-42.29-42.829-42.29c-23.633,0-42.857,19.224-42.857,42.857
+                            c0,14.281,7.233,27.676,19.048,35.595v7.176H51.643L50.9,89.619c-2.314,12.005-2.529,24.343-0.638,36.648l-32.486,57.905
+                            l35.876,8.195v60.014h47.619v42.857h114.286v-66.357c33.333-23.581,52.371-61.495,52.343-101.943l0.01-17.371
+                            c0-6.548-0.605-13.276-1.824-19.905l-0.705-3.948h-9.348l21.429-51.338V0.09z M206.033,19.138V9.614h9.524v9.524H206.033z
+                            M189.067,85.714h-18.062l-8.657-19.048h17.929L189.067,85.714z M147.219,16.119l18.929,8.11l-4.467,2.19l14.2,30.724h-17.862
+                            l-11.605-25.471l-4.262,2.152L147.219,16.119z M160.543,85.715h-21.176v-9.433c0-5.252,4.271-9.614,9.524-9.614h2.995v-0.001
+                            L160.543,85.715z M141.843,44.652l5.776,12.71c-9.905,0.667-17.776,8.848-17.776,18.919v9.433h-19.048v-7.176
+                            c9.529-6.386,15.995-16.352,18.176-27.452L141.843,44.652z M53.653,42.948c0-18.376,14.957-33.333,33.333-33.333
+                            c18.376,0,33.333,14.957,33.333,33.333c0,11.829-6.39,22.881-16.671,28.838l-2.376,1.371v12.557h-9.524V56.352
+                            c5.529-1.971,9.524-7.21,9.524-13.41c0-7.876-6.41-14.286-14.286-14.286c-7.876,0-14.286,6.411-14.286,14.287
+                            c0,6.2,3.995,11.438,9.524,13.41v29.362H72.7V73.157l-2.376-1.376C60.043,65.824,53.653,54.776,53.653,42.948z M86.986,47.71
+                            c-2.629,0-4.762-2.139-4.762-4.762c0-2.629,2.133-4.762,4.762-4.762c2.629,0,4.762,2.133,4.762,4.762S89.615,47.71,86.986,47.71z
+                            M257.366,95.239c0.691,4.761,1.039,9.59,1.039,14.285l0.01,17.405c0.029,38.148-18.795,73.871-50.286,95.552l-2.095,1.429
+                            v61.805h-95.238v-42.857h-47.62v-58.086l-30.862-7.043l27.876-49.7l-0.271-1.7c-1.771-10.419-1.871-21.567-0.333-31.09h3.59
+                            h47.619H257.366z M245.714,85.714H232.3l23.738-55.343l10.557,5.257L245.714,85.714z M267.938,25.714l-5.267-2.633l5.267-3.943
+                            V25.714z"></path>
+                                                        <path d="M96.51,123.81c-7.876,0-14.286-4.762-14.286-14.286H72.7c0,14.286,10.681,23.81,23.81,23.81
+                            c13.129,0,23.81-9.524,23.81-23.81h-9.524C110.795,119.048,104.386,123.81,96.51,123.81z"></path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                            </li>
+                        </ul>
                     </div>
-                    <div  class="w-1/4 text-xs sm:text-sm">
-                        <p>บล็อค</p>
-                        <p>เกี่ยวกับเรา</p>
-                        <p>ติดต่อเรา</p>
-                    </div>
+
                 </div>
-        </footer>
+            </div>
         </div>
+        <Footer/>
+    </div>
     </LayoutPage>
 </template>
+
+<script>
+export default {
+    data() {
+    return {
+      FAQ: [
+        { asked : 'ซื้อแพ็กเกจแล้วเรียนได้กี่วิชา ? กี่ครั้ง ? กี่ชั่วโมง ?', questions: 'ซื้อแพ็กเกจแล้ว สามารถเรียนได้ทุกวิชา ทุกระดับชั้น ไม่จำกัดชั่วโมง เรียนซ้ำได้ไม่จำกัด ตลอดระยะเวลาของแพ็กเกจ'  },
+        { asked: 'มีค่าใช้จ่ายเท่าไหร่ ?', questions: 'ราคาขึ้นอยู่กับแพ็กเกจที่ผู้ใช้งานเลือก เริ่มต้นที่ 1,290 บาท' },
+        { asked: 'หลังจากใช้งานฟรี 3 วัน ต้องกดยกเลิกไหม / ระบบหักเงินไหม ?', questions: 'ไม่ต้องกดยกเลิก หลังหมดระยะเวลาทดลองเรียนฟรี 3 วัน ระบบจะเปลี่ยนสถานะผู้ใช้เป็น ‘ผู้ใช้ฟรี’ โดยอัตโนมัติ และไม่มีการหักค่าใช้จ่ายใด ๆ เพิ่มเติม ผู้ใช้ฟรีจะใช้งานได้เพียงคลังข้อสอบเท่านั้น' },      
+      ],
+      teacher: [
+        {
+            courses: [
+            { id: 1, course_name: 'SPEAKING' },
+            { id: 2, course_name: 'TOEIC' },
+            { id: 3, course_name: 'GRAMMAR' },
+            { id: 4, course_name: 'ปูพื้นฐาน' },
+            { id: 5, course_name: 'สอบเข้ามหาลัย' },
+            { id: 6, course_name: 'สำหรับธุรกิจ' },
+            ],
+            teaching_type: [
+                {teaching_type_name: 'สอนออนไลน์'},
+                {teaching_type_name: 'สอนที่บ้าน'},
+                {teaching_type_name: 'สอนออนไลน์แบบกลุ่ม'},
+                {teaching_type_name: 'สอนแบบกลุ่ม'},      
+            ]
+        },
+      ],
+      selectedCourse: null // สร้างตัวแปร selectedCourse เพื่อเก็บคอร์สที่ถูกเลือก
+    };
+  },
+}
+</script>
 
 <style></style>
