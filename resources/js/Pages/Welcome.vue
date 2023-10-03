@@ -53,36 +53,37 @@ import Footer from "@/Components/Footer.vue"
                 </div>
             </div>
         </div>
-        <div class="flex  w-full h-auto py-1 sm:px-2 md:px-10 md:py-12 ">
+        <div class="flex w-full h-auto py-1 sm:px-2 md:px-10 md:py-12 xl:px-3 xl:py-6">
             <div class="flex justify-center w-full">
-                <img src="../../imgs/icon-1.png" class="w-6 h-6 xl:w-20 xl:h-20 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
-                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-64 lg:w-52 md:w-44 sm:w-36">
-                    <p class="text-gray-700 text-sm font-bold xl:text-2xl lg:text-xl md:text-lg sm:text-base">ระบบรับรองความปลอดภัย</p>
-                    <p class="text-gray-600 text-xs xl:text-lg md:text-base sm:text-sm">เว็บไซด์ของเรามีระบบรับรองคุณภาพและความปลอดภัยทั่งผู้เรียนและผู้สอนมีระบบรีวิวและรีพอร์ทพร้อมดูแลตลอด 24 ชม.</p>
+                <img src="../../imgs/icon-1.png" class="w-6 h-6 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
+                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-72 lg:w-52 md:w-44 sm:w-36">
+                    <p class="text-gray-700 text-sm font-bold xl:text-xl lg:text-xl md:text-lg sm:text-base">ระบบรับรองความปลอดภัย</p>
+                    <p class="text-gray-600 text-xs xl:text-sm md:text-base sm:text-sm">เว็บไซด์ของเรามีระบบรับรองคุณภาพและความปลอดภัยทั่งผู้เรียนและผู้สอนมีระบบรีวิวและรีพอร์ทพร้อมดูแลตลอด 24 ชม.</p>
                 </div>
             </div>
             <div class="flex justify-center w-full">
-                <img src="../../imgs/icon-2.png" class="w-6 h-6 xl:w-20 xl:h-20 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
-                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-64 lg:w-52 md:w-44 sm:w-36">
-                    <p class="text-gray-700 text-sm font-bold xl:text-2xl lg:text-xl md:text-lg sm:text-base">User friendly สะดวกใช้งานง่าย</p>
-                    <p class="text-gray-600 text-xs xl:text-lg md:text-base sm:text-sm">ระบบถูกออกแบบมาเพื่อให้มีความสะดวกและใช้งานง่ายทั้งผู้เรียนและผู้สอน ตั้งแต่ขั้นตอนลงทะเบียน และจบการเรียนการสอน</p>
+                <img src="../../imgs/icon-2.png" class="w-6 h-6 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
+                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-72 lg:w-52 md:w-44 sm:w-36">
+                    <p class="text-gray-700 text-sm font-bold xl:text-xl lg:text-xl md:text-lg sm:text-base">User friendly สะดวกใช้งานง่าย</p>
+                    <p class="text-gray-600 text-xs xl:text-sm md:text-base sm:text-sm">ระบบถูกออกแบบมาเพื่อให้มีความสะดวกและใช้งานง่ายทั้งผู้เรียนและผู้สอน ตั้งแต่ขั้นตอนลงทะเบียน และจบการเรียนการสอน</p>
                 </div>
             </div>
             <div class="flex justify-center w-full">
-                <img src="../../imgs/icon-3.png" class="w-6 h-6 xl:w-20 xl:h-20 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
-                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-64 lg:w-52 md:w-44 sm:w-36">
-                    <p class="text-gray-700 text-sm font-bold xl:text-2xl lg:text-xl md:text-lg sm:text-base">มีวิชาให้เลือกเรียนที่หลากหลาย</p>
-                    <p class="text-gray-600 text-xs xl:text-lg md:text-base sm:text-sm">เราได้รวบรวมวิชาเรียนทั้งแบบ Online และ On-site ที่ครอบคลุมและหลากหลายให้เลือกทั้งวิชาหลักและวิชาเสริม</p>
+                <img src="../../imgs/icon-3.png" class="w-6 h-6 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
+                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-72 lg:w-52 md:w-44 sm:w-36">
+                    <p class="text-gray-700 text-sm font-bold xl:text-xl lg:text-xl md:text-lg sm:text-base">มีวิชาให้เลือกเรียนที่หลากหลาย</p>
+                    <p class="text-gray-600 text-xs xl:text-sm md:text-base sm:text-sm">เราได้รวบรวมวิชาเรียนทั้งแบบ Online และ On-site ที่ครอบคลุมและหลากหลายให้เลือกทั้งวิชาหลักและวิชาเสริม</p>
                 </div>
             </div>
             <div class="flex justify-center w-full">
-                <img src="../../imgs/icon-4.png" class="w-6 h-6 xl:w-20 xl:h-20 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
-                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-64 lg:w-52 md:w-44 sm:w-36">
-                    <p class="text-gray-700 text-sm font-bold xl:text-2xl lg:text-xl md:text-lg sm:text-base">มีใบประกาศรับรองหลังจากเรียนจบ</p>
-                    <p class="text-gray-600 text-xs xl:text-lg md:text-base sm:text-sm">หลังจากที่เรียนจบแล้วผู้เรียนสามารถขอใบประกาศรับรองการผ่านการเรียนได้</p>
+                <img src="../../imgs/icon-4.png" class="w-6 h-6 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
+                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-72 lg:w-52 md:w-44 sm:w-36">
+                    <p class="text-gray-700 text-sm font-bold xl:text-xl lg:text-xl md:text-lg sm:text-base">มีใบประกาศรับรองหลังจากเรียนจบ</p>
+                    <p class="text-gray-600 text-xs xl:text-sm md:text-base sm:text-sm">หลังจากที่เรียนจบแล้วผู้เรียนสามารถขอใบประกาศรับรองการผ่านการเรียนได้</p>
                 </div>
             </div>
         </div>
+        
         <div class="w-full bg-gray-200">
             <Slider />
         </div>
@@ -120,7 +121,20 @@ import Footer from "@/Components/Footer.vue"
                     </div>
                 </div>
         </div>
-            
+        <div class="relative area">
+            <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            </ul>
+       </div>    
         <div class="relative flex flex-col  text-center items-center p-4 pt-6 w-full h-auto space-y-4 bg-sky-200 sm:h-screen"> 
             <img src="../../imgs/bg_05.png" alt="" class="absolute w-20 h-20 top-0 left-0">
             <img src="../../imgs/bg_06.png" alt="" class="absolute w-20 h-20 top-0 right-0">
@@ -191,7 +205,7 @@ import Footer from "@/Components/Footer.vue"
                                         <h1 class="text-2xl font-bold">ครูบี</h1>
                                         <p class="text-lg text-gray-700 font-bold">ประสบการณ์ 5 ปี</p>
                                         <div v-for="(teacherData, index) in teacher" :key="index" class="flex flex-wrap w-52 text-gray-500 text-sm gap-1">
-                                            <p v-for="(teaching_type, courseIndex) in teacherData.teaching_type" :key="courseIndex" class="bg-gray-200 border px-3 py-1.5 rounded-lg text-sm">{{ teaching_type.teaching_type_name }}</p>
+                                            <p v-for="(teaching_type, courseIndex) in teacherData.teaching_type" :key="courseIndex" class="bg-gray-200 border px-2 py-1 rounded-lg text-sm">{{ teaching_type.teaching_type_name }}</p>
                                         </div>
                                         <p class="text-[#026292]">(500)</p>
                                         

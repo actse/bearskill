@@ -32,7 +32,7 @@ export default defineComponent({
     return {
       imgs: [
         { filename: 'BEARSKILL2.png' },
-        { filename: 'BEARSKILL1.jpg' },
+        { filename: 'BEARSKILL1.png' },
         { filename: 'BEARSKILL2.png' },      
       ],
     };
