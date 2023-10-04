@@ -2,7 +2,7 @@
   <footer class="bg-[#091324]">
     <!-- <footer class="bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-100"> -->
   <div class="max-w-screen-xl px-4 py-4 mx-auto sm:px-6 sm:py-16 lg:px-8">
-    <img src="../../imgs/logo.png" class="w-24 h-24 left-1 mx-auto sm:mx-1" />
+    <img src="../../imgs/logo.svg" class="w-24 h-24 left-1 mx-auto sm:mx-1" />
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
       
