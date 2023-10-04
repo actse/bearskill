@@ -53,31 +53,31 @@ import Footer from "@/Components/Footer.vue"
                 </div>
             </div>
         </div>
-        <div class="flex w-full h-auto py-1 sm:px-2 md:px-10 md:py-12 xl:px-3 xl:py-6">
-            <div class="flex justify-center w-full">
-                <img src="../../imgs/icon-1.png" class="w-6 h-6 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
-                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-72 lg:w-52 md:w-44 sm:w-36">
+        <div class="grid grid-cols-1 gap-4 h-auto py-1 sm:grid-cols-2 lg:grid-cols-4 sm:px-2 md:px-8 md:py-8 xl:px-3 xl:py-6">
+            <div class="flex justify-center w-full p-0.5">
+                <img src="../../imgs/icon-1.png" class="w-12 h-12 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-16 md:h-16 ">
+                <div class="flex flex-col pl-2 w-full 2xl:w-72 xl:w-72 lg:w-52">
                     <p class="text-gray-700 text-sm font-bold xl:text-xl lg:text-xl md:text-lg sm:text-base">ระบบรับรองความปลอดภัย</p>
                     <p class="text-gray-600 text-xs xl:text-sm md:text-base sm:text-sm">เว็บไซด์ของเรามีระบบรับรองคุณภาพและความปลอดภัยทั่งผู้เรียนและผู้สอนมีระบบรีวิวและรีพอร์ทพร้อมดูแลตลอด 24 ชม.</p>
                 </div>
             </div>
-            <div class="flex justify-center w-full">
-                <img src="../../imgs/icon-2.png" class="w-6 h-6 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
-                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-72 lg:w-52 md:w-44 sm:w-36">
+            <div class="flex justify-center w-full p-0.5">
+                <img src="../../imgs/icon-2.png" class="w-12 h-12 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-16 md:h-16 ">
+                <div class="flex flex-col pl-2 w-full 2xl:w-72 xl:w-72 lg:w-52">
                     <p class="text-gray-700 text-sm font-bold xl:text-xl lg:text-xl md:text-lg sm:text-base">User friendly สะดวกใช้งานง่าย</p>
                     <p class="text-gray-600 text-xs xl:text-sm md:text-base sm:text-sm">ระบบถูกออกแบบมาเพื่อให้มีความสะดวกและใช้งานง่ายทั้งผู้เรียนและผู้สอน ตั้งแต่ขั้นตอนลงทะเบียน และจบการเรียนการสอน</p>
                 </div>
             </div>
-            <div class="flex justify-center w-full">
-                <img src="../../imgs/icon-3.png" class="w-6 h-6 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
-                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-72 lg:w-52 md:w-44 sm:w-36">
+            <div class="flex justify-center w-full p-0.5">
+                <img src="../../imgs/icon-3.png" class="w-12 h-12 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-16 md:h-16 ">
+                <div class="flex flex-col pl-2 w-full 2xl:w-72 xl:w-72 lg:w-52">
                     <p class="text-gray-700 text-sm font-bold xl:text-xl lg:text-xl md:text-lg sm:text-base">มีวิชาให้เลือกเรียนที่หลากหลาย</p>
                     <p class="text-gray-600 text-xs xl:text-sm md:text-base sm:text-sm">เราได้รวบรวมวิชาเรียนทั้งแบบ Online และ On-site ที่ครอบคลุมและหลากหลายให้เลือกทั้งวิชาหลักและวิชาเสริม</p>
                 </div>
             </div>
-            <div class="flex justify-center w-full">
-                <img src="../../imgs/icon-4.png" class="w-6 h-6 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-8 md:h-8 sm:w-6 sm:h-6">
-                <div class="flex flex-col pl-2 w-24 2xl:w-72 xl:w-72 lg:w-52 md:w-44 sm:w-36">
+            <div class="flex justify-center w-full p-0.5">
+                <img src="../../imgs/icon-4.png" class="w-12 h-12 xl:w-12 xl:h-12 lg:h-12 lg:w-12 md:w-16 md:h-16 ">
+                <div class="flex flex-col pl-2 w-full 2xl:w-72 xl:w-72 lg:w-52">
                     <p class="text-gray-700 text-sm font-bold xl:text-xl lg:text-xl md:text-lg sm:text-base">มีใบประกาศรับรองหลังจากเรียนจบ</p>
                     <p class="text-gray-600 text-xs xl:text-sm md:text-base sm:text-sm">หลังจากที่เรียนจบแล้วผู้เรียนสามารถขอใบประกาศรับรองการผ่านการเรียนได้</p>
                 </div>
@@ -120,21 +120,7 @@ import Footer from "@/Components/Footer.vue"
                         <button class="flex relative justify-center text-center items-center w-32 h-32 bg-gradient-to-r from-blue-900 via-indigo-900 to-[#151F32] text-2xl font-extrabold text-slate-100 rounded-full duration-200 hover:shadow-[#8daeec] hover:shadow-lg sm:w-32 sm:h-32">อื่นๆ</button>
                     </div>
                 </div>
-        </div>
-        <div class="relative area">
-            <ul class="circles">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            </ul>
-       </div>    
+        </div>    
         <div class="relative flex flex-col  text-center items-center p-4 pt-6 w-full h-auto space-y-4 bg-sky-200 sm:h-screen"> 
             <img src="../../imgs/bg_05.png" alt="" class="absolute w-20 h-20 top-0 left-0">
             <img src="../../imgs/bg_06.png" alt="" class="absolute w-20 h-20 top-0 right-0">
@@ -168,8 +154,6 @@ import Footer from "@/Components/Footer.vue"
         </div>
 
         <div class="flex flex-col p-6 space-y-4 h-auto">
-                <div class="">
-                    
                     <div class=" flex flex-wrap justify-between space-y-2 sm:flex-wrap ">
                         <div class="relative flex flex-wrap justify-center items-center w-3/5 px-2 py-1 space-x-4 border-4 border-indigo-900 rounded-full text-gray-600 text-3xl font-extrabold bg-white md:w-2/5 lg:w-2/6 xl:w-3/12">
                             <p >STEP 3</p>
@@ -193,24 +177,24 @@ import Footer from "@/Components/Footer.vue"
                             </select>
                         </div>
                     </div>
-                        <div class="flex flex-col mt-10">
+                        <div class=" mt-10">
                             <h1 class="w-44 text-xl font-extrabold p-3 bg-[#026292] text-white">วิชาภาษาอังกฤษ</h1>
                             <div class="w-full my-2 p-4 bg-sky-200 space-y-5">
-                                <div class="flex flex-wrap items-center justify-center sm:justify-between sm:gap-20">
-                                    <div class="text-center space-y-2">
+                                <div class="grid grid-cols-1  md:grid-cols-5">
+                                    <div class="flex flex-col justify-center items-center text-center space-y-2 md:justify-normal md:items-start">
                                         <img src="../../imgs/BEARSKILL4.png" alt="" class="w-36 h-36">
                                         <button type="button" class=" px-4 py-1 bg-[#036594] text-white">ดูประวัติผู้สอน</button>
                                     </div>
-                                    <div class="flex flex-col text-center">
+                                    <div class="flex flex-col justify-center items-center text-center md:justify-normal md:items-start">
                                         <h1 class="text-2xl font-bold">ครูบี</h1>
-                                        <p class="text-lg text-gray-700 font-bold">ประสบการณ์ 5 ปี</p>
+                                        <p class="text-lg text-gray-700 font-bold ">ประสบการณ์ 5 ปี</p>
                                         <div v-for="(teacherData, index) in teacher" :key="index" class="flex flex-wrap w-52 text-gray-500 text-sm gap-1">
                                             <p v-for="(teaching_type, courseIndex) in teacherData.teaching_type" :key="courseIndex" class="bg-gray-200 border px-2 py-1 rounded-lg text-sm">{{ teaching_type.teaching_type_name }}</p>
                                         </div>
                                         <p class="text-[#026292]">(500)</p>
                                         
                                     </div>
-                                    <div class="pt-3">
+                                    <div class="pt-3 md:col-span-2">
                                         <div v-for="(teacherData, index) in teacher" :key="index" class="grid grid-cols-3 justify-center items-center gap-3 text-white text-sm font-bold">
                                             <div v-for="(course, courseIndex) in teacherData.courses" :key="courseIndex" class="bg-[#026292] py-1 px-4 rounded-lg">คอร์ส {{ course.course_name}}</div>
                                         </div>
@@ -224,10 +208,9 @@ import Footer from "@/Components/Footer.vue"
                                 </div>
                             </div>
                         </div>
-                </div>
         </div>
-        <div class="flex flex-col text-center items-center p-6 w-full  space-y-4 bg-gradient-to-t from-blue-900 via-indigo-900 to-[#151F32]"> 
-            <div class="py-4 ">
+        <div class="flex flex-col text-center items-center p-5 w-full  space-y-2 bg-gradient-to-t from-blue-900 via-indigo-900 to-[#151F32]"> 
+            <div class="py-6 ">
                 <div class="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between">
 
                     <div class="text-center">
@@ -237,7 +220,7 @@ import Footer from "@/Components/Footer.vue"
 
                     </div>
 
-                    <div class="mt-20">
+                    <div class="mt-10">
                         <ul class="">
                             <li v-for="(item, index) in FAQ" :key="index" class="text-left mb-10">
                                 <div class="flex flex-row items-start mb-5">

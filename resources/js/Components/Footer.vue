@@ -1,17 +1,17 @@
 <template>
-  <footer class="bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-100">
-    
-  <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
-    <img src="../../imgs/bear2.png" class="absolute w-32 h-32 left-1 " />
+  <footer class="bg-[#091324]">
+    <!-- <footer class="bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-100"> -->
+  <div class="max-w-screen-xl px-4 py-4 mx-auto sm:px-6 sm:py-16 lg:px-8">
+    <img src="../../imgs/logo.png" class="w-24 h-24 left-1 mx-auto sm:mx-1" />
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
       <div>
       
-        <h1 class="text-lg  sm:text-xl">Bear Skill</h1>
-        <p class="max-w-xs mt-4 text-sm text-gray-600">
+        <h1 class="text-lg text-white text-center sm:text-left sm:text-xl">Bear Skill</h1>
+        <p class="max-w-xs mt-4 text-sm text-white mx-auto sm:mx-0">
             Bear your skill for the future.
             แพลตฟอร์มหาติวเตอร์ทั้งแบบออนไลน์และนัดสอนนอกสถานที่
         </p>
-        <div class="flex mt-8 space-x-6 text-gray-600">
+        <div class="flex justify-center mt-8 space-x-6 text-gray-200 sm:justify-normal ">
           <a class="hover:opacity-75" href target="_blank" rel="noreferrer">
             <span class="sr-only"> Facebook </span>
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -44,36 +44,36 @@
           </a>
         </div>
       </div>
-      <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <p class="font-medium">
+      <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4 text-center sm:text-left">
+        <div >
+          <p class="font-medium text-white text-lg sm:text-xl">
             Course
           </p>
-          <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+          <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-200">
             <a class="hover:opacity-75" href> คอร์สออนไลน์ </a>
             <a class="hover:opacity-75" href> คอร์ส On-site </a>
             <a class="hover:opacity-75" href> คอร์สสำหรับสอบเข้ามหาลัย </a>
             <a class="hover:opacity-75" href> คอร์สสำหรับสอบเข้าม.ปลาย </a>
           </nav>
         </div>
-        <div>
+        <div class="hidden lg:block">
           <p class="font-medium">
             
           </p>
           <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
           </nav>
         </div>
-        <div>
+        <div class="hidden lg:block">
           <p class="font-medium">
           </p>
           <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
           </nav>
         </div>
         <div>
-          <p class="font-medium">
+          <p class="font-medium text-white text-lg sm:text-xl">
             About Us
           </p>
-          <nav class="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
+          <nav class="flex flex-col mt-4 space-y-2 text-sm text-orange-300">
             <a class="hover:opacity-75" href>บล็อค </a>
             <a class="hover:opacity-75" href> เกี่ยวกับเรา </a>
             <a class="hover:opacity-75" href> ติดต่อเรา </a>
