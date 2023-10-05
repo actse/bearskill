@@ -1,10 +1,10 @@
 <template>
   <Carousel :autoplay="2000" :wrap-around="true">
     <Slide v-for="(img, index) in imgs" :key="index">
-      <!-- <img src="../../imgs/BEARSKILL2.png" alt="" class="object-cover"> -->
+      <!-- <img src="../../../storage/app/public/imgs/BEARSKILL2.png" alt="" class="object-cover"> -->
       <!-- {{ img.filename }} -->
       <img :src="`${img.filename}`" alt="" class="object-cover"  />
-      <!-- <img :src="'../../imgs/' +  img.filename" alt="" class="object-cover"  />
+      <!-- <img :src="'../../../imgs/' +  img.filename" alt="" class="object-cover"  />
       {{ img.filename  }} -->
     </Slide>
     <template #addons>
@@ -33,7 +33,7 @@ export default defineComponent({
       imgs: [
         { filename: 'BEARSKILL2.png' },
         { filename: 'BEARSKILL1.png' },
-        { filename: 'BEARSKILL2.png' },      
+        { filename: 'BEARSKILL3.png' },      
       ],
     };
   },
