@@ -78,23 +78,6 @@ defineProps({
                                         </li>
                                     </ul>
                                 </div>
-                                <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    href="/"
-                                >
-                                    About Us </NavLink
-                                ><NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    href="/"
-                                >
-                                    Contact
-                                </NavLink>
-                                <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    href="/dashboard"
-                                >
-                                    Dashboard
-                                </NavLink>
                             </div>
                         </div>
                         <div class="flex justify-between h-20">
