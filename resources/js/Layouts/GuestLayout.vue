@@ -1,20 +1,28 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
+import ApplicationLogo from "@/Components/ApplicationLogo.vue";
+import layoutPage from "@/Layouts/LayoutPage.vue";
+
+import { Link } from "@inertiajs/vue3";
 </script>
 
 <template>
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 pb-32 sm:pt-0 bg-gray-100">
-        <div>
-            <Link href="/">
-                <ApplicationLogo class="w-56 h-56 fill-current text-gray-500" />
-            </Link>
-        </div>
-
+    <layoutPage>
         <div
-            class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
+            class="min-h-screen flex flex-col sm:justify-center items-center pt-6 pb-32 sm:pt-0 bg-gray-100"
         >
-            <slot />
+            <div>
+                <Link href="/">
+                    <ApplicationLogo
+                        class="w-56 h-56 fill-current text-gray-500"
+                    />
+                </Link>
+            </div>
+
+            <div
+                class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
+            >
+                <slot />
+            </div>
         </div>
-    </div>
+    </layoutPage>
 </template>

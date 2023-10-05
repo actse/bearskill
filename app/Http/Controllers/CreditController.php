@@ -15,24 +15,34 @@ class CreditController extends Controller
     {
         date_default_timezone_set('Asia/Bangkok');
 
-        $faker = Faker::create();
-        $insercredit = Credit::insert([
-            'teacher_id' => $faker->numberBetween(1,99),
-            'status' => $faker->randomElement(['approved', 'pending', 'rejected']),
-            'coin' => $faker->numberBetween(1, 1000),
-            'created_at' => now(),
+        $id = 1;
+        $paymentactive = "active";
 
-        ]);
+        if($paymentactive == null){
+            $statuspayment = Users::where('id', '=', $id)->update([
+                'status_payment_start' => 'active'
+            ]);
 
-        // $insercredit = Credit::insert([
-        //     'teacher_id' => $request->input('teacher_id'),
-        //     'status' => $request->input('status'),
-        //     'coin' => $request->input('coin'),
-        //     'created_at' => $request->input('created_at'),
+            $statuspayment = Credit::insert([
+                'teacher_id' => $request->input('id'),
+                'status' => $request->input('status'),
+                'coin' => $request->input('coin'),
+                'created_at' => $request->input('created_at'),
 
-        // ]);
+            ]);
+            return $statuspayment ? 'Data inserted successfully' : 'Data insertion failed';
+        }else {
+            $insercredit = Credit::insert([
+                'teacher_id' => $request->input('id'),
+                'status' => $request->input('status'),
+                'coin' => $request->input('coin'),
+                'created_at' => $request->input('created_at'),
 
-        return $insercredit ? 'Data inserted successfully' : 'Data insertion failed';
+            ]);
+            return $insercredit ? 'Data inserted successfully' : 'Data insertion failed';
+
+        }
+
     }
 
     function deduction_credit(Request $request)

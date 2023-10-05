@@ -1,12 +1,40 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
-
 </script>
 <template>
+    <div id="app" class="flex items-center justify-center">
+        <div
+            class="w-1/2 mx-auto bg-gray-200 border-2 p-1 border-slate-300 h-8 my-4 rounded-md"
+        >
+            <div
+                class="flex h-full text-white rounded-md items-center justify-center"
+                :class="{
+                    'bg-red-500': progressBarPercentage <= 25,
+                    'bg-orange-500':
+                        progressBarPercentage > 25 &&
+                        progressBarPercentage <= 50,
+                    'bg-blue-500':
+                        progressBarPercentage > 50 &&
+                        progressBarPercentage <= 75,
+                    'bg-green-500': progressBarPercentage > 75,
+                }"
+                :style="{ width: progressBarPercentage + '%' }"
+            >
+                <label v-if="progressBarPercentage != 0" for=""
+                    >{{ Math.floor(progressBarPercentage) }}%</label
+                >
+            </div>
+        </div>
+    </div>
     <div v-if="isFormContact" class="flex items-center justify-center">
         <form
             class="flex flex-row w-full h-auto items-center justify-center"
-            @submit.prevent="FormContact"
+            @submit.prevent="
+                FormContact(
+                    $page.props.auth.user.id,
+                    $page.props.auth.user.name
+                )
+            "
             enctype="multipart/form-data"
         >
             <div
@@ -29,6 +57,7 @@ import { Link } from "@inertiajs/vue3";
                             ชื่อเรียก<input
                                 type="text"
                                 class="ml-4 rounded-md border-slate-400"
+                                v-model="data.name"
                             />
                         </div>
                         <div class="flex w-full py-3 text-gray-500 text-center">
@@ -44,13 +73,16 @@ import { Link } from "@inertiajs/vue3";
                         </div>
                         <div class="flex p-2 items-center justify-center">
                             เบอร์โทร<input
-                                type="text"
+                                type="tel"
+                                pattern="[0]{1}[0-9]{2}[0-9]{3}[0-9]{4}"
                                 class="ml-4 rounded-md border-slate-400"
+                                v-model="data.phone"
                             />
                         </div>
                         <div class="flex w-full py-3 text-gray-500 text-center">
-                            มีตัวอักษรทั้งหมดไม่เกิน 10 ตัวอักษร ไม่อนุญาตให้ใช้
-                            emojis ข้อมูลการติดต่อ หรือคำโฆษณาเชิญชวนโปรไฟล์
+                            มีตัวอักษรทั้งหมดไม่เกิน 10 ตัวอักษร เช่น
+                            (0999999999) ไม่อนุญาตให้ใช้ emojis ข้อมูลการติดต่อ
+                            หรือคำโฆษณาเชิญชวนโปรไฟล์
                         </div>
                         <div
                             class="flex w-full py-3 ml-2 text-gray-700 text-center"
@@ -67,18 +99,8 @@ import { Link } from "@inertiajs/vue3";
                                 </span>
                             </div>
                             <div class="flex items-center ml-2 mb-2">
-                                <span class="text-danger">&#10060;</span>
-                                <span class="ml-2"
-                                    >📞 จัดเลี้ยง โทรเลย 87654321</span
-                                >
-                            </div>
-                            <div class="flex items-center ml-2 mb-2">
                                 <span class="text-success">&#10004;</span>
                                 <span class="ml-2">Saramaree Ananda</span>
-                            </div>
-                            <div class="flex items-center ml-2 mb-2">
-                                <span class="text-success">&#10004;</span>
-                                <span class="ml-2">SMD บริการช่วยเหลือ</span>
                             </div>
                         </div>
 
@@ -100,7 +122,7 @@ import { Link } from "@inertiajs/vue3";
     <div v-if="isFormDetail" class="flex items-center justify-center">
         <form
             class="flex flex-row w-full h-auto items-center justify-center"
-            @submit.prevent="FormDetail"
+            @submit.prevent="FormDetail($page.props.auth.user.id)"
             enctype="multipart/form-data"
         >
             <div
@@ -120,14 +142,18 @@ import { Link } from "@inertiajs/vue3";
                     <div
                         class="flex-row w-full p-4 items-center justify-center"
                     >
-                        <div class="flex flex-col p-2 w-1/3">
+                        <div class="flex flex-col p-2 w-full">
                             <div class="flex">
-                                <label for="">รายละเอียดเบื่องต้น</label>
+                                <label for=""
+                                    >รายละเอียดเบื่องต้น
+                                    (เพื่อไห้เราได้ทราบข้อมูลของท่านคราวๆ)</label
+                                >
                             </div>
                         </div>
                         <div class="flex flex-col p-2 w-full">
                             <div>
                                 <textarea
+                                    v-model="data.detail_data"
                                     class="w-full h-32 rounded-md border-slate-400"
                                 />
                             </div>
@@ -188,7 +214,7 @@ import { Link } from "@inertiajs/vue3";
                     >
                         <div class="flex flex-col p-2 w-full">
                             <div class="flex text-xl">
-                                <label>เติมเงินเข้าบัญชีของคุณ </label>
+                                <label>เติมเงินเข้าบัญชีของคุณ</label>
                             </div>
                             <div class="flex text-md mt-2 ml-3 text-slate-600">
                                 <label
@@ -199,7 +225,9 @@ import { Link } from "@inertiajs/vue3";
                             </div>
                         </div>
                         <div class="flex flex-col p-2 w-full mb-3">
-                            <Link href="/profile" type="button"
+                            <Link
+                                href="/billing"
+                                type="button"
                                 class="border-2 p-1.5 w-1/3 rounded-md text-lg text-slate-100 bg-[#172a4f] text-center"
                             >
                                 อ่านวิธีการเติมเงิน
@@ -220,16 +248,46 @@ import { Link } from "@inertiajs/vue3";
                                 </label>
                             </div>
                         </div>
-                        <div class="flex flex-col p-2 w-full pb-5">
-                            <button
-                                class="border-2 p-1.5 w-1/3 rounded-md text-lg text-slate-100 bg-[#172a4f]"
-                            >
-                                ยืนยันตัวตน
-                            </button>
-                        </div>
-
-                        <form action="" class="pb-5">
+                        <form
+                            @submit.prevent="
+                                sendOTP(
+                                    $page.props.auth.user.email,
+                                    $page.props.auth.user.phone
+                                )
+                            "
+                            enctype="multipart/form-data"
+                        >
+                            <div class="flex flex-col p-2 w-full pb-5">
+                                <div class="flex mb-3 w-1/3">
+                                    <input
+                                        type="text"
+                                        class="w-full border-slate-300 rounded-md"
+                                        v-model="$page.props.auth.user.phone"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    class="mt-1 border-2 p-1.5 w-1/3 rounded-md text-lg text-slate-100 bg-[#172a4f]"
+                                >
+                                    ยืนยันตัวตน
+                                </button>
+                            </div>
+                        </form>
+                        <form
+                            @submit.prevent="
+                                veriflyOTP($page.props.auth.user.id)
+                            "
+                            enctype="multipart/form-data"
+                            class="pb-5"
+                        >
                             <div class="flex flex-col p-2 w-full">
+                                <!-- <div class="flex mb-3 w-1/3">
+                                    <input
+                                        type="text"
+                                        class="w-full border-slate-300 rounded-md"
+                                        v-model="$page.props.auth.user.email"
+                                    />
+                                </div> -->
                                 <div class="flex text-xl">
                                     <label>กรุณากรอกรหัส (OTP) ที่นี้</label>
                                 </div>
@@ -247,6 +305,7 @@ import { Link } from "@inertiajs/vue3";
                                     <input
                                         type="text"
                                         class="w-full border-slate-300 rounded-md"
+                                        v-model="otpnumber"
                                     />
                                 </div>
                             </div>
@@ -268,27 +327,161 @@ import { Link } from "@inertiajs/vue3";
 export default {
     data() {
         return {
+            username: "",
             isFormContact: false,
             isFormDetail: false,
-            isFormVerify: true,
+            isFormVerify: false,
+            progressBarPercentage: 0,
+            data: {
+                name: "",
+                phone: "",
+                detail_data: "",
+                verify_status: "",
+                payment_services_start: "",
+            },
+            otpnumber: "",
         };
     },
     methods: {
-        FormContact() {
-            this.isFormDetail = true;
-            this.isFormContact = false
-            console.log(this.isFormDetail);
-        },
-        FormDetail() {
-            this.isFormVerify = true;
-            this.isFormDetail = false;
-            console.log(this.isFormVerify);
-        },
-        FormVerify() {
+        FormContact(id, name) {
+            this.data.name = name;
+            console.log(this.data.name);
+            console.log(this.data.phone);
+            const formData = new FormData();
 
+            formData.append("id", id);
+            formData.append("name", this.data.name);
+            formData.append("phone", this.data.phone);
+
+            axios
+                .post("/insertContact", formData)
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.error(error.response.data);
+                });
+        },
+        FormDetail(id) {
+            console.log(this.data.detail_data);
+            const formData = new FormData();
+            formData.append("id", id);
+            formData.append("detail_data", this.data.detail_data);
+            axios
+                .post("/insertDetail", formData)
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.error(error.response.data);
+                });
+        },
+        FormVerify() {},
+        sendOTP(email, phone) {
+            console.log(email);
+            console.log(phone);
+            const formData = new FormData();
+            formData.append("email", email);
+            formData.append("phone", phone);
+
+            axios
+                .post("/sendOTP", formData)
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.error(error.response.data);
+                });
+        },
+        veriflyOTP(id) {
+            const formData = new FormData();
+            formData.append("id", id);
+            formData.append("otpnumber", this.otpnumber);
+
+            console.log(id);
+            console.log(this.otpnumber);
+
+            axios
+                .post("/veriflyAccount", formData)
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.error(error.response.data);
+                });
+        },
+        simulateProgress() {
+            const nonEmptyFields = Object.values(this.data).filter(
+                (value) => value !== null
+            ).length;
+
+            const percentageIncrement = 100 / Object.keys(this.data).length;
+
+            for (let index = 0; index < nonEmptyFields; index++) {
+                this.progressBarPercentage += percentageIncrement;
+            }
+        },
+        selectData() {
+            const userId = this.$page.props.auth.user.id;
+            const formData = new FormData();
+            formData.append("id", userId);
+
+            axios
+                .post("/selectdata", formData)
+                .then((response) => {
+                    this.data.name = response.data.name;
+                    this.data.phone = response.data.phone;
+                    this.data.verify_status = response.data.verifly_account;
+                    this.data.detail_data = response.data.detailsimple;
+                    this.data.payment_services_start =
+                        response.data.status_services_start;
+
+                    console.log(response.data);
+
+                    console.log(this.data.name);
+                    console.log(this.data.phone);
+                    console.log(this.data.verify_status);
+                    console.log(this.data.detail_data);
+                    console.log(this.data.payment_services_start);
+
+                    if (this.data.name == null || this.data.phone == null) {
+                        this.isFormContact = true;
+                        this.isFormDetail = false;
+                        this.isFormVerify = false;
+                    }
+
+                    if (
+                        this.data.name != null &&
+                        this.data.phone != null &&
+                        this.data.detail_data == null
+                    ) {
+                        this.isFormDetail = true;
+                        this.isFormContact = false;
+                        this.isFormVerify = false;
+                    }
+                    if (
+                        ((this.data.verify_status == null ||
+                            this.data.verify_status != null) &&
+                        this.data.name != null &&
+                        this.data.phone != null &&
+                        this.data.detail_data != null &&
+                        (this.data.payment_services_start == null ||
+                            this.data.payment_services_start != null))
+                    ) {
+                        this.isFormVerify = true;
+                        this.isFormContact = false;
+                        this.isFormDetail = false;
+                    }
+                    this.simulateProgress();
+                })
+                .catch((error) => {
+                    console.error(error.response.data);
+                });
         },
     },
-    mounted() {},
+    mounted() {
+        this.selectData();
+    },
 };
 </script>
 <style scoped></style>
