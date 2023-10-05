@@ -7,8 +7,20 @@ import { Link } from "@inertiajs/vue3";
 
 <template>
     <layoutPage>
-        <div class="min-h-screen bg-gray-200 text-gray-900 flex justify-center">
-            <div class="max-w-screen-md m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+        <div
+            class="min-h-screen flex flex-col sm:justify-center items-center pt-6 pb-32 sm:pt-0 bg-gray-100"
+        >
+            <div>
+                <Link href="/">
+                    <ApplicationLogo
+                        class="w-56 h-56 fill-current text-gray-500"
+                    />
+                </Link>
+            </div>
+
+            <div
+                class="w-full sm:max-w-md px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg"
+            >
                 <slot />
             </div>
         </div>
