@@ -36,15 +36,15 @@ const submit = () => {
         <!-- New Login -->
         <Head title="Log in" />
         <form @submit.prevent="submit">
-            <div class="p-10 sm:pl-10 lg:w-full xl:w-full">
-                <div class="flex flex-col items-center">
-                    <h1 class="text-2xl xl:text-3xl font-extrabold">
+            <div class="p-10 sm:pl-10 lg:w-full xl:w-full rounded-l-lg">
+                <div class="flex flex-col items-center ">
+                    <h1 class="text-2xl xl:text-3xl font-extrabold text-gray-700">
                         Sign up
                     </h1>
-                    <div class="w-full flex-1 mt-8">
+                    <div class="w-full flex-1 mt-8 ">
                         <div class="flex flex-col items-center">
                             <button
-                                class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 px-10 bg-indigo-100 text-gray-800 flex items-center justify-start transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
+                                class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 px-10 bg-indigo-100 text-gray-700 flex items-center justify-start transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                 <div class="bg-white p-2 rounded-full">
                                     <svg class="w-4" viewBox="0 0 533.5 544.3">
                                         <path
@@ -67,7 +67,7 @@ const submit = () => {
                             </button>
 
                             <button
-                                class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 px-10 bg-indigo-100 text-gray-800 flex items-center justify-start transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
+                                class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 px-10 bg-indigo-100 text-gray-700 flex items-center justify-start transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5">
                                 <div class="bg-white p-1 rounded-full">
                                     <!-- <svg class="w-6" viewBox="0 0 32 32">
                                         <path fill-rule="evenodd"
@@ -133,8 +133,8 @@ const submit = () => {
                 </div>
             </div>
         </form>
-        <div class="flex-1 bg-indigo-100 text-center hidden lg:flex bg-cover bg-login_img">
-            <div class=" xl:m-16 w-full h-full bg-cover bg-center bg-no-repeat" >
+        <div class="flex-1 bg-indigo-100 text-center hidden lg:flex bg-cover bg-login_img ">
+            <div class=" w-full h-full bg-cover bg-center bg-no-repeat rounded-r-lg" >
                 <img class="w-full h-full bg-cover rounded-r-lg" src="../../../imgs/bg_login.png" alt="">
             </div>
         </div>
