@@ -39,7 +39,7 @@ const submit = () => {
             <div class="p-10 sm:pl-10 lg:w-full xl:w-full rounded-l-lg">
                 <div class="flex flex-col items-center ">
                     <h1 class="text-2xl xl:text-3xl font-extrabold text-gray-700">
-                        Sign up
+                        Sign In
                     </h1>
                     <div class="w-full flex-1 mt-8 ">
                         <div class="flex flex-col items-center">
@@ -62,7 +62,7 @@ const submit = () => {
                                     </svg>
                                 </div>
                                 <span class="ml-4">
-                                    Sign Up with Google
+                                    Sign In with Google
                                 </span>
                             </button>
 
@@ -76,7 +76,7 @@ const submit = () => {
                                     <img src="../../../imgs/line_icon.png" alt="" class="w-7">
                                 </div>
                                 <span class="ml-4">
-                                    Sign Up with Line
+                                    Sign In with Line
                                 </span>
                                 
                             </button>
@@ -85,7 +85,7 @@ const submit = () => {
                         <div class="my-12 border-b text-center">
                             <div
                                 class="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                                Or sign up with e-mail
+                                Or sign In with e-mail
                             </div>
                         </div>
 
@@ -118,7 +118,7 @@ const submit = () => {
                                     <path d="M20 8v6M23 11h-6" />
                                 </svg>
                                 <span class="ml-3">
-                                    Sign Up
+                                    Sign In
                                 </span>
                             </button>
                             <Link
