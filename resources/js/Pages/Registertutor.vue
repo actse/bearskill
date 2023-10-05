@@ -1,4 +1,4 @@
-<!-- <script setup>
+<script setup>
 import LayoutPage from "@/Layouts/LayoutPage.vue";
 import { Head } from "@inertiajs/vue3";
 </script>
@@ -7,139 +7,132 @@ import { Head } from "@inertiajs/vue3";
     <LayoutPage>
         <div class="p-10">
             <div class="max-w-7xl mx-auto">
-                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-10 text-gray-700">
-                        <form
-                            @submit.prevent="register"
-                            enctype="multipart/form-data"
-                            class="max-w-lg mx-auto bg-gray-100 text-gray-600 shadow-md p-14 rounded border-2"
-                        >
-                            <div class="mb-5">
-                                <label for="" class="font-bold text-2xl"
-                                    >ลงทะเบียน</label
-                                >
-                            </div>
-                            <!-- ข้อมูลบัญชีผู้ใช้ -->
-                            <div
-                                class="flex w-full h-10 mb-4 bg-blue-500 text-white items-center justify-center rounded"
+                <div class="p-10 text-white">
+                    <form
+                        @submit.prevent="CreateUser"
+                        enctype="multipart/form-data"
+                        class="max-w-lg mx-auto bg-gray-100 text-gray-600 shadow-md p-14 rounded border-2"
+                    >
+                        <div class="mb-5">
+                            <label for="" class="font-bold text-2xl"
+                                >ลงทะเบียน</label
                             >
-                                ข้อมูลเข้าสู่ระบบ
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block font-bold mb-2"
-                                    >Email</label
-                                >
+                        </div>
+                        <!-- ข้อมูลบัญชีผู้ใช้ -->
+                        <div class="mb-4">
+                            <label for="email" class="block font-bold mb-2"
+                                >Phone</label
+                            >
+                            <input
+                                type="tel"
+                                name="phone"
+                                id="phone"
+                                class="border rounded w-full px-3 leading-tight focus:outline-none focus:shadow-outline"
+                                v-model="phone"
+                                pattern="[0]{1}[0-9]{2}[0-9]{3}[0-9]{4}"
+                            />
+                        </div>
+                        <div
+                            class="flex w-full mb-3 text-gray-500 text-center text-sm"
+                        >
+                            มีตัวอักษรทั้งหมดไม่เกิน 10 ตัวอักษร เช่น
+                            (0999999999)
+                        </div>
+                        <div class="mb-4">
+                            <label for="password" class="block font-bold mb-2"
+                                >Password</label
+                            >
+                            <div class="relative">
                                 <input
-                                    type="email"
-                                    name="email"
-                                    id="email"
-                                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    class="border rounded w-full py-2 px-3 pr-10 leading-tight focus:outline-none focus:shadow-outline js-password"
                                     required
-                                    v-model="email"
+                                    v-model="password"
                                 />
-                            </div>
-                            <div class="mb-4">
-                                <label
-                                    for="password"
-                                    class="block font-bold mb-2"
-                                    >Password</label
-                                >
-                                <div class="relative">
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        id="password"
-                                        class="border rounded w-full py-2 px-3 pr-10 leading-tight focus:outline-none focus:shadow-outline js-password"
-                                        required
-                                        v-model="password"
-                                    />
-                                    <button
-                                        type="button"
-                                        class="absolute inset-y-0 right-0 px-3 py-2 text-gray-500 focus:outline-none js-password-toggle"
-                                        @click="
-                                            togglePasswordVisibility('password')
-                                        "
-                                    >
-                                        {{ showPassword ? "hide" : "show" }}
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="mb-6">
-                                <label
-                                    for="confirm_password"
-                                    class="block font-bold mb-2"
-                                    >Confirm Password</label
-                                >
-                                <div class="relative">
-                                    <input
-                                        type="password"
-                                        name="confirm_password"
-                                        id="confirm_password"
-                                        class="border rounded w-full py-2 px-3 pr-10 leading-tight focus:outline-none focus:shadow-outline js-password"
-                                        required
-                                        v-model="confirm_password"
-                                        @input="checkPasswordMatch"
-                                    />
-                                    <button
-                                        type="button"
-                                        class="absolute inset-y-0 right-0 px-3 py-2 text-gray-500 focus:outline-none js-password-toggle"
-                                        @click="
-                                            toggleConfirmPasswordVisibility(
-                                                'confirm_password'
-                                            )
-                                        "
-                                    >
-                                        {{
-                                            showConfirmPassword
-                                                ? "hide"
-                                                : "show"
-                                        }}
-                                    </button>
-                                </div>
-                            </div>
-                            <div>
-                                <p
-                                    v-if="passwordMismatch"
-                                    class="text-red-500 mb-4"
-                                >
-                                    รหัสผ่านไม่ตรงกัน
-                                </p>
-                            </div>
-                            <!-- ปุ่มสมัครสมาชิก -->
-                            <div class="flex mb-6">
-                                <label class="text-gray-500 font-bold">
-                                    <input
-                                        class="mr-2 leading-tight"
-                                        type="checkbox"
-                                        v-model="newsletterChecked"
-                                    />
-                                    <span class="text-sm text-gray-500">
-                                        โดยการเปิดบัญชี BearSkill
-                                        ท่านรับทราบและตกลงตาม
-                                        <span
-                                            class="ml-7 text-sm text-blue-500 hover:border-b-2 hover:border-blue-700"
-                                        >
-                                            เงื่อนไขการให้บริการ
-                                        </span>
-                                        &
-                                        <span
-                                            class="text-sm text-blue-500 hover:border-b-2 hover:border-blue-700"
-                                        >
-                                            นโยบายความเป็นส่วนตัว
-                                        </span>
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="flex justify-center">
                                 <button
-                                    type="submit"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                    type="button"
+                                    class="absolute inset-y-0 right-0 px-3 py-2 text-gray-500 focus:outline-none js-password-toggle"
+                                    @click="
+                                        togglePasswordVisibility('password')
+                                    "
                                 >
-                                    สมัครสมาชิก
+                                    {{ showPassword ? "hide" : "show" }}
                                 </button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="mb-6">
+                            <label
+                                for="confirm_password"
+                                class="block font-bold mb-2"
+                                >Confirm Password</label
+                            >
+                            <div class="relative">
+                                <input
+                                    type="password"
+                                    name="confirm_password"
+                                    id="confirm_password"
+                                    class="border rounded w-full py-2 px-3 pr-10 leading-tight focus:outline-none focus:shadow-outline js-password"
+                                    required
+                                    v-model="confirm_password"
+                                    @input="checkPasswordMatch"
+                                />
+                                <button
+                                    type="button"
+                                    class="absolute inset-y-0 right-0 px-3 py-2 text-gray-500 focus:outline-none js-password-toggle"
+                                    @click="
+                                        toggleConfirmPasswordVisibility(
+                                            'confirm_password'
+                                        )
+                                    "
+                                >
+                                    {{ showConfirmPassword ? "hide" : "show" }}
+                                </button>
+                            </div>
+                        </div>
+                        <div>
+                            <p
+                                v-if="passwordMismatch"
+                                class="text-red-500 mb-4"
+                            >
+                                รหัสผ่านไม่ตรงกัน
+                            </p>
+                        </div>
+                        <!-- ปุ่มสมัครสมาชิก -->
+                        <div class="flex mb-6">
+                            <label class="text-gray-500 font-bold">
+                                <input
+                                    class="mr-2 leading-tight"
+                                    type="checkbox"
+                                    v-model="newsletterChecked"
+                                />
+                                <span class="text-sm text-gray-500">
+                                    โดยการเปิดบัญชี BearSkill
+                                    ท่านรับทราบและตกลงตาม
+                                    <span
+                                        class="ml-7 text-sm text-blue-500 hover:border-b-2 hover:border-blue-700"
+                                    >
+                                        เงื่อนไขการให้บริการ
+                                    </span>
+                                    &
+                                    <span
+                                        class="text-sm text-blue-500 hover:border-b-2 hover:border-blue-700"
+                                    >
+                                        นโยบายความเป็นส่วนตัว
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="flex justify-center">
+                            <button
+                                type="submit"
+                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            >
+                                สมัครสมาชิก
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -149,6 +142,7 @@ import { Head } from "@inertiajs/vue3";
 export default {
     data() {
         return {
+            phone: "",
             email: "",
             password: "",
             confirm_password: "",
@@ -180,13 +174,13 @@ export default {
         checkPasswordMatch() {
             this.passwordMismatch = this.password !== this.confirm_password;
         },
-        register() {
+        CreateUser() {
             const formData = new FormData();
-            formData.append("email", this.email);
+            formData.append("phone", this.phone);
             formData.append("password", this.password);
             formData.append("confirm_password", this.confirm_password);
 
-            console.log(this.email);
+            console.log(this.phone);
             console.log(this.password);
             console.log(this.confirm_password);
 
@@ -198,7 +192,7 @@ export default {
             }
 
             axios
-                .post("/registers", formData)
+                .post("/createduser", formData)
                 .then((response) => {
                     console.log(response);
                 })
@@ -209,4 +203,4 @@ export default {
     },
     mounted() {},
 };
-</script> -->
+</script>

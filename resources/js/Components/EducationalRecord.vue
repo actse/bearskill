@@ -3,8 +3,6 @@ import InputError from "@/Components/InputError.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
-import LayOutProfile from "@/Components/LayOutProfile.vue";
-
 import LayoutPage from "@/Layouts/LayoutPage.vue";
 import { Link, useForm, usePage } from "@inertiajs/vue3";
 
@@ -27,7 +25,76 @@ const form = useForm({
 </script>
 
 <template>
-    <Test></Test>
+    <section>
+        <form
+            class="w-full text-slate-500"
+            @submit.prevent="editteacher"
+            enctype="multipart/form-data"
+        >
+            <div
+                class="flex w-full h-10 mb-4 bg-[#151F32] text-white items-center justify-center rounded"
+            >
+                ประวัติการศึกษา
+            </div>
+            <div class="mb-4">
+                <label for="graduation_status" class="block font-bold mb-2"
+                    >จบการศึกษาระดับใด</label
+                >
+                <select
+                    name="graduation_status"
+                    @change="onchange(graduation_status)"
+                    id="graduation_status"
+                    v-model="graduation_status"
+                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                >
+                    <option value="">เลือกระดับการศึกษา</option>
+                    <option v-for="(item, index) in 3" :value="index + 1">
+                        {{
+                            item === 1
+                                ? "ปริญาตรี"
+                                : item === 2
+                                ? "ปริญาโท"
+                                : "ปริญาเอก"
+                        }}
+                    </option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="bachelor_university" class="block font-bold mb-2"
+                    >สถาบัน / มหาวิทยาลัย</label
+                >
+                <input
+                    type="text"
+                    v-model="bachelor_university"
+                    name="bachelor_university"
+                    id="bachelor_university"
+                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                />
+            </div>
+            <div class="mb-4">
+                <label for="bachelor_major" class="block font-bold mb-2"
+                    >วิชาเอก / สาขาวิชา</label
+                >
+                <input
+                    type="text"
+                    v-model="bachelor_major"
+                    name="bachelor_major"
+                    id="bachelor_major"
+                    class="border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                />
+            </div>
+            <div class="flex flex-row items-center justify-center">
+                <div class="flex-col">
+                    <button
+                        type="submit"
+                        class="bg-[#151F32] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    >
+                        เพิ่มข้อมูลส่วนตัว
+                    </button>
+                </div>
+            </div>
+        </form>
+    </section>
 </template>
 <script>
 export default {
@@ -77,9 +144,9 @@ export default {
             we_more_detail: "",
             register_at: "",
             status_account: "",
-            select_form_bachelor: null,
-            select_form_master: null,
-            select_form_doctoral: null,
+            select_form_bachelor: false,
+            select_form_master: false,
+            select_form_doctoral: false,
             selectedLevels: [],
             bachelorStatusOptions: [
                 {
@@ -137,30 +204,6 @@ export default {
             }
             console.log(this.idcard_image);
         },
-
-        onBachelorReferenceDocumentsChange(event) {
-            const selectedFile = event.target.files[0];
-            if (selectedFile) {
-                this.bachelor_reference_documents = selectedFile;
-            }
-            console.log(this.bachelor_reference_documents);
-        },
-
-        onMasterReferenceDocumentsChange(event) {
-            const selectedFile = event.target.files[0];
-            if (selectedFile) {
-                this.master_reference_documents = selectedFile;
-            }
-            console.log(this.master_reference_documents);
-        },
-
-        onDoctoralReferenceDocumentsChange(event) {
-            const selectedFile = event.target.files[0];
-            if (selectedFile) {
-                this.doctoral_reference_documents = selectedFile;
-            }
-            console.log(this.doctoral_reference_documents);
-        },
         handleCheckboxChange(item) {
             if (!this.selectedLevels.includes(item)) {
                 this.selectedLevels.push(item);
@@ -168,17 +211,17 @@ export default {
             console.log(this.selectedLevels);
         },
         onchange(item) {
-            console.log(item);
+            this.select_form_bachelor = false;
+            this.select_form_master = false;
+            this.select_form_doctoral = false;
+
             if (item == 1) {
                 this.select_form_bachelor = true;
             }
             if (item > 1 && item < 3) {
-                this.select_form_bachelor = true;
                 this.select_form_master = true;
             }
             if (item == 3) {
-                this.select_form_bachelor = true;
-                this.select_form_master = true;
                 this.select_form_doctoral = true;
             }
             if (item === "") {

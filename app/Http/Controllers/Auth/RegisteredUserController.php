@@ -38,15 +38,10 @@ class RegisteredUserController extends Controller
 
         ]);
 
-
-
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'register_at' => now(),
-            'status_account' => 'teacher',
-
         ]);
 
         User::where('email', '=', $request->email)->update([

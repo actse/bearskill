@@ -3,8 +3,6 @@ import InputError from "@/Components/InputError.vue";
 import InputLabel from "@/Components/InputLabel.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 import TextInput from "@/Components/TextInput.vue";
-import LayOutProfile from "@/Components/LayOutProfile.vue";
-
 import LayoutPage from "@/Layouts/LayoutPage.vue";
 import { Link, useForm, usePage } from "@inertiajs/vue3";
 
@@ -27,7 +25,66 @@ const form = useForm({
 </script>
 
 <template>
-    <Test></Test>
+    <section>
+        <form
+            class="w-full text-slate-500"
+            @submit.prevent="editteacher"
+            enctype="multipart/form-data"
+        >
+            <div
+                class="flex w-full h-10 mb-4 bg-[#151F32] text-white items-center justify-center rounded"
+            >
+                ประวัติการสอน / ทำงาน
+            </div>
+            <div class="mb-4">
+                <label for="work_experience" class="block font-bold mb-2"
+                    >ประสบการณ์การทำงาน
+                </label>
+                <textarea
+                    v-model="work_experience"
+                    name="work_experience"
+                    id="work_experience"
+                    class="border rounded w-4/5 h-24 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                ></textarea>
+            </div>
+            <div class="mb-4">
+                <label
+                    for="teaching_experience_year"
+                    class="block font-bold mb-2"
+                    >ทำมาแล้วกี่ปี ระบุ</label
+                >
+                <input
+                    type="number"
+                    v-model="teaching_experience_year"
+                    name="teaching_experience_year"
+                    id="teaching_experience_year"
+                    class="border rounded w-1/2 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                    min="0"
+                />
+            </div>
+            <div class="mb-4">
+                <label for="we_more_detail" class="block font-bold mb-2"
+                    >เพิ่มเติม</label
+                >
+                <textarea
+                    v-model="we_more_detail"
+                    name="we_more_detail"
+                    id="we_more_detail"
+                    class="border rounded w-4/5 h-32 py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                ></textarea>
+            </div>
+            <div class="flex flex-row items-center justify-center">
+                <div class="flex-col">
+                    <button
+                        type="submit"
+                        class="bg-[#151F32] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    >
+                        เพิ่มข้อมูล
+                    </button>
+                </div>
+            </div>
+        </form>
+    </section>
 </template>
 <script>
 export default {
@@ -77,9 +134,9 @@ export default {
             we_more_detail: "",
             register_at: "",
             status_account: "",
-            select_form_bachelor: null,
-            select_form_master: null,
-            select_form_doctoral: null,
+            select_form_bachelor: false,
+            select_form_master: false,
+            select_form_doctoral: false,
             selectedLevels: [],
             bachelorStatusOptions: [
                 {
@@ -168,17 +225,17 @@ export default {
             console.log(this.selectedLevels);
         },
         onchange(item) {
-            console.log(item);
+            this.select_form_bachelor = false;
+            this.select_form_master = false;
+            this.select_form_doctoral = false;
+
             if (item == 1) {
                 this.select_form_bachelor = true;
             }
             if (item > 1 && item < 3) {
-                this.select_form_bachelor = true;
                 this.select_form_master = true;
             }
             if (item == 3) {
-                this.select_form_bachelor = true;
-                this.select_form_master = true;
                 this.select_form_doctoral = true;
             }
             if (item === "") {

@@ -16,13 +16,13 @@ const showingNavigationDropdown = ref(false);
             <nav class="bg-[#151F32] border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
+                    <div class="flex justify-between h-18">
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link href="/dashboard">
                                     <ApplicationLogo
-                                        class="block h-9 w-auto fill-current text-white"
+                                        class="block w-auto fill-current text-white"
                                     />
                                 </Link>
                             </div>
@@ -32,34 +32,17 @@ const showingNavigationDropdown = ref(false);
                                 class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
                             >
                                 <NavLink
-                                    class="text-[16px] font-source text-slate-100"
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
+                                    class="sm:text-auto text-[17px] font-sans text-slate-100"
+                                    href="/dashboard"
+                                    active="./current(ashboard')"
                                 >
-                                    Dashboard
+                                    หน้าหลัก
                                 </NavLink>
                                 <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    :href="route('dashboard')"
-                                >
-                                    หน้าแรก
-                                </NavLink>
-                                <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    :href="route('dashboard')"
+                                    class="sm:text-auto text-[17px] font-sans text-slate-100 hover:text-white"
+                                    href="/dashboard"
                                 >
                                     คอร์สทั้งหมด
-                                </NavLink>
-                                <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    :href="route('dashboard')"
-                                >
-                                    About Us </NavLink
-                                ><NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
-                                    :href="route('dashboard')"
-                                >
-                                    Contact
                                 </NavLink>
                             </div>
                         </div>
@@ -70,12 +53,17 @@ const showingNavigationDropdown = ref(false);
                                 <Dropdown align="right" width="48" class="">
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
+                                            <img
+                                                class="w-8 h-8 mt-1 rounded-full border-2 border-blue-400 shadow-lg"
+                                                src="../../imgs/imnayoen.jpeg"
+                                                alt=""
+                                            />
                                             <button
                                                 type="button"
-                                                class="bg-[#151F32] inline-flex items-center px-3 py-2 border border-transparent text-md leading-4 font-medium rounded-md text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
+                                                class="bg-[#151F32] mt-1 inline-flex items-center px-3 py-2 border border-transparent text-md leading-4 font-medium rounded-md text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {{ $page.props.auth.user.name }}
-
+                                                {{ $page.props.auth.user.email }}
                                                 <svg
                                                     class="ml-2 -mr-0.5 h-4 w-4"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -94,13 +82,18 @@ const showingNavigationDropdown = ref(false);
 
                                     <template #content>
                                         <DropdownLink
-                                            :href="route('profile.edit')"
+                                            href='profile'
                                         >
                                             Profile
                                         </DropdownLink>
+                                        <Link
+                                            class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                                        href="addcredit"
+                                        >
+                                            เติม credit
+                                        </Link>
                                         <DropdownLink
-                                            :href="route('logout')"
-                                            method="post"
+                                            href="/logout"                                           method="post"
                                             as="button"
                                         >
                                             Log Out
@@ -163,8 +156,8 @@ const showingNavigationDropdown = ref(false);
                 >
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink
-                            :href="route('dashboard')"
-                            :active="route().current('dashboard')"
+                            href="/dashboard"
+                            active="./current(ashboard')"
                         >
                             Dashboard
                         </ResponsiveNavLink>
@@ -182,12 +175,17 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('profile.edit')">
+                            <ResponsiveNavLink href='/profile'>
                                 Profile
                             </ResponsiveNavLink>
+                            <Link
+                                class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
+                                href="/addcredit"
+                            >
+                                เติม credit
+                            </Link>
                             <ResponsiveNavLink
-                                :href="route('logout')"
-                                method="post"
+                                href="logout"                               method="post"
                                 as="button"
                             >
                                 Log Out

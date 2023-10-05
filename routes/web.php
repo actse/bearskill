@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\TutorController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CreditController;
 use App\Http\Controllers\SelectDataController;
 use Illuminate\Http\Request;
@@ -32,6 +32,9 @@ Route::get('/', function () {
     ]);
 });
 
+// Route::post('/login', [AuthController::class, 'login'])->name('login');
+// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
 // Route::get('/', function () {
 //     return Inertia::render('Home');
 // });
@@ -40,20 +43,20 @@ Route::get('/', function () {
 //     return Inertia::render('Login');
 // });
 
-// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-// Route::post('/login', [AuthController::class, 'login']);
-// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-
-// Route::get('/registertutor', function () {
-//     return Inertia::render('Registertutor');
+// Route::get('/registerUser', function () {
+//     return Inertia::render('RegisterUser');
 // });
 
-Route::get('/profile', function () {
-    return Inertia::render('Profile');
+// Route::get('/profile', function () {
+//     return Inertia::render('Profile');
+// });
+
+Route::get('/test', function () {
+    return Inertia::render('Test');
 });
 
 Route::get('/registers', function () {
-    return Inertia::render('Registertutor');
+    return Inertia::render('RegisterUser');
 });
 
 // Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
@@ -62,6 +65,11 @@ Route::get('/registers', function () {
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
 // });
+
+Route::get('/billing', function () {
+    return Inertia::render('Billing');
+});
+
 Route::get('/test', function () {
     return Inertia::render('test');
 });
@@ -70,14 +78,26 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth:api')->get('/api/user', function () {
+    return auth()->user();
+  });
+
 Route::get('/register_student', [StudentController::class, 'insert']);
 Route::get('/edit_profile_student', [StudentController::class, 'update']);
 
-Route::post('/registers', [TutorController::class, 'insert']);
-Route::get('/editteacher', [TutorController::class, 'edit_profile']);
-Route::get('/suspend_account', [TutorController::class, 'suspend_account']);
-Route::get('/addsubjectsteacher', [TutorController::class, 'insert_subjects']);
-Route::get('/addtypesubject', [TutorController::class, 'insert_type_subjects']);
+Route::post('/registers', [UserController::class, 'insert']);
+Route::post('/insertContact', [UserController::class, 'insertContact']);
+Route::post('/insertDetail', [UserController::class, 'insertDetail']);
+
+Route::post('/selectdata', [UserController::class, 'select_data']);
+
+Route::get('/editteacher', [UserController::class, 'edit_profile']);
+Route::get('/suspend_account', [UserController::class, 'suspend_account']);
+Route::get('/addsubjectsteacher', [UserController::class, 'insert_subjects']);
+Route::get('/addtypesubject', [UserController::class, 'insert_type_subjects']);
+Route::post('/sendOTP', [UserController::class, 'verifly_account']);
+Route::post('/veriflyAccount', [UserController::class, 'updata_status_verifly']);
+
 
 Route::get('/addcredit', [CreditController::class, 'insert']);
 Route::get('/editcredit', [CreditController::class, 'deduction_credit']);
@@ -88,6 +108,7 @@ Route::get('/fetchAll', [SelectDataController::class, 'selectAllsubject']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/addcredit', [ProfileController::class, 'addcredit']);
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
