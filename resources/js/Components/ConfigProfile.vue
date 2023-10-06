@@ -1,5 +1,6 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import Swal from "sweetalert2";
 </script>
 <template>
     <div id="app" class="flex items-center justify-center">
@@ -260,6 +261,7 @@ import { Link } from "@inertiajs/vue3";
                             <div class="flex flex-col p-2 w-full pb-5">
                                 <div class="flex mb-3 w-1/3">
                                     <input
+                                        id="yourDivId"
                                         type="text"
                                         class="w-full border-slate-300 rounded-md"
                                         v-model="$page.props.auth.user.phone"
@@ -268,8 +270,13 @@ import { Link } from "@inertiajs/vue3";
                                 <button
                                     type="submit"
                                     class="mt-1 border-2 p-1.5 w-1/3 rounded-md text-lg text-slate-100 bg-[#172a4f]"
+                                    :disabled="isSending"
                                 >
-                                    ยืนยันตัวตน
+                                    {{
+                                        isSending
+                                            ? `Waiting ... ( ${countdown}s )`
+                                            : "Send OTP"
+                                    }}
                                 </button>
                             </div>
                         </form>
@@ -281,13 +288,6 @@ import { Link } from "@inertiajs/vue3";
                             class="pb-5"
                         >
                             <div class="flex flex-col p-2 w-full">
-                                <!-- <div class="flex mb-3 w-1/3">
-                                    <input
-                                        type="text"
-                                        class="w-full border-slate-300 rounded-md"
-                                        v-model="$page.props.auth.user.email"
-                                    />
-                                </div> -->
                                 <div class="flex text-xl">
                                     <label>กรุณากรอกรหัส (OTP) ที่นี้</label>
                                 </div>
@@ -328,7 +328,9 @@ export default {
     data() {
         return {
             username: "",
-            isFormContact: false,
+            isSending: false,
+            countdown: 30,
+            isFormContact: true,
             isFormDetail: false,
             isFormVerify: false,
             progressBarPercentage: 0,
@@ -353,30 +355,87 @@ export default {
             formData.append("name", this.data.name);
             formData.append("phone", this.data.phone);
 
-            axios
-                .post("/insertContact", formData)
-                .then((response) => {
-                    console.log(response.data);
-                })
-                .catch((error) => {
-                    console.error(error.response.data);
-                });
+            Swal.fire({
+                title: "บันทึกข้อมูล?",
+                text: "ท่านยืนยันบันทึกข้อมูลใช่หรือไม่?!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "ยืนยัน",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios
+                        .post("/insertContact", formData)
+                        .then((response) => {
+                            console.log(response.data);
+                            if (response.data != null) {
+                                Swal.fire(
+                                    "สำเร็จ!",
+                                    "ข้อมูลท่านบันทึกลงฐานข้อมูลสำเร็จ",
+                                    "success"
+                                );
+                                setTimeout(function () {
+                                    window.location.reload();
+                                }, 2000);
+                            } else {
+                                Swal.fire(
+                                    "สำเร็จ!",
+                                    "ข้อมูลท่านบันทึกลงฐานข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง",
+                                    "error"
+                                );
+                            }
+                        })
+                        .catch((error) => {
+                            console.error(error.response.data);
+                        });
+                }
+            });
         },
         FormDetail(id) {
             console.log(this.data.detail_data);
             const formData = new FormData();
             formData.append("id", id);
             formData.append("detail_data", this.data.detail_data);
-            axios
-                .post("/insertDetail", formData)
-                .then((response) => {
-                    console.log(response.data);
-                })
-                .catch((error) => {
-                    console.error(error.response.data);
-                });
+
+            Swal.fire({
+                title: "บันทึกข้อมูล!",
+                text: "ท่านยืนยันบันทึกข้อมูลใช่หรือไม่?!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "ยืนยัน",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axios
+                        .post("/insertDetail", formData)
+                        .then((response) => {
+                            console.log(response.data);
+                            if (response.data != null) {
+                                Swal.fire(
+                                    "สำเร็จ!",
+                                    "ข้อมูลท่านบันทึกลงฐานข้อมูลสำเร็จ",
+                                    "success"
+                                );
+
+                                setTimeout(function () {
+                                    window.location.reload();
+                                }, 2000);
+                            } else {
+                                Swal.fire(
+                                    "สำเร็จ!",
+                                    "ข้อมูลท่านบันทึกลงฐานข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง",
+                                    "error"
+                                );
+                            }
+                        })
+                        .catch((error) => {
+                            console.error(error.response.data);
+                        });
+                }
+            });
         },
-        FormVerify() {},
         sendOTP(email, phone) {
             console.log(email);
             console.log(phone);
@@ -384,13 +443,62 @@ export default {
             formData.append("email", email);
             formData.append("phone", phone);
 
+            this.isSending = true;
+
             axios
-                .post("/sendOTP", formData)
+                .post("/sendOTP", {
+                    email: this.$page.props.auth.user.email,
+                    phone: this.$page.props.auth.user.phone,
+                })
                 .then((response) => {
                     console.log(response.data);
+                    if (response.data != null) {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "center",
+                            showConfirmButton: false,
+                            timer: 2500,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener(
+                                    "mouseenter",
+                                    Swal.stopTimer
+                                );
+                                toast.addEventListener(
+                                    "mouseleave",
+                                    Swal.resumeTimer
+                                );
+                            },
+                            appendTo: "#yourDivId",
+                        });
+
+                        Toast.fire({
+                            icon: "success",
+                            title: `ส่งรหัส (OTP) ไห้ท่านสำเร็จ กรุณาตรวจสอบ SMS และทำการยืนยันตัวตนของท่าน !!`,
+                        });
+
+                        // Toast.fire({
+                        //     icon: "success",
+                        //     title: `ระบบได้ทำการส่งรหัส (OTP)
+                        //     เบอร์ : ${this.data.phone}
+                        //     กรุณาตรวจสอบ SMS และทำการยืนยันตัวตนของท่าน !!`,
+                        // });
+
+                        let timer = setInterval(() => {
+                            if (this.countdown > 0) {
+                                this.countdown--;
+                            } else {
+                                clearInterval(timer);
+                                this.isSending = false;
+                            }
+                        }, 1000);
+                    } else {
+                        this.isSending = false;
+                    }
                 })
                 .catch((error) => {
                     console.error(error.response.data);
+                    this.isSending = false;
                 });
         },
         veriflyOTP(id) {
@@ -401,14 +509,53 @@ export default {
             console.log(id);
             console.log(this.otpnumber);
 
-            axios
-                .post("/veriflyAccount", formData)
-                .then((response) => {
-                    console.log(response.data);
-                })
-                .catch((error) => {
-                    console.error(error.response.data);
-                });
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "center",
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+                appendTo: "#yourDivId",
+            });
+
+            Toast.fire({
+                icon: "warning",
+                title: `ยืนยัน (OTP) สำเร็จ กรุณารอสักครู่ระบบกำลังตรวจสอบความถูกต้อง !!`,
+            });
+
+            setTimeout(function () {
+                axios
+                    .post("/veriflyAccount", formData)
+                    .then((response) => {
+                        console.log(response.data);
+
+                        if (response.data != "User not found") {
+                            Toast.fire({
+                                icon: "success",
+                                title: `รหัส (OTP) ของท่านยืนยันสำเร็จ !!`,
+                            });
+
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 3000);
+                        } else {
+                            Toast.fire({
+                                icon: "error",
+                                title: `รหัส (OTP) ของท่านยืนยันไม่สำเร็จ กรุณาตรวจสอบรหัสใหม่ หรือ ส่งรหัส OTP อีกครั้ง !!`,
+                            });
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 3000);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error.response.data);
+                    });
+            }, 3500);
         },
         simulateProgress() {
             const nonEmptyFields = Object.values(this.data).filter(
@@ -460,13 +607,13 @@ export default {
                         this.isFormVerify = false;
                     }
                     if (
-                        ((this.data.verify_status == null ||
+                        (this.data.verify_status == null ||
                             this.data.verify_status != null) &&
                         this.data.name != null &&
                         this.data.phone != null &&
                         this.data.detail_data != null &&
                         (this.data.payment_services_start == null ||
-                            this.data.payment_services_start != null))
+                            this.data.payment_services_start != null)
                     ) {
                         this.isFormVerify = true;
                         this.isFormContact = false;
