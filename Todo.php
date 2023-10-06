@@ -18,9 +18,9 @@ Login.vue
         -> input form
     -> สามารถเพิ่มคอสเรียน หรือ รายวิชาที่สอนได้
         -> ข้อมูลที่เก็บ
-            subjectname
+            subject_name
             type_group
-            datetime
+            date_time
             price
             location
     -> สามารถเพิ่มประวัติการศึกษาได้
@@ -28,7 +28,7 @@ Login.vue
     -> ส่วนเสริมสามารถเพิ่ม ในส่วนของรูปภาพต่างๆ หรือ ผลงานที่ทำได้ เช่น
         เกิยตนิยม , ใบประกาศต่างๆ ,ผลงานต่างประเทศ , ผลการแข่งขัน
 
-    -> create alert || fitback
+    -> create alert || feedback
         -> refesh page or link new page
 
     -> แบบสอบถามสำหรับวัดระดับความเข้าใจในระบบของ BearSkill มากน้อยแค่ไหน
@@ -37,11 +37,11 @@ Login.vue
                -> การเปิดปิดใช้งานฟังชั่นต่างๆในระบบ
 
 ConfigProfile.vue
-    -> create alert || fitback
+    -> create alert || feedback
         -> refesh page or link new page
     -> checked progress bar
 Billing.vue
-    -> create alert || fitback
+    -> create alert || feedback
         -> refesh page or link to page PaymentCredit.vue
 
 PaymentCredit.vue
@@ -100,7 +100,7 @@ Studen : {
         -> simple login
             -> form input Sigin
                 - phone number
-                    2.หากยังไม่มีในระบบ จะทำไห้ส่งรหัส OTP เพื่อยืนยันตัวตน
+                    1.หากยังไม่มีในระบบ จะทำไห้ส่งรหัส OTP เพื่อยืนยันตัวตน
 
     -> create function สำหรับของ teacher หากสนใจเรียนกับครูท่านนี้
         -> form สำหรับกรอกเบอร์โทรเพิ่มรับรหัส OTP ยืนยันตัวตน
@@ -125,41 +125,41 @@ Studen : {
 }
 
 
--> code send sms
+// -> code send sms
 
-$array_message = "CAREMAT Hub บริการคำปรึกษาออนไลน์
-จองบริการสำเร็จ รอเจ้าหน้าที่ยืนยันนัดอีกครั้ง
-สอบถามเพิ่มเติมเบอร์ {$clinic_phone} ";
+// $array_message = "CAREMAT Hub บริการคำปรึกษาออนไลน์
+// จองบริการสำเร็จ รอเจ้าหน้าที่ยืนยันนัดอีกครั้ง
+// สอบถามเพิ่มเติมเบอร์ {$clinic_phone} ";
 
-        $postfields = json_encode([
-            "sender" => "CAREMAT",
-            "msisdn" => ["{$phone}"],
-            "message" => "{$array_message}"
-        ], JSON_UNESCAPED_UNICODE);
+//         $postfields = json_encode([
+//             "sender" => "CAREMAT",
+//             "msisdn" => ["{$phone}"],
+//             "message" => "{$array_message}"
+//         ], JSON_UNESCAPED_UNICODE);
 
-        // echo $postfields;
-        // die();
+//         // echo $postfields;
+//         // die();
 
-        $curl = curl_init();
+//         $curl = curl_init();
 
-        $api_key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90aHNtcy5jb21cL2FwaS1rZXkiLCJpYXQiOjE2NTAzNTc4MTYsIm5iZiI6MTY1MDM1NzgxNiwianRpIjoiVVR4ZFRzZVNCUDZkckFneCIsInN1YiI6MTAyODgyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.XjoZYOUgj-kJNAGkmByecyuLosWLGvNpQixgmp3KJVA";
+//         $api_key = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC90aHNtcy5jb21cL2FwaS1rZXkiLCJpYXQiOjE2NTAzNTc4MTYsIm5iZiI6MTY1MDM1NzgxNiwianRpIjoiVVR4ZFRzZVNCUDZkckFneCIsInN1YiI6MTAyODgyLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.XjoZYOUgj-kJNAGkmByecyuLosWLGvNpQixgmp3KJVA";
 
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://thsms.com/api/send-sms',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS => $postfields,
-            CURLOPT_HTTPHEADER => array(
-                'Authorization: Bearer ' . $api_key,
-                'Content-Type: application/json'
-            ),
-        ));
+//         curl_setopt_array($curl, array(
+//             CURLOPT_URL => 'https://thsms.com/api/send-sms',
+//             CURLOPT_RETURNTRANSFER => true,
+//             CURLOPT_ENCODING => '',
+//             CURLOPT_MAXREDIRS => 10,
+//             CURLOPT_TIMEOUT => 0,
+//             CURLOPT_FOLLOWLOCATION => true,
+//             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//             CURLOPT_CUSTOMREQUEST => 'POST',
+//             CURLOPT_POSTFIELDS => $postfields,
+//             CURLOPT_HTTPHEADER => array(
+//                 'Authorization: Bearer ' . $api_key,
+//                 'Content-Type: application/json'
+//             ),
+//         ));
 
-        $response = curl_exec($curl);
+//         $response = curl_exec($curl);
 
-        curl_close($curl);
+//         curl_close($curl);
