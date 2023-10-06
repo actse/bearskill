@@ -32,25 +32,6 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::post('/login', [AuthController::class, 'login'])->name('login');
-// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-// Route::get('/', function () {
-//     return Inertia::render('Home');
-// });
-
-// Route::get('/login', function () {
-//     return Inertia::render('Login');
-// });
-
-// Route::get('/registerUser', function () {
-//     return Inertia::render('RegisterUser');
-// });
-
-// Route::get('/profile', function () {
-//     return Inertia::render('Profile');
-// });
-
 Route::get('/test', function () {
     return Inertia::render('Test');
 });
@@ -58,13 +39,6 @@ Route::get('/test', function () {
 Route::get('/registers', function () {
     return Inertia::render('RegisterUser');
 });
-
-// Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-//     ->name('logout');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
-// });
 
 Route::get('/billing', function () {
     return Inertia::render('Billing');
@@ -80,24 +54,17 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth:api')->get('/api/user', function () {
     return auth()->user();
-  });
+});
 
-Route::get('/register_student', [StudentController::class, 'insert']);
-Route::get('/edit_profile_student', [StudentController::class, 'update']);
-
-Route::post('/registers', [UserController::class, 'insert']);
 Route::post('/insertContact', [UserController::class, 'insertContact']);
 Route::post('/insertDetail', [UserController::class, 'insertDetail']);
-
 Route::post('/selectdata', [UserController::class, 'select_data']);
-
 Route::get('/editteacher', [UserController::class, 'edit_profile']);
 Route::get('/suspend_account', [UserController::class, 'suspend_account']);
 Route::get('/addsubjectsteacher', [UserController::class, 'insert_subjects']);
 Route::get('/addtypesubject', [UserController::class, 'insert_type_subjects']);
 Route::post('/sendOTP', [UserController::class, 'verifly_account']);
 Route::post('/veriflyAccount', [UserController::class, 'updata_status_verifly']);
-
 
 Route::get('/addcredit', [CreditController::class, 'insert']);
 Route::get('/editcredit', [CreditController::class, 'deduction_credit']);

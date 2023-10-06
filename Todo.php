@@ -12,10 +12,10 @@ Login.vue
             2.หากยังไม่มีในระบบ จะทำการลิ้งไปยังหน้า สมัครสมาชิกครูก่อน
 
 ็Profile.vue
-    -> แสดงข้อมูลโปรไฟล์ครูท่านนั้น˝
-        -> แบบ box card
-    -> สามารถแก้ไขโปรไฟล์ได้
-        -> input form
+    // -> แสดงข้อมูลโปรไฟล์ครูท่านนั้น˝
+    //     -> แบบ box card
+    // -> สามารถแก้ไขโปรไฟล์ได้
+    //     -> input form
     -> สามารถเพิ่มคอสเรียน หรือ รายวิชาที่สอนได้
         -> ข้อมูลที่เก็บ
             subject_name
@@ -23,8 +23,8 @@ Login.vue
             date_time
             price
             location
-    -> สามารถเพิ่มประวัติการศึกษาได้
-    -> สามารถเพิ่มประวัติการทำงานได้
+    // -> สามารถเพิ่มประวัติการศึกษาได้
+    // -> สามารถเพิ่มประวัติการทำงานได้
     -> ส่วนเสริมสามารถเพิ่ม ในส่วนของรูปภาพต่างๆ หรือ ผลงานที่ทำได้ เช่น
         เกิยตนิยม , ใบประกาศต่างๆ ,ผลงานต่างประเทศ , ผลการแข่งขัน
 
@@ -37,10 +37,13 @@ Login.vue
                -> การเปิดปิดใช้งานฟังชั่นต่างๆในระบบ
 
 ConfigProfile.vue
-    -> create alert || feedback
-        -> refesh page or link new page
-    -> checked progress bar
+
+    // -> create alert || feedback
+    //     -> refesh page or link new page
+    // -> checked progress bar
+
 Billing.vue
+
     -> create alert || feedback
         -> refesh page or link to page PaymentCredit.vue
 
@@ -163,3 +166,27 @@ Studen : {
 //         $response = curl_exec($curl);
 
 //         curl_close($curl);
+
+// Route::post('/login', [AuthController::class, 'login'])->name('login');
+// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+// Route::get('/', function () {
+//     return Inertia::render('Home');
+// });
+// Route::get('/login', function () {
+//     return Inertia::render('Login');
+// });
+// Route::get('/registerUser', function () {
+//     return Inertia::render('RegisterUser');
+// });
+// Route::get('/profile', function () {
+//     return Inertia::render('Profile');
+// });
+// Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+//     ->name('logout');
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'profile'])->name('profile');
+// });
+// Route::get('/register_student', [StudentController::class, 'insert']);
+// Route::get('/edit_profile_student', [StudentController::class, 'update']);
+// Route::post('/registers', [UserController::class, 'insert']);
+
