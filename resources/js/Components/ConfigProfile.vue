@@ -1,6 +1,8 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
 import Swal from "sweetalert2";
+import Unsucceed from "@/Components/Unsuccessful.vue";
+import Succeed from "@/Components/Succeed.vue";
 </script>
 <template>
     <div id="app" class="flex items-center justify-center">
@@ -60,6 +62,14 @@ import Swal from "sweetalert2";
                                 class="ml-4 rounded-md border-slate-400"
                                 v-model="data.name"
                             />
+                            <Succeed
+                                v-if="this.data.name != null"
+                                class="ml-2 h-8 w-8"
+                            ></Succeed>
+                            <Unsucceed
+                                v-if="this.data.name == null"
+                                class="ml-2 h-8 w-8"
+                            ></Unsucceed>
                         </div>
                         <div class="flex w-full py-3 text-gray-500 text-center">
                             มีตัวอักษรทั้งหมดไม่เกิน 40 ตัวอักษร ไม่อนุญาตให้ใช้
@@ -79,6 +89,14 @@ import Swal from "sweetalert2";
                                 class="ml-4 rounded-md border-slate-400"
                                 v-model="data.phone"
                             />
+                            <Succeed
+                                v-if="this.data.phone != null"
+                                class="ml-2 h-8 w-8"
+                            ></Succeed>
+                            <Unsucceed
+                                v-if="this.data.phone == null"
+                                class="ml-2 h-8 w-8"
+                            ></Unsucceed>
                         </div>
                         <div class="flex w-full py-3 text-gray-500 text-center">
                             มีตัวอักษรทั้งหมดไม่เกิน 10 ตัวอักษร เช่น
@@ -157,6 +175,14 @@ import Swal from "sweetalert2";
                                     v-model="data.detail_data"
                                     class="w-full h-32 rounded-md border-slate-400"
                                 />
+                                <Succeed
+                                    v-if="this.data.detail_data != null"
+                                    class="ml-2 h-8 w-8"
+                                ></Succeed>
+                                <Unsucceed
+                                    v-if="this.data.detail_data == null"
+                                    class="ml-2 h-8 w-8"
+                                ></Unsucceed>
                             </div>
                         </div>
                         <div class="flex w-full py-3 text-gray-500 text-center">
@@ -225,14 +251,30 @@ import Swal from "sweetalert2";
                                 </label>
                             </div>
                         </div>
-                        <div class="flex flex-col p-2 w-full mb-3">
-                            <Link
-                                href="/billing"
-                                type="button"
-                                class="border-2 p-1.5 w-1/3 rounded-md text-lg text-slate-100 bg-[#172a4f] text-center"
-                            >
-                                อ่านวิธีการเติมเงิน
-                            </Link>
+                        <div class="flex flex-row p-2 w-full">
+                            <div class="flex flex-col w-1/3 mb-3">
+                                <Link
+                                    href="/billing"
+                                    type="button"
+                                    class="border-2 p-1.5 w-full rounded-md text-lg text-slate-100 bg-[#172a4f] text-center"
+                                >
+                                    อ่านวิธีการเติมเงิน
+                                </Link>
+                            </div>
+                            <div class="flex flex-col w-1/2 mb-3">
+                                <Succeed
+                                    v-if="
+                                        this.data.payment_services_start != null
+                                    "
+                                    class="ml-2 mt-1 h-8 w-8"
+                                ></Succeed>
+                                <Unsucceed
+                                    v-if="
+                                        this.data.payment_services_start == null
+                                    "
+                                    class="ml-2 mt-1 h-8 w-8"
+                                ></Unsucceed>
+                            </div>
                         </div>
                         <div class="flex flex-col p-2 w-full">
                             <div class="flex text-xl">
@@ -266,6 +308,14 @@ import Swal from "sweetalert2";
                                         class="w-full border-slate-300 rounded-md"
                                         v-model="$page.props.auth.user.phone"
                                     />
+                                    <Succeed
+                                        v-if="this.data.phone != null"
+                                        class="ml-2 h-10 w-10"
+                                    ></Succeed>
+                                    <Unsucceed
+                                        v-if="this.data.phone == null"
+                                        class="ml-2 h-10 w-10"
+                                    ></Unsucceed>
                                 </div>
                                 <button
                                     type="submit"
@@ -307,6 +357,14 @@ import Swal from "sweetalert2";
                                         class="w-full border-slate-300 rounded-md"
                                         v-model="otpnumber"
                                     />
+                                    <Succeed
+                                        v-if="this.data.verify_status != null"
+                                        class="ml-2 h-10 w-10"
+                                    ></Succeed>
+                                    <Unsucceed
+                                        v-if="this.data.verify_status == null"
+                                        class="ml-2 h-10 w-10"
+                                    ></Unsucceed>
                                 </div>
                             </div>
                             <div class="flex flex-col p-2 w-full">
@@ -542,7 +600,7 @@ export default {
                             setTimeout(function () {
                                 window.location.reload();
                             }, 3000);
-                        } else  {
+                        } else {
                             Toast.fire({
                                 icon: "error",
                                 title: `รหัส (OTP) ของท่านยืนยันไม่สำเร็จ กรุณาตรวจสอบรหัสใหม่ หรือ ส่งรหัส OTP อีกครั้ง !!`,

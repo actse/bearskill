@@ -66,7 +66,7 @@ Route::get('/addtypesubject', [UserController::class, 'insert_type_subjects']);
 Route::post('/sendOTP', [UserController::class, 'verifly_account']);
 Route::post('/veriflyAccount', [UserController::class, 'updata_status_verifly']);
 
-Route::get('/addcredit', [CreditController::class, 'insert']);
+Route::post('/addcredit', [CreditController::class, 'insert']);
 Route::get('/editcredit', [CreditController::class, 'deduction_credit']);
 
 Route::get('/fetchsubjects', [SelectDataController::class, 'select_subjects']);
