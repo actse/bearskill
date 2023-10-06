@@ -542,7 +542,7 @@ export default {
                             setTimeout(function () {
                                 window.location.reload();
                             }, 3000);
-                        } else {
+                        } else  {
                             Toast.fire({
                                 icon: "error",
                                 title: `รหัส (OTP) ของท่านยืนยันไม่สำเร็จ กรุณาตรวจสอบรหัสใหม่ หรือ ส่งรหัส OTP อีกครั้ง !!`,
