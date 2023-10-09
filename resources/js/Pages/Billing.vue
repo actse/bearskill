@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 import { Link } from "@inertiajs/vue3";
+import Swal from "sweetalert2";
 </script>
 <template>
     <AuthenticatedLayout>
@@ -107,30 +108,66 @@ import { Link } from "@inertiajs/vue3";
 export default {
     data() {
         return {
-            amount_price: null,
+            amount_price: 0,
         };
     },
     methods: {
         paymentService() {
             const userId = this.$page.props.auth.user.id;
             const formData = new FormData();
+
             formData.append("id", userId);
-            formData.append("ampunt", this.amount_price);
+            formData.append("coin", this.amount_price);
 
             console.log(userId);
             console.log(this.amount_price);
 
-            axios
-                .post("/paymentservice", formData)
-                .then((response) => {
-                    this.data.name = response.data.name;
-                    response.data.status_services_start;
+            const Toast = Swal.mixin({
+                toast: true,
+                position: "center",
+                showConfirmButton: false,
+                timer: 3500,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener("mouseenter", Swal.stopTimer);
+                    toast.addEventListener("mouseleave", Swal.resumeTimer);
+                },
+            });
 
-                    console.log(response.data);
-                })
-                .catch((error) => {
-                    console.error(error.response.data);
-                });
+            Toast.fire({
+                icon: "warning",
+                title: `ระบบกำลังประมวลผลโปรดรอสีกครู่ !!`,
+            });
+
+            setTimeout(function () {
+
+                axios
+                    .post("/addcredit", formData)
+                    .then((response) => {
+                        console.log(response.data);
+
+                        if (response.data != 'Data insertion failed') {
+                            Toast.fire({
+                                icon: "success",
+                                title: `ท่านทำรายการสำเร็จ กรุณารอสักครู่ระบบกำลังตรวจสอบความถูกต้องการชำระของท่าน!`,
+                            });
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 4000);
+                        } else {
+                            Toast.fire({
+                                icon: "error",
+                                title: `ท่านทำรายการไม่สำเร็จ กรุณาตรวจสอบความถูกต้องการชำระของท่าน!`,
+                            });
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 4000);
+                        }
+                    })
+                    .catch((error) => {
+                        console.error(error.response.data);
+                    });
+            }, 4500);
         },
     },
     mounted() {},
