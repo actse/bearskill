@@ -11,6 +11,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,8 +59,9 @@ Route::middleware('auth:api')->get('/api/user', function () {
 
 Route::post('/insertContact', [UserController::class, 'insertContact']);
 Route::post('/insertDetail', [UserController::class, 'insertDetail']);
+Route::post('/selectprofile', [UserController::class, 'selectdata']);
 Route::post('/selectdata', [UserController::class, 'select_data']);
-Route::get('/editteacher', [UserController::class, 'edit_profile']);
+Route::post('/editteacher', [UserController::class, 'edit_profile']);
 Route::get('/suspend_account', [UserController::class, 'suspend_account']);
 Route::get('/addsubjectsteacher', [UserController::class, 'insert_subjects']);
 Route::get('/addtypesubject', [UserController::class, 'insert_type_subjects']);
@@ -72,6 +74,8 @@ Route::get('/editcredit', [CreditController::class, 'deduction_credit']);
 Route::get('/fetchsubjects', [SelectDataController::class, 'select_subjects']);
 Route::get('/fetchlistsubjects', [SelectDataController::class, 'list_subjects']);
 Route::get('/fetchAll', [SelectDataController::class, 'selectAllsubject']);
+
+Route::get('/SubjectCategory', [SubjectController::class, 'subject_category']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

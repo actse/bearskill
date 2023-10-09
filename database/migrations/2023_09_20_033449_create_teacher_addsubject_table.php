@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('date_teaching');
             $table->string('type_teaching');
             $table->string('subjects');
-            // $table->integer('amount_stu')->unsigned()->default(0);
             $table->integer('price')->unsigned()->default(0);
             $table->string('status')->nullable();
             $table->string('addsubjects_at')->timestamps();

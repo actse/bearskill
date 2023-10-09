@@ -26,10 +26,11 @@ import { Head } from "@inertiajs/vue3";
 <script>
 export default {
     data() {
-        return {};
+        return {
+
+        };
     },
     methods: {
-
     },
     mounted() {},
 };

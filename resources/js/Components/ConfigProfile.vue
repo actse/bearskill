@@ -6,8 +6,21 @@ import Succeed from "@/Components/Succeed.vue";
 </script>
 <template>
     <div id="app" class="flex items-center justify-center">
+        <div class="w-full rounded-md">
+            <div class="flex h-full items-center justify-center">
+                <label class="text-red-800 text-lg" for=""
+                    >* แจ้งเตือน :
+                </label>
+                <label class="ml-2 text-[#1c2746] text-lg" for="">
+                    หากท่านไม่ตั้งค่าโปรไฟล์ไห้เสร็จสมบูรณ์ท่านจะไม่สามารถเข้าถึงหน้าโปรไฟล์ของท่านได้
+                    !</label
+                >
+            </div>
+        </div>
+    </div>
+    <div id="app" class="flex items-center justify-center">
         <div
-            class="w-1/2 mx-auto bg-gray-200 border-2 p-1 border-slate-300 h-8 my-4 rounded-md"
+            class="w-1/2 mx-auto border-2 p-1 border-slate-300 bg-white h-9 my-4 rounded-md"
         >
             <div
                 class="flex h-full text-white rounded-md items-center justify-center"

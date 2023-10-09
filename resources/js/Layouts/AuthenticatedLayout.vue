@@ -63,7 +63,7 @@ const showingNavigationDropdown = ref(false);
                                                 class="bg-[#151F32] mt-1 inline-flex items-center px-3 py-2 border border-transparent text-md leading-4 font-medium rounded-md text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                                             >
                                                 {{ $page.props.auth.user.name }}
-                                                {{ $page.props.auth.user.email }}
+                                                <!-- {{ $page.props.auth.user.email }} -->
                                                 <svg
                                                     class="ml-2 -mr-0.5 h-4 w-4"
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -82,18 +82,20 @@ const showingNavigationDropdown = ref(false);
 
                                     <template #content>
                                         <DropdownLink
-                                            href='profile'
+                                            v-if="isDropdownDisabled"
+                                            href="profile"
                                         >
                                             Profile
                                         </DropdownLink>
                                         <Link
                                             class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out"
-                                        href="/billing"
+                                            href="/billing"
                                         >
                                             เติม credit
                                         </Link>
                                         <DropdownLink
-                                            href="/logout"                                           method="post"
+                                            href="/logout"
+                                            method="post"
                                             as="button"
                                         >
                                             Log Out
@@ -175,7 +177,10 @@ const showingNavigationDropdown = ref(false);
                         </div>
 
                         <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink href='/profile'>
+                            <ResponsiveNavLink
+                                v-if="isDropdownDisabled"
+                                href="/profile"
+                            >
                                 Profile
                             </ResponsiveNavLink>
                             <Link
@@ -185,7 +190,8 @@ const showingNavigationDropdown = ref(false);
                                 เติม credit
                             </Link>
                             <ResponsiveNavLink
-                                href="logout"                               method="post"
+                                href="logout"
+                                method="post"
                                 as="button"
                             >
                                 Log Out
@@ -209,3 +215,60 @@ const showingNavigationDropdown = ref(false);
         </div>
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            isDropdownDisabled: false,
+            data: {
+                name: "",
+                phone: "",
+                detail_data: "",
+                verify_status: "",
+                payment_services_start: "",
+            },
+        };
+    },
+    methods: {
+        selectData() {
+
+            const userId = this.$page.props.auth.user.id;
+            const formData = new FormData();
+            formData.append("id", userId);
+
+            axios
+                .post("/selectdata", formData)
+                .then((response) => {
+                    this.data.name = response.data.name;
+                    this.data.phone = response.data.phone;
+                    this.data.verify_status = response.data.verifly_account;
+                    this.data.detail_data = response.data.detailsimple;
+                    this.data.payment_services_start =
+                        response.data.status_services_start;
+                    console.log(response.data);
+                    console.log(this.data.name);
+                    console.log(this.data.phone);
+                    console.log(this.data.verify_status);
+                    console.log(this.data.detail_data);
+                    console.log(this.data.payment_services_start);
+
+                    if (
+                        this.data.verify_status != null &&
+                        this.data.name != null &&
+                        this.data.phone != null &&
+                        this.data.detail_data != null &&
+                        this.data.payment_services_start != null
+                    ) {
+                        this.isDropdownDisabled = true;
+                    }
+                })
+                .catch((error) => {
+                    console.error(error.response.data);
+                });
+        },
+    },
+    mounted() {
+        this.selectData();
+    },
+};
+</script>

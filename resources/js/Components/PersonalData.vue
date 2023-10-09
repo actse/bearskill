@@ -35,20 +35,8 @@ const form = useForm({
             <!-- ข้อมูลส่วนตัว -->
             <div class="flex flex-row mb-4">
                 <div class="w-1/2 mr-2">
-                    <label for="first_name" class="text-blue-500 block font-bold mb-2"
-                        >ชื่อจริง : <label class="text-slate-500">{{ first_name }}</label></label
-                    >
-                </div>
-                <div class="w-2/3 ml-3">
-                    <label for="last_name" class="text-blue-500 block font-bold mb-2"
-                        >นามสกุล : <label class="text-slate-500">{{ last_name }}</label></label
-                    >
-                </div>
-            </div>
-            <div class="flex flex-row mb-4">
-                <div class="w-1/2 mr-2">
                     <label for="nickname" class="text-blue-500 block font-bold mb-2"
-                        >ชื่อเล่น : <label class="text-slate-500">{{ nickname }}</label></label
+                        >ชื่อเล่น : <label class="text-slate-500">{{ name }}</label></label
                     >
                 </div>
                 <div class="w-2/3 ml-3">
@@ -107,9 +95,7 @@ const form = useForm({
 export default {
     data() {
         return {
-            first_name: "NAYEON",
-            last_name: "IM 임나연",
-            nickname: "NAYEON IM YOWO",
+            name: "NAYEON IM YOWO",
             birthday: "22 กันยายน ค.ศ. 1995",
             phone: "0-1-2398930-1",
             email: "NAYEONTWICE'SLOVELY@JYP.office",
