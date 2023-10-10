@@ -84,7 +84,7 @@ import Footer from "@/Components/Footer.vue"
             </div>
         </div>
         
-        <div class="w-full bg-gray-200">
+        <div class="w-full bg-gray-100">
             <Slider />
         </div>
 

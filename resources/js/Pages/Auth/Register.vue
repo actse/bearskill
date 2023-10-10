@@ -27,7 +27,7 @@ const submit = () => {
         <Head title="Register" />
         <div class="flex-1 bg-indigo-100 text-center hidden lg:flex bg-cover bg-login_img ">
             <div class=" w-full h-full bg-cover bg-center bg-no-repeat rounded-r-lg" >
-                <img class="w-full h-full bg-cover rounded-l-lg" src="../../../imgs/bg_login.png" alt="">
+                <img class="w-full h-full object-cover rounded-l-lg" src="../../../imgs/bg_register.png" alt="">
             </div>
         </div>
     <form @submit.prevent="submit">
