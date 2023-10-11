@@ -36,7 +36,7 @@ const submit = () => {
         <!-- New Login -->
         <Head title="Log in" />
         <form @submit.prevent="submit">
-            <div class="p-10 sm:pl-10 lg:w-full xl:w-full rounded-l-lg">
+            <div class="p-10  sm:pl-10 lg:w-full rounded-l-lg">
                 <div class="flex flex-col items-center ">
                     <h1 class="text-2xl xl:text-3xl font-extrabold text-gray-700">
                         Sign In
@@ -134,7 +134,7 @@ const submit = () => {
         </form>
         <div class="flex-1 bg-indigo-100 text-center hidden lg:flex bg-cover bg-login_img ">
             <div class=" w-full h-full bg-cover bg-center bg-no-repeat rounded-r-lg" >
-                <img class="w-full h-full bg-cover rounded-r-lg" src="../../../imgs/bg_login.png" alt="">
+                <img class="w-full h-full bg-cover object-cover rounded-r-lg" src="../../../imgs/bg_login.png" alt="">
             </div>
         </div>
 
