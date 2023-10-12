@@ -49,6 +49,10 @@ Route::get('/test', function () {
     return Inertia::render('test');
 });
 
+Route::get('/student_home', function () {
+    return Inertia::render('StudentHome');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

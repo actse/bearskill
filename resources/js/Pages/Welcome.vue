@@ -84,14 +84,14 @@ import Footer from "@/Components/Footer.vue"
             </div>
         </div>
         
-        <div class="w-full bg-gray-100">
+        <div class="w-full bg-white">
             <Slider />
         </div>
 
-        <div class="relative flex flex-col text-center items-center p-6 w-full  space-y-4">
+        <div class="relative flex flex-col text-center items-center p-6 w-full space-y-4 bg-white">
                 <div class="px-10 py-1 border-4 border-indigo-900 rounded-full text-gray-600 text-3xl font-extrabold">STEP 1</div>
                 <p class="text-3xl font-extrabold text-gray-500 ">เลือกหมวดหมู่วิชาเรียน</p>
-                <img src="../../imgs/BEARSKILL3.png" alt="#" class="absolute bottom-0 hidden 2xl:h-[580px] xl:h-[450px] lg:h-[450px] md:h-[450px] sm:h-[400px]  sm:block">
+                <img src="../../imgs/BEARSKILL3.png" alt="#" class="absolute bottom-0 hidden 2xl:h-[450px] xl:h-[450px] lg:h-[450px] md:h-[450px] sm:h-[400px]  sm:block">
                 <div class="flex flex-wrap space-x-10 sm:space-x-28 md:space-x-32 xl:space-x-40">
                     <div class="relative flex w-32 h-32 group sm:w-32 sm:h-32">
                         <button class="flex justify-center text-center items-center w-32 h-32 border-2 border-blue-300 text-2xl font-extrabold text-gray-600 rounded-full bg-white duration-200 shadow-lg group-hover:hover:shadow-[#8daeec] group-hover:shadow-lg sm:w-32 sm:h-32">วิชาหลัก</button>                       
@@ -121,7 +121,7 @@ import Footer from "@/Components/Footer.vue"
                     </div>
                 </div>
         </div>    
-        <div class="relative flex flex-col  text-center items-center p-4 pt-6 w-full h-auto space-y-4 bg-sky-200 sm:h-screen"> 
+        <div class="relative flex flex-col  text-center items-center p-4 py-6  w-full h-auto space-y-4 bg-sky-200 "> 
             <img src="../../imgs/bg_05.png" alt="" class="absolute w-20 h-20 top-0 left-0">
             <img src="../../imgs/bg_06.png" alt="" class="absolute w-20 h-20 top-0 right-0">
             <img src="../../imgs/bg_07.png" alt="" class="absolute w-20 h-20 bottom-0 left-0">
@@ -177,12 +177,12 @@ import Footer from "@/Components/Footer.vue"
                             </select>
                         </div>
                     </div>
-                        <div class=" mt-10">
+                        <div class=" mx-auto pt-10 md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
                             <h1 class="w-44 text-xl font-extrabold p-3 bg-[#026292] text-white">วิชาภาษาอังกฤษ</h1>
                             <div class="w-full my-2 p-4 bg-sky-200 space-y-5">
                                 <div class="grid grid-cols-1  md:grid-cols-5">
                                     <div class="flex flex-col justify-center items-center text-center space-y-2 md:justify-normal md:items-start">
-                                        <img src="../../imgs/BEARSKILL4.png" alt="" class="w-36 h-36">
+                                        <img src="../../imgs/BEARSKILL4.png" alt="" class="w-36 h-36 ">
                                         <button type="button" class=" px-4 py-1 bg-[#036594] text-white">ดูประวัติผู้สอน</button>
                                     </div>
                                     <div class="flex flex-col justify-center items-center text-center md:justify-normal md:items-start">
