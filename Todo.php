@@ -97,10 +97,11 @@ PaymentCredit.vue
 }
 
 Studen : {
-    -> create function Login Student
+    -> create function Login Student page
         -> line login
         -> google login
         -> simple login
+        -> facebook login
             -> form input Sigin
                 - phone number
                     1.หากยังไม่มีในระบบ จะทำไห้ส่งรหัส OTP เพื่อยืนยันตัวตน
@@ -112,19 +113,27 @@ Studen : {
             -> แสดงรายละเอียดข้อมูลการติดต่อ , รอท่านครูติดต่อกลับมาก็ได้เช่นกัน
             -> หากเคยกดเข้ามาดูวิชาหรือครุท่านนี้เคยดูแล้ว สามารถเข้ามาดูได้ใหม่จนกว่าจะครบ 1 ปี
 
+    -> save data teacher in profile
+
     -> create function สำหรับโพสรายวิชาที่ต้องการหา ครูสอนพิเศษ
         - insert form Post & update form Post
             - ข้อมูลที่เก็บ
-                -> name ชื่อเรียก
+                // -> name ชื่อเรียก
+                -> subject_title ชื่อวิชา
                 -> subject_detail เช่น วิชาไฟฟ้า เรื่อง การนำกระแสไฟฟ้า
                 -> price ราคาที่สามารถจ่ายได้ เช่น ชั่วโมงละ 50 , 100, 150
+                -> ประเภทการสอน = กลุ่ม , เดี่ยว
                 -> date วันที่ต้องการ เช่น จันทร์, อังคาร, เสาร์
+                -> location สถานที่สอน
+                -> สื่อการสอน , ไม่มีสื่อการสอน
                     -> อย่างน้อยต้องกรอกสักอย่างนึงเพื่อจะได้ติดต่อได้
                         - phone สำหรับไห้ทางคุณครู ติดต่อมา เช่น 0899999999
                         - line_id สำหรับไห้ทางคุณครู ติดต่อมา เช่น basstsu1234
                 -> status_post คือ สถานะของ โพสต์ นั้นๆ เช่น
                     - active = เปิดโพสต์
                     - unactive = ปิดโพสต์
+
+
 }
 
 

@@ -28,7 +28,7 @@ const form = useForm({
     <section>
         <form
             class="w-full text-slate-500"
-            @submit.prevent="editteacher"
+            @submit.prevent="insertSubject"
             enctype="multipart/form-data"
         >
             <!-- ข้อมูลอื่น ๆ -->
@@ -62,7 +62,7 @@ const form = useForm({
                         >ชื่อรายวิชา</label
                     >
 
-                    <div class="flex flex-row  mb-4">
+                    <div class="flex flex-row mb-4">
                         <div
                             class="leading-tight focus:outline-none focus:shadow-outline"
                         >
@@ -98,7 +98,7 @@ const form = useForm({
                 </div>
                 <div class="flex-col w-full -ml-20">
                     <label for="subject_detail" class="block font-bold mb-2"
-                        >รายละเอียดวิชา</label
+                        >หลักสูตร</label
                     >
                     <textarea
                         type="text"
@@ -250,7 +250,7 @@ export default {
                 "อาทิตย์",
                 "จันทร์",
                 "อังคาร",
-                "พุทธ",
+                "พุธ",
                 "พฤหัสบดี",
                 "ศุกร์",
                 "เสาร์",
@@ -273,6 +273,27 @@ export default {
                 })
                 .catch((error) => {
                     console.error(error.response.data);
+                });
+        },
+        insertSubject() {
+            const userId = this.$page.props.auth.user.id;
+            const formData = new FormData();
+            formData.append("id", userId);
+            formData.append("type_subject", this.type_subject);
+            formData.append("subject_name", this.subject_name);
+            formData.append("subject_detail", this.subject_detail);
+            formData.append("teaching_format", this.teaching_format);
+            formData.append("start_time", this.start_time);
+            formData.append("end_time", this.end_time);
+            formData.append("teaching_days", this.teaching_days);
+            formData.append("location_teaching", this.location_teaching);
+            axios
+                .post("/insersubject", formData)
+                .then((response) => {
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    console.error(error);
                 });
         },
     },

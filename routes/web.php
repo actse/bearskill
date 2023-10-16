@@ -53,6 +53,10 @@ Route::get('/student_home', function () {
     return Inertia::render('StudentHome');
 });
 
+Route::get('/list_tutor', function () {
+    return Inertia::render('Listtutor');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

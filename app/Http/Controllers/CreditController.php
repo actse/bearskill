@@ -41,10 +41,6 @@ class CreditController extends Controller
 
             if ($coin == 0) {
 
-                return 'Data insertion failed';
-
-            } else {
-
                 Credit::insert([
                     'users_id' => $id,
                     'status' => 'notapproval',

@@ -46,20 +46,20 @@ defineProps({
                                 class="flex space-x-8 sm:-my-px sm:ml-10 sm:flex"
                             >
                                 <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
+                                    class="sm:text-auto text-[16px] font-sans text-slate-100 hover:text-white"
                                     href="/"
                                 >
                                     หน้าแรก
                                 </NavLink>
                                 <!-- <NavLink
-                                    class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
+                                    class="sm:text-auto text-[16px] font-sans text-slate-100 hover:text-white"
                                     href="/"
                                 >
                                     คอร์สทั้งหมด
                                 </NavLink> -->
                                 <div class="relative group inline-flex">
                                     <NavLink
-                                        class="sm:text-auto text-[16px] font-source text-slate-100 hover:text-white"
+                                        class="sm:text-auto text-[16px] font-sans text-slate-100 hover:text-white"
                                         href="/"
                                     >
                                         คอร์สทั้งหมด
