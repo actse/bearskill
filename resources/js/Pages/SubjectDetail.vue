@@ -81,105 +81,172 @@ import Textbar from "@/Components/Textbar.vue";
                 </div>
             </div>
         </div>
-        <div
-            class="flex flex-col items-center justify-center w-full lg:w-3/5 mx-auto space-y-2 mb-10"
-        >
-            <div class="w-full mt-10 items-center justify-center">
-                <div class="flex flex-col md:flex-row sm:mb-0">
-                    <div
-                        class="flex md:flex-row flex-col w-full items-center p-2 lg:p-5 mb-5 bg-white border-gray-500 rounded-md"
-                    >
-                        <!-- เนื้อหา -->
-                        <div class="flex ml-5 mr-5 p-2">filter 1</div>
-                        <div class="flex ml-5 mr-5 p-2">filter 2</div>
-                        <div class="flex ml-5 mr-5 p-2">filter 3</div>
-                        <div class="flex ml-5 mr-5 p-2">filter 4</div>
-                        <div class="flex ml-5 mr-5 p-2">filter 5</div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-auto lg:w-full mt-10 items-center justify-center">
-                <div class="flex flex-col lg:flex-row h-auto w-full">
-                    <div class="flex mb-4 sm:mb-0 h-auto w-full lg:w-2/12">
-                        <div
-                            class="flex-row lg:flex-col w-full items-center bg-white border-gray-200 rounded-md"
-                        >
-                            <!-- เนื้อหา -->
-                            <div class="flex w-full lg:w-36 p-4">filter 1</div>
-                            <div class="flex w-full lg:w-36 p-4">filter 2</div>
-                            <div class="flex w-full lg:w-36 p-4">filter 3</div>
-                            <div class="flex w-full lg:w-36 p-4">filter 4</div>
-                            <div class="flex w-full lg:w-36 p-4">filter 5</div>
+        <div class="flex flex-col items-center p-5 space-y-2 bg-white">
+            <div class="w-auto sm:w-3/5 mt-10 items-center justify-center">
+                <div class="flex flex-col sm:flex-row h-full">
+                    <div class="h-auto w-6/12 mb-4 sm:mb-0">
+                        <div class="flex h-auto items-center">
+                            <img
+                                :src="this.form.image"
+                                class="cursor-move sm:h-auto sm:w-auto rounded-lg shadow-md shadow-slate-600 hover:scale-105 transition-transform"
+                                alt=""
+                            />
                         </div>
                     </div>
                     <div
-                        class="flex flex-col w-full lg:w-10/12 h-full sm:ml-6 font-sans"
+                        class="flex flex-col h-auto w-6/12 sm:px-6 font-sans"
                     >
-                        <div class="flex flex-col h-full w-full">
-                            <div
-                                class="grid grid-cols-1 gap-3 lg:grid-cols-3 w-full h-full"
-                            >
-                                <div
-                                    v-for="(list, index) in image"
-                                    class="relative cursor-pointer bg-white lg:w-full h-full overflow-hidden group rounded-md shadow-lg shadow-slate-300 hover:shadow-slate-600"
+                        <div class="flex flex-col w-full">
+                            <div class="text-start">
+                                <h3
+                                    class="text-lg leading-normal tracking-tight text-white"
                                 >
-                                    <div class="flex p-4">
-                                        <img
-                                            :src="list.file"
-                                            class="w-full h-52 rounded-lg shadow-xl"
-                                            alt=""
-                                        />
+                                    <span class="text-slate-600"
+                                        >{{ this.form.name }} (Twice's)</span
+                                    >
+                                </h3>
+                            </div>
+                            <div class="text-start mt-1">
+                                <h3
+                                    class="text-3xl leading-normal tracking-tight text-white"
+                                >
+                                    <span class="text-slate-400">{{
+                                        this.form.title_subject
+                                    }}</span>
+                                </h3>
+                            </div>
+                            <div class="text-start w-full mt-2 mx-2">
+                                <h3
+                                    class="text-md leading-normal tracking-tight text-white"
+                                >
+                                    <span class="text-slate-500">
+                                        โดยเรียนรู้อย่างสะดวกสบายกับคอร์สเรียนสนทนาออนไลน์
+                                        ที่สามารถเข้าถึงได้ทุกที่ทุกเวลา
+                                        ไม่ว่าคุณอยู่ในระดับภาษาไหนก็เริ่มเรียนภาษาเกาหลีกับเราได้
+                                    </span>
+                                </h3>
+                            </div>
+                            <div class="flex flex-row text-slate-500 mb-5">
+                                <div class="flex-row">
+                                    <div
+                                        class="flex-col w-full text-md leading-6 font-sans my-5"
+                                    >
+                                        <label
+                                            for=""
+                                            class="flex w-full text-right"
+                                            >รายละเอียดวิชา</label
+                                        >
+                                        <label
+                                            for=""
+                                            class="flex full ml-1 mt-1 text-slate-600 text-left"
+                                            >{{ this.form.detail }}
+                                            {{
+                                                this.form.price
+                                            }}
+                                            won/hour</label
+                                        >
                                     </div>
-                                    <div class="flex flex-col ml-5">
-                                        <p
-                                            class="text-gray-700 text-lg text-left font-sans"
+                                    <div
+                                        class="flex-col w-full text-md leading-6 font-sans my-5"
+                                    >
+                                        <label
+                                            for=""
+                                            class="flex w-full text-right"
+                                            >คอสเพิ่มเติม</label
                                         >
-                                            {{ list.name }}
-                                        </p>
-                                        <p
-                                            class="ml-2 text-gray-600 text-sm text-left font-sans text-md mt-1"
+                                        <label
+                                            for=""
+                                            class="flex w-full ml-1 mt-1 text-slate-600 text-left"
+                                            >{{
+                                                this.form.additional_costs
+                                            }}</label
                                         >
-                                            {{ list.title_subject }}
-                                            {{ list.detail }}
-                                        </p>
-                                        <p
-                                            class="ml-2 text-gray-600 text-sm text-left font-sans text-md mt-1"
-                                        >
-                                            ราคา {{ list.price }} won/hour
-                                        </p>
                                     </div>
-                                    <div>
-                                        <PrimaryButton @click="subject(list.id,list.type_subject,list.title_subject)"
-                                            class="ml-2 mt-3 lg:ml-5 mb-5 lg:-mb-2"
-                                            >รายละเอียดเพิ่มเติม</PrimaryButton
+                                    <div
+                                        class="flex-col w-full text-md leading-6 font-sans my-5"
+                                    >
+                                        <label
+                                            for=""
+                                            class="flex w-full text-right"
+                                            >เรียนวัน</label
                                         >
-                                        <PrimaryButton @click="subject(list.id,list.type_subject,list.title_subject)"
-                                            class="ml-2 lg:mt-3 mr-2 lg:ml-5 lg:mb-5"
-                                            >ดูข้อมูลติดต่อ</PrimaryButton
+                                        <label
+                                            for=""
+                                            class="flex w-full ml-1 mt-1 text-slate-600 text-left"
+                                            >{{
+                                                this.form.date_learning
+                                            }}</label
                                         >
-                                        <div
-                                            class="flex items-center ml-5 mb-4 -mt-2"
-                                        >
-                                            <div class="mr-2">
-                                                <span
-                                                    class="text-md cursor-pointer text-gray-500"
-                                                    >review
-                                                    {{ list.rating }}.0</span
-                                                >
-                                            </div>
-                                            <div
-                                                v-for="(
-                                                    item, index
-                                                ) in list.rating"
-                                                class="mr-1"
-                                            >
-                                                <span
-                                                    class="text-md cursor-pointer text-yellow-400"
-                                                    >★</span
-                                                >
-                                            </div>
-                                        </div>
                                     </div>
+                                    <div
+                                        class="flex-col w-full text-md leading-6 font-sans my-5"
+                                    >
+                                        <label
+                                            for=""
+                                            class="flex w-full text-right"
+                                            >สถานที่สอน</label
+                                        >
+                                        <label
+                                            for=""
+                                            class="flex w-full ml-1 mt-1 text-slate-600 text-left"
+                                            >{{
+                                                this.form.location_learning
+                                            }}</label
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex-col w-full text-md leading-6 font-sans my-5"
+                                    >
+                                        <label
+                                            for=""
+                                            class="flex w-full text-right"
+                                            >รูปแบบการสอน</label
+                                        >
+                                        <label
+                                            for=""
+                                            class="flex w-full ml-1 mt-1 text-slate-600 text-left"
+                                            >{{
+                                                this.form.learning_style
+                                            }}</label
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex-col w-full text-md leading-6 font-sans my-5"
+                                    >
+                                        <label
+                                            for=""
+                                            class="flex w-full text-right"
+                                            >ประเภทการสอน</label
+                                        >
+                                        <label
+                                            for=""
+                                            class="flex w-full ml-1 mt-1 text-slate-600 text-left"
+                                            >{{
+                                                this.form.type_learning
+                                            }}</label
+                                        >
+                                    </div>
+                                    <div
+                                        class="flex-col w-full text-md leading-6 font-sans my-5"
+                                    >
+                                        <label
+                                            for=""
+                                            class="flex w-full text-right"
+                                            >สื่อการสอน</label
+                                        >
+                                        <label
+                                            for=""
+                                            class="flex w-full ml-1 mt-1 text-slate-600 text-left"
+                                            >{{
+                                                this.form.learning_media
+                                            }}</label
+                                        >
+                                    </div>
+                                    <primary-button
+                                        class="flex-col mt-2 lg:mt-3 ml-28 lg:ml-3 p-3 border-2 text-md rounded-md text-blue-500 bg-blue-800"
+                                    >
+                                        ดูข้อมูลติดต่อ
+                                    </primary-button>
                                 </div>
                             </div>
                         </div>
@@ -192,7 +259,7 @@ import Textbar from "@/Components/Textbar.vue";
             class="flex flex-col items-center justify-center p-5 w-full space-y-2 bg-white"
         >
             <label for="" class="text-sans text-3xl mt-5 text-slate-500"
-                >หมวดอึ่นๆ</label
+                >หมวดภาษา</label
             >
             <div>
                 <div
@@ -285,7 +352,6 @@ export default {
                     date_learning: "Sunday , Monday , Friday",
                     location_learning: "Maejo Univercity",
                     learning_style: "On site",
-                    rating: 3,
                     learning_media: "มีสื่อการสอนไห้",
                 },
                 {
@@ -302,7 +368,6 @@ export default {
                     date_learning: "Monday , Friday",
                     location_learning: "Noth Univercity",
                     learning_style: "On site",
-                    rating: 3,
                     learning_media: "มีสื่อการสอนไห้",
                 },
                 {
@@ -319,7 +384,6 @@ export default {
                     date_learning: "Sunday , Friday",
                     location_learning: "ChaingMai Univercity",
                     learning_style: "Out site",
-                    rating: 5,
                     learning_media: "มีสื่อการสอนไห้",
                 },
                 {
@@ -336,7 +400,6 @@ export default {
                     date_learning: "Sunday , Monday , Friday",
                     location_learning: "ChaingMai Univercity",
                     learning_style: "On site",
-                    rating: 4,
                     learning_media: "มีสื่อการสอนไห้",
                 },
                 {
@@ -353,7 +416,6 @@ export default {
                     date_learning: "Friday",
                     location_learning: "Maejo Univercity",
                     learning_style: "On site",
-                    rating: 1,
                     learning_media: "มีสื่อการสอนไห้",
                 },
                 {
@@ -370,7 +432,6 @@ export default {
                     date_learning: "Sunday , Monday",
                     location_learning: "Noth Univercity",
                     learning_style: "Out site",
-                    rating: 2,
                     learning_media: "ไม่มีสื่อการสอนไห้",
                 },
             ],
@@ -378,10 +439,9 @@ export default {
     },
     methods: {
         subject(id, type_subject, title_subject) {
-            console.log(id);
-            console.log(type_subject);
-            console.log(title_subject);
-
+            // console.log(id);
+            // console.log(type_subject);
+            // console.log(title_subject);
             // const formData = new FormData();
             // formData.append("id", id);
             // formData.append("type_subject", type_subject);
@@ -400,14 +460,15 @@ export default {
                 this.form.title_subject = foundImage.title_subject;
                 this.form.type_subject = foundImage.type_subject;
                 this.form.image = foundImage.file;
-                this.form.detail = foundImage.detail;
-                this.form.price = foundImage.price;
-                this.form.additional_costs = foundImage.additional_costs;
-                this.form.type_learning = foundImage.type_learning;
-                this.form.date_learning = foundImage.date_learning;
-                this.form.location_learning = foundImage.location_learning;
-                this.form.learning_style = foundImage.learning_style;
-                this.form.learning_media = foundImage.learning_media;
+                this.form.detail = foundImage.detail
+                this.form.price = foundImage.price
+                this.form.additional_costs = foundImage.additional_costs
+                this.form.type_learning = foundImage.type_learning
+                this.form.date_learning = foundImage.date_learning
+                this.form.location_learning = foundImage.location_learning
+                this.form.learning_style = foundImage.learning_style
+                this.form.learning_media = foundImage.learning_media
+
             } else {
                 console.log("Fail Not data");
             }
@@ -424,18 +485,7 @@ export default {
                 });
         },
     },
-    mounted() {
-        document.addEventListener("DOMContentLoaded", function () {
-            const stars = document.querySelectorAll(".text-md");
-
-            stars.forEach((star) => {
-                star.addEventListener("click", () => {
-                    const rating = star.getAttribute("data-rating");
-                    alert("คุณให้คะแนน: " + rating + " ดาว");
-                });
-            });
-        });
-    },
+    mounted() {},
 };
 </script>
 
