@@ -7,81 +7,6 @@ import Textbar from "@/Components/Textbar.vue";
 <template>
     <LayoutPage>
         <div
-            class="max-w-full mx-auto h-auto bg-gradient-to-r from-blue-900 via-indigo-900 to-[#151F32] overflow-hidden"
-        >
-            <div class="relative flex justify-between w-full h-full space-y-96">
-                <div class="flex">
-                    <img
-                        src="../../imgs/bg_01.png"
-                        class="absolute w-32 top-0 -left-2"
-                    />
-                    <img
-                        src="../../imgs/bg_04.png"
-                        class="absolute w-32 top-0 right-4"
-                    />
-                </div>
-                <div class="flex">
-                    <img
-                        src="../../imgs/bg_02.png"
-                        class="absolute w-32 bottom-0 -left-2"
-                    />
-                    <img
-                        src="../../imgs/bg_03.png"
-                        class="absolute w-32 bottom-0 right-4"
-                    />
-                </div>
-                <img
-                    src="../../imgs/BEARSKILL1.png"
-                    class="absolute w-80 h-96 bottom-0 md:left-28 lg:left-44 xl:left-64 2xl:left-96 hidden md:block"
-                    alt="#"
-                />
-
-                <div
-                    class="flex justify-center absolute left-16 bottom-20 md:left-10 lg:left-36 xl:left-80"
-                >
-                    <div class="w-96 hidden md:block"></div>
-                    <div class="flex flex-wrap py-4">
-                        <div class="flex flex-col pl-1 text-white font-bold">
-                            <div class="space-y-5">
-                                <div
-                                    class="flex flex-wrap animate-pulse space-x-5 text-2xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl"
-                                >
-                                    <a href=""
-                                        ><p
-                                            class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 border-b-2 hover:text-orange-400 hover:border-orange-400 duration-150"
-                                        >
-                                            สมัครเป็นติวเตอร์
-                                        </p></a
-                                    >
-                                </div>
-                                <p class="text-4xl">
-                                    <span class="text-orange-400"
-                                        >แบร์สกิล</span
-                                    >
-                                    Dek67
-                                </p>
-                                <p class="text-2xl">
-                                    แบร์สกิล แชร์ความรู้เพื่อชาติ
-                                </p>
-                            </div>
-                            <div class="mt-5 space-x-3">
-                                <button
-                                    class="border-2 border-white rounded-full p-2 px-6 hover:bg-white hover:text-gray-600 duration-300"
-                                >
-                                    เพิ่มเติม
-                                </button>
-                                <button
-                                    class="border-2 border-white rounded-full p-2 px-6 bg-orange-400 hover:bg-orange-100 hover:text-gray-600 duration-300"
-                                >
-                                    เริ่มต้นหาติวเตอร์
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div
             class="flex flex-col items-center justify-center w-full lg:w-3/5 mx-auto space-y-2 mb-10"
         >
             <div class="w-full mt-10 items-center justify-center">
@@ -90,26 +15,80 @@ import Textbar from "@/Components/Textbar.vue";
                         class="flex md:flex-row flex-col w-full items-center p-2 lg:p-5 mb-5 bg-white border-gray-500 rounded-md"
                     >
                         <!-- เนื้อหา -->
-                        <div class="flex ml-5 mr-5 p-2">filter 1</div>
-                        <div class="flex ml-5 mr-5 p-2">filter 2</div>
-                        <div class="flex ml-5 mr-5 p-2">filter 3</div>
-                        <div class="flex ml-5 mr-5 p-2">filter 4</div>
-                        <div class="flex ml-5 mr-5 p-2">filter 5</div>
+                        <div class="flex ml-5 mr-5 p-2">
+                            <input
+                                type="text"
+                                placeholder="ค้นหารายวิชา"
+                                class="filter-input"
+                            />
+                            <button class="filter-btn">
+                                ค้นหา <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+
+                        <div class="flex ml-5 mr-5 items-center">
+                            <label
+                                for="filterDropdown"
+                                class="mr-2 text-gray-700"
+                                >Media </label
+                            >
+                            <select
+                                id="filterDropdown"
+                                class="w-40 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+                            >
+                                <option value="withMedia" class="py-2">
+                                    มีสื่อการสอน
+                                </option>
+                                <option value="withoutMedia" class="py-2">
+                                    ไม่มีสื่อการสอน
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="flex ml-5 mr-5 p-2">
+                            <button class="filter-btn">Filter 3</button>
+                        </div>
+                        <div class="flex ml-5 mr-5 p-2">
+                            <button class="filter-btn">Filter 4</button>
+                        </div>
+                        <div class="flex ml-5 mr-5 p-2">
+                            <button class="filter-btn">Filter 5</button>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="w-auto lg:w-full mt-10 items-center justify-center">
-                <div class="flex flex-col lg:flex-row h-auto w-full">
-                    <div class="flex mb-4 sm:mb-0 h-auto w-full lg:w-2/12">
+                <div class="flex flex-col lg:flex-row h-full w-full">
+                    <div class="flex mb-4 sm:mb-0 h-full w-full lg:w-2/12">
                         <div
-                            class="flex-row lg:flex-col w-full items-center bg-white border-gray-200 rounded-md"
+                            class="flex-row lg:flex-col w-full bg-white border-gray-200 rounded-md"
                         >
                             <!-- เนื้อหา -->
-                            <div class="flex w-full lg:w-36 p-4">filter 1</div>
-                            <div class="flex w-full lg:w-36 p-4">filter 2</div>
-                            <div class="flex w-full lg:w-36 p-4">filter 3</div>
-                            <div class="flex w-full lg:w-36 p-4">filter 4</div>
-                            <div class="flex w-full lg:w-36 p-4">filter 5</div>
+                            <div
+                                v-for="(category, index) in categories"
+                                :herf="category.subject"
+                                :key="index"
+                                class="w-full -mb-8"
+                            >
+                                <div class="bg-white shadow-md rounded-md p-6">
+                                    <h2 class="text-xl font-bold">
+                                        {{ category.name }}
+                                    </h2>
+
+                                    <ul>
+                                        <li
+                                            v-for="(
+                                                subject, subIndex
+                                            ) in category.subject"
+                                            :key="subIndex"
+                                            class="text-sm cursor-pointer ml-2 mt-1 text-blue-700"
+                                            @click="test(subject)"
+                                        >
+                                            - {{ subject }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div
@@ -120,41 +99,75 @@ import Textbar from "@/Components/Textbar.vue";
                                 class="grid grid-cols-1 gap-3 lg:grid-cols-3 w-full h-full"
                             >
                                 <div
-                                    v-for="(list, index) in image"
+                                    v-for="(list, index) in displayedItems"
                                     class="relative cursor-pointer bg-white lg:w-full h-full overflow-hidden group rounded-md shadow-lg shadow-slate-300 hover:shadow-slate-600"
                                 >
-                                    <div class="flex p-4">
+                                    <div class="flex">
                                         <img
                                             :src="list.file"
-                                            class="w-full h-52 rounded-lg shadow-xl"
+                                            class="w-full h-52 rounded-t-lg shadow-xl"
                                             alt=""
                                         />
                                     </div>
-                                    <div class="flex flex-col ml-5">
+                                    <div class="flex flex-col p-5">
                                         <p
-                                            class="text-gray-700 text-lg text-left font-sans"
-                                        >
-                                            {{ list.name }}
-                                        </p>
-                                        <p
-                                            class="ml-2 text-gray-600 text-sm text-left font-sans text-md mt-1"
+                                            class="text-gray-700 text-2xl text-left font-sans"
                                         >
                                             {{ list.title_subject }}
+                                        </p>
+                                        <p
+                                            class="text-gray-600 text-sm text-left font-sans text-md mt-1"
+                                        >
+                                            {{ list.additional_costs }}
+                                        </p>
+                                        <p
+                                            class="text-gray-600 text-sm text-left font-sans text-md mt-1"
+                                        >
                                             {{ list.detail }}
                                         </p>
                                         <p
-                                            class="ml-2 text-gray-600 text-sm text-left font-sans text-md mt-1"
+                                            class="mt-8 text-gray-600 text-sm text-left font-sans text-md"
                                         >
-                                            ราคา {{ list.price }} won/hour
+                                            สอนวัน : {{ list.date_learning }}
+                                        </p>
+                                        <p
+                                            class="mt-2 text-gray-600 text-sm text-left font-sans text-md"
+                                        >
+                                            รูปแบบสอน :
+                                            {{ list.learning_style }}
+                                        </p>
+                                        <p
+                                            class="mt-2 text-gray-600 text-sm text-left font-sans text-md"
+                                        >
+                                            สื่อ : {{ list.learning_media }}
+                                        </p>
+                                        <p
+                                            class="mt-2 text-gray-600 text-sm text-left font-sans text-md"
+                                        >
+                                            ราคา {{ list.price }} บาท/hour
                                         </p>
                                     </div>
                                     <div>
-                                        <PrimaryButton @click="subject(list.id,list.type_subject,list.title_subject)"
-                                            class="ml-2 mt-3 lg:ml-5 mb-5 lg:-mb-2"
+                                        <PrimaryButton
+                                            @click="
+                                                subject(
+                                                    list.id,
+                                                    list.type_subject,
+                                                    list.title_subject
+                                                )
+                                            "
+                                            class="lg:ml-5 mb-5 lg:-mb-2"
                                             >รายละเอียดเพิ่มเติม</PrimaryButton
                                         >
-                                        <PrimaryButton @click="subject(list.id,list.type_subject,list.title_subject)"
-                                            class="ml-2 lg:mt-3 mr-2 lg:ml-5 lg:mb-5"
+                                        <PrimaryButton
+                                            @click="
+                                                subject(
+                                                    list.id,
+                                                    list.type_subject,
+                                                    list.title_subject
+                                                )
+                                            "
+                                            class="lg:mt-3 mr-2 lg:ml-5 lg:mb-5"
                                             >ดูข้อมูลติดต่อ</PrimaryButton
                                         >
                                         <div
@@ -183,65 +196,133 @@ import Textbar from "@/Components/Textbar.vue";
                                 </div>
                             </div>
                         </div>
+                        <div class="flex justify-center mt-10">
+                            <button
+                                class="border-2 p-3 text-white bg-[#151F32] rounded-md"
+                                @click="changePage(1)"
+                                :disabled="currentPage === 1"
+                            >
+                                หน้าก่อนหน้า
+                            </button>
+                            <span class="mx-2 my-2"
+                                >หน้า {{ currentPage }}</span
+                            >
+                            <button
+                                class="border-2 p-3 text-white bg-[#151F32] rounded-md"
+                                @click="changePage(2)"
+                                :disabled="currentPage === totalPages"
+                            >
+                                หน้าถัดไป
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <Textbar></Textbar>
+        <Textbar class="mt-28"></Textbar>
         <div
             class="flex flex-col items-center justify-center p-5 w-full space-y-2 bg-white"
         >
             <label for="" class="text-sans text-3xl mt-5 text-slate-500"
-                >หมวดอึ่นๆ</label
+                >รายวิชาอื่นๆ</label
             >
-            <div>
-                <div
-                    class="grid grid-cols-1 gap-3 lg:grid-cols-3 w-auto h-auto mt-5 mb-10 mx-auto"
-                >
+            <div
+                class="flex flex-col w-full lg:w-10/12 h-full sm:ml-6 font-sans"
+            >
+                <div class="flex flex-col h-full w-full">
                     <div
-                        v-for="(list, index) in image"
-                        class="relative cursor-pointer bg-slate-100 w-auto lg:w-64 h-72 overflow-hidden group rounded-md shadow-lg shadow-slate-300 hover:shadow-slate-600"
+                        class="grid grid-cols-1 gap-3 lg:grid-cols-3 w-full h-full"
                     >
-                        <a
-                            type="botton"
-                            @click="
-                                subject(
-                                    list.id,
-                                    list.type_subject,
-                                    list.title_subject
-                                )
-                            "
+                        <div
+                            v-for="(list, index) in image"
+                            class="relative cursor-pointer bg-white lg:w-full h-full overflow-hidden group rounded-md shadow-lg shadow-slate-300 hover:shadow-slate-600"
                         >
-                            <img
-                                :src="list.file"
-                                class="w-full h-full rounded-md"
-                                alt=""
-                            />
-                            <div
-                                class="flex flex-col absolute inset-0 rounded-md bg-black bg-opacity-50 opacity-0 duration-300 group-hover:opacity-100 hover:scale-105 transition-transform transformitems-center justify-center"
-                            >
+                            <!-- <div class="flex p-4">
+                                        <img
+                                            :src="list.file"
+                                            class="object-cover w-full h-96 rounded-lg shadow-xl"
+                                            alt=""
+                                        />
+                                    </div> -->
+                            <div class="flex flex-col p-5">
                                 <p
-                                    class="text-white text-center font-sans text-lg"
-                                >
-                                    {{ list.name }}
-                                </p>
-                                <p
-                                    class="text-white text-center font-sans text-lg mt-2"
+                                    class="text-gray-700 text-2xl text-left font-sans"
                                 >
                                     {{ list.title_subject }}
                                 </p>
                                 <p
-                                    class="text-white text-center font-sans text-lg mt-2"
+                                    class="text-gray-600 text-sm text-left font-sans text-md mt-1"
+                                >
+                                    {{ list.additional_costs }}
+                                </p>
+                                <p
+                                    class="text-gray-600 text-sm text-left font-sans text-md mt-1"
                                 >
                                     {{ list.detail }}
                                 </p>
                                 <p
-                                    class="text-white text-center font-sans text-lg mt-2"
+                                    class="mt-8 text-gray-600 text-sm text-left font-sans text-md"
                                 >
-                                    ราคา {{ list.price }} won/hour
+                                    สอนวัน : {{ list.date_learning }}
+                                </p>
+                                <p
+                                    class="mt-2 text-gray-600 text-sm text-left font-sans text-md"
+                                >
+                                    รูปแบบสอน : {{ list.learning_style }}
+                                </p>
+                                <p
+                                    class="mt-2 text-gray-600 text-sm text-left font-sans text-md"
+                                >
+                                    สื่อ : {{ list.learning_media }}
+                                </p>
+                                <p
+                                    class="mt-2 text-gray-600 text-sm text-left font-sans text-md"
+                                >
+                                    ราคา {{ list.price }} บาท/hour
                                 </p>
                             </div>
-                        </a>
+                            <div>
+                                <PrimaryButton
+                                    @click="
+                                        subject(
+                                            list.id,
+                                            list.type_subject,
+                                            list.title_subject
+                                        )
+                                    "
+                                    class="lg:ml-5 mb-5 lg:-mb-2"
+                                    >รายละเอียดเพิ่มเติม</PrimaryButton
+                                >
+                                <PrimaryButton
+                                    @click="
+                                        subject(
+                                            list.id,
+                                            list.type_subject,
+                                            list.title_subject
+                                        )
+                                    "
+                                    class="lg:mt-3 mr-2 lg:ml-5 lg:mb-5"
+                                    >ดูข้อมูลติดต่อ</PrimaryButton
+                                >
+                                <div class="flex items-center ml-5 mb-4 -mt-2">
+                                    <div class="mr-2">
+                                        <span
+                                            class="text-md cursor-pointer text-gray-500"
+                                            >review {{ list.rating }}.0</span
+                                        >
+                                    </div>
+                                    <div
+                                        v-for="(item, index) in list.rating"
+                                        class="mr-1"
+                                    >
+                                        <span
+                                            class="text-md cursor-pointer text-yellow-400"
+                                            >★</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -277,10 +358,10 @@ export default {
                     title_subject: "ภาษาเกาหลี",
                     type_subject: "ภาษา",
                     detail: "Korean language final",
-                    price: "4000",
+                    price: "400",
                     file: "/storage/imnayoen.jpeg",
                     additional_costs:
-                        "Korean language simple 1 3000won/house Korean language simple 2 3500won/house Korean language simple 3 4000won/house",
+                        "Korean language simple 1 300บาท/house Korean language simple 2 350บาท/house Korean language simple 3 400บาท/house",
                     type_learning: "เดี่ยว",
                     date_learning: "Sunday , Monday , Friday",
                     location_learning: "Maejo Univercity",
@@ -293,11 +374,11 @@ export default {
                     name: "jisuitzy",
                     title_subject: "ภาษาอังกฤษ",
                     type_subject: "ภาษา",
-                    detail: "Englist language final",
-                    price: "5500",
+                    detail: "English language final",
+                    price: "550",
                     file: "/storage/jisuitzy.jpeg",
                     additional_costs:
-                        "Englist language simple 1 3000won/house Englist language simple 2 3500won/house Englist language simple 3 4000won/house",
+                        "Englist language simple 1 300บาท/house English language simple 2 350บาท/house Englist language simple 3 400บาท/house",
                     type_learning: "เดี่ยว",
                     date_learning: "Monday , Friday",
                     location_learning: "Noth Univercity",
@@ -311,10 +392,10 @@ export default {
                     title_subject: "ภาษาฝรั่งเศส",
                     type_subject: "ภาษา",
                     detail: "French language  final",
-                    price: "3700",
+                    price: "370",
                     file: "/storage/liaitzy.jpeg",
                     additional_costs:
-                        "French language simple 1 3000won/house French language simple 2 3500won/house French language simple 3 4000won/house",
+                        "French language simple 1 300บาท/house French language simple 2 350บาท/house French language simple 3 400บาท/house",
                     type_learning: "เดี่ยว",
                     date_learning: "Sunday , Friday",
                     location_learning: "ChaingMai Univercity",
@@ -328,10 +409,10 @@ export default {
                     title_subject: "ภาษาอิตาลี",
                     type_subject: "ภาษา",
                     detail: "Italian language final",
-                    price: "4200",
+                    price: "420",
                     file: "/storage/lovelove.jpeg",
                     additional_costs:
-                        "Italian language simple 1 3000won/house Italian language simple 2 3500won/house Italian language simple 3 4000won/house",
+                        "Italian language simple 1 300บาท/house Italian language simple 2 350บาท/house Italian language simple 3 400บาท/house",
                     type_learning: "กลุ่ม",
                     date_learning: "Sunday , Monday , Friday",
                     location_learning: "ChaingMai Univercity",
@@ -345,10 +426,10 @@ export default {
                     title_subject: "ภาษาญี่ปุ่น",
                     type_subject: "ภาษา",
                     detail: "Japanese language final",
-                    price: "3500",
+                    price: "350",
                     file: "/storage/lovely.jpeg",
                     additional_costs:
-                        "Japanese language simple 1 3000won/house Japanese language simple 2 3500won/house Japanese language simple 3 4000won/house",
+                        "Japanese language simple 1 300บาท/house Japanese language simple 2 350บาท/house Japanese language simple 3 400บาท/house",
                     type_learning: "กลุ่ม",
                     date_learning: "Friday",
                     location_learning: "Maejo Univercity",
@@ -362,10 +443,78 @@ export default {
                     title_subject: "ภาษาสเปน",
                     type_subject: "ภาษา",
                     detail: "Spanish language final",
-                    price: "3000",
+                    price: "300",
                     file: "/storage/tsuyu.jpeg",
                     additional_costs:
-                        "Spanish language simple 1 3000won/house Spanish language simple 2 3500won/house Spanish language simple 3 4000won/house",
+                        "Spanish language simple 1 300บาท/house Spanish language simple 2 350บาท/house Spanish language simple 3 400บาท/house",
+                    type_learning: "กลุ่ม",
+                    date_learning: "Sunday , Monday",
+                    location_learning: "Noth Univercity",
+                    learning_style: "Out site",
+                    rating: 2,
+                    learning_media: "ไม่มีสื่อการสอนไห้",
+                },
+                {
+                    id: 6,
+                    name: "tsuyu",
+                    title_subject: "ภาษาสเปน",
+                    type_subject: "ภาษา",
+                    detail: "Spanish language final",
+                    price: "300",
+                    file: "/storage/tsuyu.jpeg",
+                    additional_costs:
+                        "Spanish language simple 1 300บาท/house Spanish language simple 2 350บาท/house Spanish language simple 3 400บาท/house",
+                    type_learning: "กลุ่ม",
+                    date_learning: "Sunday , Monday",
+                    location_learning: "Noth Univercity",
+                    learning_style: "Out site",
+                    rating: 2,
+                    learning_media: "ไม่มีสื่อการสอนไห้",
+                },
+                {
+                    id: 6,
+                    name: "tsuyu",
+                    title_subject: "ภาษาสเปน",
+                    type_subject: "ภาษา",
+                    detail: "Spanish language final",
+                    price: "300",
+                    file: "/storage/tsuyu.jpeg",
+                    additional_costs:
+                        "Spanish language simple 1 300บาท/house Spanish language simple 2 350บาท/house Spanish language simple 3 400บาท/house",
+                    type_learning: "กลุ่ม",
+                    date_learning: "Sunday , Monday",
+                    location_learning: "Noth Univercity",
+                    learning_style: "Out site",
+                    rating: 2,
+                    learning_media: "ไม่มีสื่อการสอนไห้",
+                },
+                {
+                    id: 6,
+                    name: "tsuyu",
+                    title_subject: "ภาษาสเปน",
+                    type_subject: "ภาษา",
+                    detail: "Spanish language final",
+                    price: "300",
+                    file: "/storage/tsuyu.jpeg",
+                    additional_costs:
+                        "Spanish language simple 1 300บาท/house Spanish language simple 2 350บาท/house Spanish language simple 3 400บาท/house",
+                    type_learning: "กลุ่ม",
+                    date_learning: "Sunday , Monday",
+                    location_learning: "Noth Univercity",
+                    learning_style: "Out site",
+                    rating: 2,
+                    learning_media: "ไม่มีสื่อการสอนไห้",
+                },
+                {
+                    id: 6,
+                    name: "tsuyu",
+                    title_subject: "ภาษาสเปน",
+                    type_subject: "ภาษา",
+                    detail: "Spanish language final",
+                    price: "300",
+                    file: "/storage/tsuyu.jpeg",
+                    additional_costs:
+                        "Spanish language simple 1 300บาท/house Spanish language simple 2 350บาท/house Spanish language simple 3 400บาท/house",
                     type_learning: "กลุ่ม",
                     date_learning: "Sunday , Monday",
                     location_learning: "Noth Univercity",
@@ -374,9 +523,81 @@ export default {
                     learning_media: "ไม่มีสื่อการสอนไห้",
                 },
             ],
+            categories: [
+                {
+                    name: "วิชาหลัก",
+                    subject: [
+                        "คณิตศาสตร์",
+                        "วิทยาศสตร",
+                        "เคมี",
+                        "ชีวะ",
+                        "ฟิสิกสิ",
+                    ],
+                },
+                {
+                    name: "ภาษา",
+                    subject: [
+                        "ภาษาไทย",
+                        "ภาษาเกาหลี",
+                        "ภาษาจีน",
+                        "ภาษาสเปน",
+                        "ภาษาอังกฤษ",
+                        "ภาษาเยอรมัน",
+                        "ภาษาญี่่ปุ่น",
+                    ],
+                },
+                {
+                    name: "ดนตรี",
+                    subject: ["กลอง", "เปียโน", "กีต้า", "ไวโอลิน", "ทรัมเป็ด"],
+                },
+                {
+                    name: "ศิลปะ",
+                    subject: ["เครื่องปั้น", "งานภาพ", "งานแกะสลัก"],
+                },
+                {
+                    name: "เทคโนโลยี",
+                    subject: [
+                        "Design",
+                        "AI",
+                        "ROBOT",
+                        "TECHONOLOGY GGE",
+                        "เทคโนโลยี การเกษตร",
+                    ],
+                },
+                {
+                    name: "อื่นๆ",
+                    subject: [
+                        "TOEIc",
+                        "MBA-TOEIC",
+                        "PAT",
+                        "SAT MATH",
+                        "BMAT",
+                        "อื่นๆ",
+                    ],
+                },
+            ],
+            itemsPerPage: 6,
+            currentPage: 1,
         };
     },
+    computed: {
+        totalPages() {
+            return Math.ceil(this.image.length / this.itemsPerPage);
+        },
+        displayedItems() {
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            const end = start + this.itemsPerPage;
+            return this.image.slice(start, end);
+        },
+    },
     methods: {
+        changePage(direction) {
+            if (direction === 1 && this.currentPage > 1) {
+                this.currentPage--;
+            } else if (direction === 2 && this.currentPage < this.totalPages) {
+                this.currentPage++;
+            }
+        },
         subject(id, type_subject, title_subject) {
             console.log(id);
             console.log(type_subject);
@@ -423,6 +644,9 @@ export default {
                     console.log(error);
                 });
         },
+        test(title_subject) {
+            console.log(title_subject);
+        },
     },
     mounted() {
         document.addEventListener("DOMContentLoaded", function () {
@@ -439,10 +663,40 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .img-container img {
     object-fit: cover;
     width: 100%;
     height: 100%;
+}
+.filter-btn {
+    padding: 8px 16px;
+    background-color: #151F32;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background-color: #151F32;
+}
+.filter-input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+.filter-btn {
+    position: relative;
+}
+
+/* ปรับสีและขนาดไอคอนตามต้องการ */
+.filter-btn i {
+    position: absolute;
+    right: -20px; /* ปรับตำแหน่งตามที่คุณต้องการ */
+    font-size: 1.2rem;
+    color: #555; /* สีของไอคอน */
 }
 </style>

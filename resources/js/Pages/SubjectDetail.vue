@@ -6,85 +6,11 @@ import Textbar from "@/Components/Textbar.vue";
 </script>
 <template>
     <LayoutPage>
-        <div
-            class="max-w-full mx-auto h-auto bg-gradient-to-r from-blue-900 via-indigo-900 to-[#151F32] overflow-hidden"
-        >
-            <div class="relative flex justify-between w-full h-full space-y-96">
-                <div class="flex">
-                    <img
-                        src="../../imgs/bg_01.png"
-                        class="absolute w-32 top-0 -left-2"
-                    />
-                    <img
-                        src="../../imgs/bg_04.png"
-                        class="absolute w-32 top-0 right-4"
-                    />
-                </div>
-                <div class="flex">
-                    <img
-                        src="../../imgs/bg_02.png"
-                        class="absolute w-32 bottom-0 -left-2"
-                    />
-                    <img
-                        src="../../imgs/bg_03.png"
-                        class="absolute w-32 bottom-0 right-4"
-                    />
-                </div>
-                <img
-                    src="../../imgs/BEARSKILL1.png"
-                    class="absolute w-80 h-96 bottom-0 md:left-28 lg:left-44 xl:left-64 2xl:left-96 hidden md:block"
-                    alt="#"
-                />
 
-                <div
-                    class="flex justify-center absolute left-16 bottom-20 md:left-10 lg:left-36 xl:left-80"
-                >
-                    <div class="w-96 hidden md:block"></div>
-                    <div class="flex flex-wrap py-4">
-                        <div class="flex flex-col pl-1 text-white font-bold">
-                            <div class="space-y-5">
-                                <div
-                                    class="flex flex-wrap animate-pulse space-x-5 text-2xl sm:text-3xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl"
-                                >
-                                    <a href=""
-                                        ><p
-                                            class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 border-b-2 hover:text-orange-400 hover:border-orange-400 duration-150"
-                                        >
-                                            สมัครเป็นติวเตอร์
-                                        </p></a
-                                    >
-                                </div>
-                                <p class="text-4xl">
-                                    <span class="text-orange-400"
-                                        >แบร์สกิล</span
-                                    >
-                                    Dek67
-                                </p>
-                                <p class="text-2xl">
-                                    แบร์สกิล แชร์ความรู้เพื่อชาติ
-                                </p>
-                            </div>
-                            <div class="mt-5 space-x-3">
-                                <button
-                                    class="border-2 border-white rounded-full p-2 px-6 hover:bg-white hover:text-gray-600 duration-300"
-                                >
-                                    เพิ่มเติม
-                                </button>
-                                <button
-                                    class="border-2 border-white rounded-full p-2 px-6 bg-orange-400 hover:bg-orange-100 hover:text-gray-600 duration-300"
-                                >
-                                    เริ่มต้นหาติวเตอร์
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="flex flex-col items-center p-5 space-y-2 bg-white">
             <div class="w-auto sm:w-3/5 mt-10 items-center justify-center">
-                <div class="flex flex-col sm:flex-row h-full">
-                    <div class="h-auto w-6/12 mb-4 sm:mb-0">
+                <div class="flex h-full">
+                    <div class="h-auto w-2/12 mb-4 sm:mb-0">
                         <div class="flex h-auto items-center">
                             <img
                                 :src="this.form.image"
@@ -94,7 +20,7 @@ import Textbar from "@/Components/Textbar.vue";
                         </div>
                     </div>
                     <div
-                        class="flex flex-col h-auto w-6/12 sm:px-6 font-sans"
+                        class="flex h-auto w-10/12 font-sans text-xl ml-5"
                     >
                         <div class="flex flex-col w-full">
                             <div class="text-start">
@@ -243,7 +169,7 @@ import Textbar from "@/Components/Textbar.vue";
                                         >
                                     </div>
                                     <primary-button
-                                        class="flex-col mt-2 lg:mt-3 ml-28 lg:ml-3 p-3 border-2 text-md rounded-md text-blue-500 bg-blue-800"
+                                        class="flex-col mt-2 lg:mt-3 ml-28 lg:ml-0 p-3 border-2 text-md rounded-md text-blue-500 bg-blue-800"
                                     >
                                         ดูข้อมูลติดต่อ
                                     </primary-button>
