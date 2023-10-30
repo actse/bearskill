@@ -61,6 +61,14 @@ Route::get('/subject_detail', function () {
     return Inertia::render('SubjectDetail');
 });
 
+Route::get('/student_post', function () {
+    return Inertia::render('StudentPost');
+});
+
+Route::get('/student_contact', function () {
+    return Inertia::render('StudentContact');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -86,6 +94,12 @@ Route::get('/editcredit', [CreditController::class, 'deduction_credit']);
 Route::get('/fetchsubjects', [SelectDataController::class, 'select_subjects']);
 Route::get('/fetchlistsubjects', [SelectDataController::class, 'list_subjects']);
 Route::get('/fetchAll', [SelectDataController::class, 'selectAllsubject']);
+
+
+// Route::post('/test_send', [SelectDataController::class, 'Testsend']);
+Route::get('/subject_detail/{id},{name},{title_subject}', [SelectDataController::class, 'show']);
+Route::post('/fetch_tutordetail', [SelectDataController::class, 'showdetail']);
+Route::post('/check_login', [SelectDataController::class, 'check_login']);
 
 Route::get('/SubjectCategory', [SubjectController::class, 'subject_category']);
 
