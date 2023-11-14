@@ -7,7 +7,7 @@ import { Link } from "@inertiajs/vue3";
 <template>
 <layoutPage>
     <div class="container mx-auto sm:mt-5">
-        <div class="md:flex no-wrap sm:justify-center md:-mx-5 ">            
+        <div class="md:flex no-wrap sm:justify-center md:-mx-5 ">
             <slot />
         </div>
     </div>

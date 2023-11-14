@@ -16,5 +16,9 @@ export default defineConfig({
                 },
             },
         }),
+
     ],
+    alias: {
+        'vue-select': 'vue-select/dist/vue-select.js'
+      }
 });

@@ -20,21 +20,66 @@ import { Link } from "@inertiajs/vue3";
                             @submit.prevent="filterSearch"
                             enctype="multipart/form-data"
                         >
-                            <div class="flex ml-2 p-2">
+                            <!-- <div class="flex ml-2 p-2">
                                 <input
                                     type="text"
                                     placeholder="ค้นหารายวิชา"
                                     class="filter-input"
                                     v-model="filter_title"
                                 />
+                            </div> -->
+
+                            <div
+                                class="flex items-center dropdown ml-2 relative"
+                                x-ref="myDropdownRef"
+                            >
+                                <input
+                                    class="filter-input"
+                                    type="text"
+                                    placeholder="Search.."
+                                    v-model="filter_title"
+                                    @input="showDropdown"
+                                />
+                                <div
+                                    class="filter-input dropdown-content"
+                                    :class="{ show: isDropdownVisible }"
+                                    @click.stop="handleDropdownClick"
+                                >
+                                    <div
+                                        v-for="category in categories"
+                                        :key="category.name"
+                                    >
+                                        <div
+                                            v-show="
+                                                category.subject.some(
+                                                    (subject) =>
+                                                        checkVisibility(subject)
+                                                )
+                                            "
+                                        >
+                                            <div
+                                                v-for="subject in category.subject"
+                                                :key="subject"
+                                                v-show="
+                                                    checkVisibility(subject)
+                                                "
+                                                @click="selectSubject(subject)"
+                                            >
+                                                {{ subject }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="flex items-center">
+                                <label for="" class="text-lg">สื่อ</label>
                                 <select
                                     id="filterDropdown"
-                                    class="w-40 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
+                                    class="ml-2 w-40 border-gray-300 rounded-md p-2 focus:outline-none focus:border-blue-500"
                                     v-model="filter_selectedFilter"
                                 >
-                                    <option value="">สื่อการเรียน</option>
+                                    <option value="" class="0">ทั้งหมด</option>
                                     <option value="1" class="py-2">
                                         มีสื่อการเรียน
                                     </option>
@@ -43,20 +88,27 @@ import { Link } from "@inertiajs/vue3";
                                     </option>
                                 </select>
                             </div>
+
                             <div class="flex ml-1 p-2 items-center">
+                                <label for="" class="text-lg mr-2"
+                                    >ราคาต่ำสุด</label
+                                >
                                 <input
-                                    class="filter-input w-1/3 ml-1 mr-1"
+                                    class="filter-input w-2/12 ml-1 mr-1"
                                     type="number"
                                     v-model="filter_minprice"
-                                    placeholder="ราคาต่ำสุด"
+                                    placeholder="0"
                                     id="minInput"
                                     min="0"
                                 />
+                                <label for="" class="text-lg mr-2"
+                                    >ราคาสูงสุด</label
+                                >
                                 <input
-                                    class="filter-input w-1/3 ml-1 mr-1"
+                                    class="filter-input w-2/12 ml-1 mr-1"
                                     type="number"
                                     v-model="filter_maxprice"
-                                    placeholder="ราคาสูงสุด"
+                                    placeholder="0"
                                     id="maxInput"
                                     min="0"
                                 />
@@ -439,6 +491,7 @@ import { Link } from "@inertiajs/vue3";
 <script>
 import axios from "axios";
 import CardModal from "@/Components/CardModal.vue";
+
 export default {
     components: {
         CardModal,
@@ -949,9 +1002,9 @@ export default {
                     name: "วิชาหลัก",
                     subject: [
                         "คณิตศาสตร์",
-                        "วิทยาศสตร",
+                        "วิทยาศาสตร์",
                         "เคมี",
-                        "ชีวะ",
+                        "ชีววิทยา",
                         "ฟิสิกส์",
                     ],
                 },
@@ -964,7 +1017,7 @@ export default {
                         "ภาษาสเปน",
                         "ภาษาอังกฤษ",
                         "ภาษาเยอรมัน",
-                        "ภาษาญี่่ปุ่น",
+                        "ภาษาญี่ปุ่น",
                     ],
                 },
                 {
@@ -988,7 +1041,7 @@ export default {
                 {
                     name: "อื่นๆ",
                     subject: [
-                        "TOEIc",
+                        "TOEIC",
                         "MBA-TOEIC",
                         "PAT",
                         "SAT MATH",
@@ -1012,6 +1065,9 @@ export default {
             filter_maxprice: "",
             card_contact: false,
             isLoading: false,
+            selectedCategory: null,
+            selectedSubject: null,
+            isDropdownVisible: false,
         };
     },
     computed: {
@@ -1030,6 +1086,21 @@ export default {
         },
     },
     methods: {
+        checkVisibility(subject) {
+            const filter = this.filter_title.toUpperCase();
+            return subject.toUpperCase().indexOf(filter) > -1;
+        },
+        showDropdown() {
+            this.isDropdownVisible = this.filter_title.length > 0;
+        },
+
+        selectSubject(selectedSubject) {
+            this.filter_title = selectedSubject;
+            this.isDropdownVisible = false;
+        },
+        handleDropdownClick() {
+            this.isDropdownVisible = false; // ปิด Dropdown เมื่อคลิกที่ Dropdown
+        },
         filterItems(search_title_subject, selectedFilter, minprice, maxprice) {
             if (
                 search_title_subject != null ||
@@ -1301,5 +1372,53 @@ export default {
     100% {
         transform: rotate(360deg);
     }
+}
+
+#myInput {
+    box-sizing: border-box;
+    background-image: url("searchicon.png");
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+#myInput:focus {
+    outline: 3px solid #ddd;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 8px;
+    padding: 8px;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fffcfc;
+    min-width: 225px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
 }
 </style>

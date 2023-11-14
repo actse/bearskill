@@ -1,4 +1,5 @@
 <script setup>
+
 import Checkbox from "@/Components/Checkbox.vue";
 import GuestLayout from "@/Layouts/StudentLaout.vue";
 import InputError from "@/Components/InputError.vue";
@@ -9,7 +10,7 @@ import { Head, Link, useForm } from "@inertiajs/vue3";
 
 </script>
 <template>
-  <GuestLayout>
+<GuestLayout>
     <div class="w-full md:w-3/12 md:mx-2">
     <GuestLayout>
       <div class="w-full md:w-3/12 md:mx-2">
@@ -53,7 +54,7 @@ import { Head, Link, useForm } from "@inertiajs/vue3";
                 <li class="flex group items-center px-2 text-gray-900 text-md py-4 hover:bg-gray-200 duration-300 rounded-lg"><span class="text-gray-400 mr-5"><svg class="w-6 h-6 group-hover:text-gray-900 group-focus:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></span> ประวัติการเรียน</li>
             <li class="flex group items-center px-2 text-gray-900 text-md py-4 hover:bg-gray-200 duration-300 rounded-lg"><span class="text-gray-400 mr-5"><svg class="w-6 h-6 group-hover:text-gray-900 group-focus:text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg></span> ประวัติการเรียน</li>
                 <div class="py-5 border-t-2 border-gray-200">
-                  <button class="flex group w-full items-center px-3 text-gray-900 space-x-4 text-md py-4 hover:bg-gray-200 duration-300 rounded-lg">
+                  <button class="flex group w-full items-center px-3 text-gray-900 space-x-4 text-md py-4 hover:bg-gray-200 duration-300 rounded-lg"></button>
                       <svg aria-hidden="true" data-fa="far-arrow-right-from-bracket" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" class="w-5 text-danger-main desktop:w-5"><path d="M505 273c9.4-9.4 9.4-24.6 0-33.9L377 111c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l87 87L184 232c-13.3 0-24 10.7-24 24s10.7 24 24 24l246.1 0-87 87c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0L505 273zM168 80c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 32C39.4 32 0 71.4 0 120L0 392c0 48.6 39.4 88 88 88l80 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-80 0c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l80 0z" fill="#ea4335"></path></svg>
   @ -39,6 +45,7 @@ import { Head, Link, useForm } from "@inertiajs/vue3";
         </div>
@@ -228,19 +229,12 @@ import { Head, Link, useForm } from "@inertiajs/vue3";
 </GuestLayout>
 
 </template>
-
 <script>
-export default {
-    </GuestLayout>
-  >>>>>>> chotipong07
-  </template>
 
-}
+
 </script>
   <script>
   export default {
-
-  }
     data() {
       return {
         inputValueFireName: "Jessica",
