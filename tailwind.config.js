@@ -8,13 +8,16 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
+
     ],
 
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                sans: ['Prompt', ...defaultTheme.fontFamily.sans],
+                source: ['Source Code Pro', ...defaultTheme.fontFamily.sans],
             },
+
         },
     },
 
